@@ -1,0 +1,30 @@
+<?php 
+defined('VOROBEY') or die('Простите, я новчек в этом деле...');
+
+define('PATH', 'http://leonidovna/'); // адрес сайта
+
+define('MODEL', 'model/model.php'); // адрес model
+
+define('CONTROLLER', 'controller/controller.php'); // путь к контроллеру
+
+define('VIEW', 'views/'); // путь к шаблонам сайта
+
+define('TEMPLATE', VIEW.'risovanie/'); // шаблон сайта
+
+// сервер БД
+define('HOST', 'localhost');
+
+// пользователь
+define('USER', 'shkola');
+
+// пароль
+define('PASS', '123');
+
+// название БД
+define('NAME', 'leonidovna');
+
+// подключение к БД
+mysql_connect(HOST, USER, PASS) or die('Нет соединение с сервером!');
+mysql_select_db(NAME) or die('Нет соединение с БД');
+mysql_query("SET NAMES 'UTF8'") or die('Кодировка не подключена');
+ ?>
