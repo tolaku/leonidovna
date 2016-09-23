@@ -38,4 +38,17 @@ function constants($name){
 	return $name[0];
 }
 /*=== :подключение констант ===*/
+
+/*=== Галлерея ===*/
+function gallery(){
+	$query = "SELECT * FROM gallery ORDER BY id DESC";
+	$result = mysql_query($query);
+
+	$gallery = array();
+	while($row = mysql_fetch_assoc($result)){
+		$gallery[] = $row;
+	}
+	return $gallery;
+}
+/*=== :галлерея ===*/
  ?>

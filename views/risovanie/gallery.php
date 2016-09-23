@@ -1,12 +1,13 @@
-
+<?php print_arr($gallery) ?>
             <div class="main">
             		<div class="inner">
                     	<section>
 				<ul class="lb-album">
+					<?php foreach($gallery as $item): ?>
 					<li>
 						<a href="#image-1">
-							<img src="<?=TEMPLATE?>images/thumbs/1.jpg" alt="image01">
-							<span>1 А класс</span>
+							<img src="<?=TEMPLATE?><?=$item['img_thumbs']?>" alt="image01">
+							<span><?=$item['title']?></span>
 						</a>
 						<div class="lb-overlay" id="image-1">
 							<img src="<?=TEMPLATE?>images/full/1.jpg" alt="image01" />
@@ -19,6 +20,7 @@
 							<a href="#page" class="lb-close">x Close</a>
 						</div>
 					</li>
+					<?php endforeach; ?>
 					<li>
 						<a href="#image-2">
 							<img src="<?=TEMPLATE?>images/thumbs/2.jpg" alt="image02">
