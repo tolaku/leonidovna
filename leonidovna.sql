@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Сен 23 2016 г., 01:47
+-- Время создания: Сен 24 2016 г., 02:33
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -41,6 +41,31 @@ CREATE TABLE IF NOT EXISTS `constants` (
 
 INSERT INTO `constants` (`id`, `name`, `title`, `value`, `type`) VALUES
 (1, 'ask', 'Спросить', '<h1>Спросить</h1>\n<p>Задача организации, в особенности же рамки и место обучения кадров представляет собой интересный эксперимент проверки форм развития. Идейные соображения высшего порядка, а также постоянный количественный рост и сфера нашей активности требуют определения и уточнения соответствующий условий активизации.</p>\n<p class="read"><a href="#">Спрашивайте</a></p>', 'editor');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `gallery`
+--
+
+CREATE TABLE IF NOT EXISTS `gallery` (
+  `id` int(4) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `name_a` varchar(255) NOT NULL,
+  `name_b` varchar(255) NOT NULL,
+  `text` text NOT NULL,
+  `img_thumbs` varchar(255) NOT NULL DEFAULT 'no_image.jpg',
+  `img_full` varchar(255) NOT NULL DEFAULT 'no_image.jpg',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Дамп данных таблицы `gallery`
+--
+
+INSERT INTO `gallery` (`id`, `title`, `name_a`, `name_b`, `text`, `img_thumbs`, `img_full`) VALUES
+(1, '1 класс', 'pointe', 'point', 'Dance performed on the tips of the toes', 'images/thumbs/1.jpg', 'images/full/1.jpg'),
+(2, '1 класс', 'port de bras', 'ˌpôr də ˈbrä', 'An exercise designed to develop graceful movement and disposition of the arms', 'images/thumbs/2.jpg', 'images/full/2.jpg');
 
 -- --------------------------------------------------------
 

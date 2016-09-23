@@ -23,7 +23,7 @@ switch($view){
 	break;
 
 	case('gallery'):
-
+		$gallery = gallery();
 	break;
 
 	case('teacher'):
