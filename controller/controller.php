@@ -9,7 +9,7 @@ require_once MODEL;
 
 // массив страниц
 $pages = pages();
-
+$page_id = empty($_GET['page_id']) ? 1 : $_GET['page_id'];
 // подключаем константы
 //constants($name);
 
@@ -19,7 +19,7 @@ $view = empty($_GET['view']) ? 'page' : $_GET['view'];
 // проверяем на какой странице находимся и выводим
 switch($view){
 	case('page'):
-		$sections = section();
+		$sections = section($page_id);
 	break;
 
 	case('gallery'):
@@ -27,7 +27,7 @@ switch($view){
 	break;
 
 	case('teacher'):
-
+		$sections = section($page_id);
 	break;
 
 	case('contact'):
