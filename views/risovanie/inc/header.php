@@ -1,5 +1,4 @@
 <?php defined('VOROBEY') or die("Простите, а может не нужно..."); ?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
@@ -17,7 +16,7 @@
                 	<li><a href="/" class="active">Главная</a></li>
                 	<!-- Выводим остальные страницы -->
                 	<?php foreach($pages as $page): ?>
-	                    <li><a href="?view=<?=$page['url_page']?>"><?=$page['name']?></a></li>
+	                    <li><a href="?view=<?=$page['url_page']?>&amp;page_id=<?=$page['id']?>"><?=$page['name']?></a></li>
                 	<?php endforeach; ?>
                 </ul>
             </header>
