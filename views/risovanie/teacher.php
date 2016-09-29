@@ -13,10 +13,7 @@
                     <div class="clr"></div>
                     <div class="inner">
                     	<div class="col-2">
-                        	<h2><a href="#">Светлана Леонидовна</a></h2>
-                            <img src="img/team-01.jpg"/>
-                            <p>Люблю вышивать по вечерам. Пишу стихи, езжу на рыбалку )).</p>
-                            <p class="read"><a href="#" title="Follow him on Twitter">@leonedovna</a></p>
+                        	<?=constants('svetlana')?>
                         </div>
              
                     </div>
