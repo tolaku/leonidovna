@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Сен 30 2016 г., 01:10
+-- Время создания: Окт 03 2016 г., 11:40
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `constants` (
   `value` text,
   `type` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Дамп данных таблицы `constants`
@@ -41,7 +41,8 @@ CREATE TABLE IF NOT EXISTS `constants` (
 
 INSERT INTO `constants` (`id`, `name`, `title`, `value`, `type`) VALUES
 (1, 'ask', 'Спросить', '<h1>Спросить</h1>\n<p>Задача организации, в особенности же рамки и место обучения кадров представляет собой интересный эксперимент проверки форм развития. Идейные соображения высшего порядка, а также постоянный количественный рост и сфера нашей активности требуют определения и уточнения соответствующий условий активизации.</p>\n<p class="read"><a href="#">Спрашивайте</a></p>', 'editor'),
-(2, 'svetlana', 'Светлана Леонидовна', '<h2><a href="#">Светлана Леонидовна</a></h2>\r\n                            <img src="img/team-01.jpg"/>\r\n                            <p>Люблю вышивать по вечерам. Пишу стихи, езжу на рыбалку )).</p>\r\n                            <p class="read"><a href="#" title="Follow him on Twitter">@leonedovna</a></p>', 'edit');
+(2, 'svetlana', 'Светлана Леонидовна', '<h2><a href="#">Светлана Леонидовна</a></h2>\r\n                            <img src="img/team-01.jpg"/>\r\n                            <p>Люблю вышивать по вечерам. Пишу стихи, езжу на рыбалку )).</p>\r\n                            <p class="read"><a href="#" title="Follow him on Twitter">@leonedovna</a></p>', 'editor'),
+(3, 'contact', 'Контакты', '<h2><a href="#">Светлана Леонидовна</a></h2>\n                            <p>F-2, Street 16, <br/>\n                            Lane 4, Phoenix IT Park <br/>\n                            Commer Zone, Pune.</p>\n                            <p>Phone: +981276345</p>\n                            <p>Email: info@yourdomain.com</p>', 'editor');
 
 -- --------------------------------------------------------
 
