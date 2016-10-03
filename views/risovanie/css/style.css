@@ -77,7 +77,11 @@ img {
 	max-width:100%;
 	height:auto;
 	}
-
+.logo_t {
+	color:#781430;
+	font-family: monospace, serif;
+	padding-bottom: 10px;
+}
 .container > header{
 	padding: 10px;
 	position: relative;
@@ -306,6 +310,12 @@ fieldset {
 	-webkit-padding-after: 0.625em;
 	border-image: initial;
 	}
+
+.success {
+	font-size: 18px;
+	color: #4caf50;
+	padding-top: 10px;
+}
 	
 .map-image {
 	border:8px solid #FFF;

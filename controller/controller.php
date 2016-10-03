@@ -1,6 +1,9 @@
 <?php 
 defined('VOROBEY') or die('Простите не нужно!');
 
+// открываем сессию
+session_start();
+
 // подключение функций
 require_once 'function/functions.php';
 
@@ -31,7 +34,11 @@ switch($view){
 	break;
 
 	case('contact'):
-
+	// отправка письма
+		if($_POST['submit']){
+			mail_order();
+			rederect();
+		}
 	break;
 
 	default:

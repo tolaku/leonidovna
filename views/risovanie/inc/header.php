@@ -1,4 +1,5 @@
 <?php defined('VOROBEY') or die("Простите, а может не нужно..."); ?>
+<?php //print_arr($_POST) ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
@@ -12,6 +13,7 @@
 		<div class="container">
 			<header>
             <img src="<?=TEMPLATE?>img/logo.png" class="logo" />
+            <div class="logo_t">Учитель, который любит свою работу</div>
                 <ul>
                 	<li><a href="/" class="active">Главная</a></li>
                 	<!-- Выводим остальные страницы -->
