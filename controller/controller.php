@@ -35,7 +35,7 @@ switch($view){
 
 	case('contact'):
 	// отправка письма
-		if($_POST['submit']){
+		if(isset($_POST['submit'])){
 			mail_order();
 			rederect();
 		}

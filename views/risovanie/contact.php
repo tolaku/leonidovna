@@ -7,7 +7,7 @@
                         </div>
                         <div class="col-3">
                         	<h1>Написать нам</h1>
-                            <?php if($_SESSION['contact']): ?>
+                            <?php if(isset($_SESSION['contact'])): ?>
                                 <?php echo $_SESSION['contact']['res']; ?>
                             <?php else: ?>
                                 <form id="ajax-contact-form" action="" method="post">

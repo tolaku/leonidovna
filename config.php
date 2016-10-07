@@ -24,7 +24,7 @@ define('PASS', '123');
 define('NAME', 'leonidovna');
 
 // подключение к БД
-mysql_connect(HOST, USER, PASS) or die('Нет соединение с сервером!');
-mysql_select_db(NAME) or die('Нет соединение с БД');
-mysql_query("SET NAMES 'UTF8'") or die('Кодировка не подключена');
+$db = mysqli_connect(HOST, USER, PASS) or die('Нет соединение с сервером!');
+mysqli_select_db($db, NAME) or die('Нет соединение с БД');
+mysqli_query($db, "SET NAMES 'UTF8'") or die('Кодировка не подключена');
  ?>

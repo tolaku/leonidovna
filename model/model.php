@@ -3,13 +3,14 @@ defined('VOROBEY') or die('Простите, не нужно.');
 
 /*=== Получение разделов на главной странице ===*/
 function section($page_id) {
+	global $db;
 	$query = "SELECT a.id, a.name, a.img, b.text_min, b.page_id FROM section a
 				INNER JOIN section_text b ON a.id = b.section_id AND b.page_id = $page_id
 				 ORDER BY a.position";
-	$result = mysql_query($query) or die(mysql_error());
+	$result = mysqli_query($db, $query) or die(mysql_error());
 
 	$section = array();
-	while($row = mysql_fetch_assoc($result)){
+	while($row = mysqli_fetch_assoc($result)){
 		$section[] = $row;
 	}
 	return $section;
@@ -18,11 +19,12 @@ function section($page_id) {
 
 /*=== Выводим страницы ===*/
 function pages(){
+	global $db;
 	$query = "SELECT id, name, url_page FROM pages ORDER BY position";
-	$result = mysql_query($query);
+	$result = mysqli_query($db, $query);
 
 	$pages = array();
-	while($row = mysql_fetch_assoc($result)){
+	while($row = mysqli_fetch_assoc($result)){
 		$pages[] = $row;
 	}
 	return $pages;
@@ -31,21 +33,23 @@ function pages(){
 
 /*=== Подключение констант ===*/
 function constants($name){
+	global $db;
 	$query = "SELECT value FROM constants WHERE name = '$name'";
-	$result = mysql_query($query);
+	$result = mysqli_query($db, $query);
 
-	$name = mysql_fetch_row($result);
+	$name = mysqli_fetch_row($result);
 	return $name[0];
 }
 /*=== :подключение констант ===*/
 
 /*=== Галлерея ===*/
 function gallery(){
+	global $db;
 	$query = "SELECT * FROM gallery ORDER BY id DESC";
-	$result = mysql_query($query);
+	$result = mysqli_query($db, $query);
 
 	$gallery = array();
-	while($row = mysql_fetch_assoc($result)){
+	while($row = mysqli_fetch_assoc($result)){
 		$gallery[] = $row;
 	}
 	return $gallery;
