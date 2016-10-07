@@ -11,6 +11,8 @@ define('VIEW', 'views/'); // путь к шаблонам сайта
 
 define('TEMPLATE', VIEW.'risovanie/'); // шаблон сайта
 
+define('TEMPLATE_ADMIN', 'templates/'); // шаблон административной части
+
 // сервер БД
 define('HOST', 'localhost');
 

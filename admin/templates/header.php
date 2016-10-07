@@ -1,3 +1,4 @@
+<?php defined('VOROBEY') or die('Простите, не нужно...'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,28 +8,28 @@
     <meta name="description" content="Developed By M Abdur Rokib Promy">
     <meta name="keywords" content="Admin, Bootstrap 3, Template, Theme, Responsive">
     <!-- bootstrap 3.0.2 -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?=TEMPLATE_ADMIN?>css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
-    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?=TEMPLATE_ADMIN?>css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
-    <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?=TEMPLATE_ADMIN?>css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Morris chart -->
-    <link href="css/morris/morris.css" rel="stylesheet" type="text/css" />
+    <link href="<?=TEMPLATE_ADMIN?>css/morris/morris.css" rel="stylesheet" type="text/css" />
     <!-- jvectormap -->
-    <link href="css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <link href="<?=TEMPLATE_ADMIN?>css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
     <!-- Date Picker -->
-    <link href="css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="<?=TEMPLATE_ADMIN?>css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
     <!-- fullCalendar -->
-    <!-- <link href="css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="<?=TEMPLATE_ADMIN?>css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" /> -->
     <!-- Daterange picker -->
-    <link href="css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <link href="<?=TEMPLATE_ADMIN?>css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <!-- iCheck for checkboxes and radio inputs -->
-    <link href="css/iCheck/all.css" rel="stylesheet" type="text/css" />
+    <link href="<?=TEMPLATE_ADMIN?>css/iCheck/all.css" rel="stylesheet" type="text/css" />
     <!-- bootstrap wysihtml5 - text editor -->
-    <!-- <link href="css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="<?=TEMPLATE_ADMIN?>css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" /> -->
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <!-- Theme style -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="<?=TEMPLATE_ADMIN?>css/style.css" rel="stylesheet" type="text/css" />
 
 
 
@@ -46,7 +47,7 @@
       <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="index.html" class="logo">
+            <a href="<?=TEMPLATE_ADMIN?>/" class="logo">
                 Director
             </a>
             <!-- Header Navbar: style can be found in header.less -->

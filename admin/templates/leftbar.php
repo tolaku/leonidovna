@@ -1,10 +1,11 @@
+<?php defined('VOROBEY') or die('Простите, не нужно...'); ?>
 <aside class="left-side sidebar-offcanvas">
                         <!-- sidebar: style can be found in sidebar.less -->
                         <section class="sidebar">
                             <!-- Sidebar user panel -->
                             <div class="user-panel">
                                 <div class="pull-left image">
-                                    <img src="img/26115.jpg" class="img-circle" alt="User Image" />
+                                    <img src="<?=TEMPLATE_ADMIN?>img/26115.jpg" class="img-circle" alt="User Image" />
                                 </div>
                                 <div class="pull-left info">
                                     <p>Hello, Jane</p>
