@@ -25,7 +25,7 @@
                                       <th>Progress</th>
                                   </tr>
                               </thead>
-                              <tbody>
+                              <tbody id="accordion">
                                 <tr>
                                   <td>1</td>
                                   <td>Главная</td>
@@ -236,7 +236,9 @@
             </aside><!-- /.right-side -->
 
         </div><!-- ./wrapper -->
-
+        <!-- accordion -->
+        <script type="text/javascript" src="<?=TEMPLATE_ADMIN?>js/accordion/jquery.js"></script>
+        <script type="text/javascript" src="<?=TEMPLATE_ADMIN?>js/accordion/jquery-ui.js"></script>
 
         <!-- jQuery 2.0.2 -->
         <script src="<?=TEMPLATE_ADMIN?>http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
