@@ -5,18 +5,18 @@
                 <section class="content">
                    
                     <div class="row">
-
+<?php print_arr($pages) ?>
                         <div class="col-md-8">
                             <section class="panel">
                               <header class="panel-heading">
-                                  Work Progress
+                                  Страницы
                             </header>
                             <div class="panel-body table-responsive">
                                 <table class="table table-hover">
                                   <thead>
                                     <tr>
                                       <th>#</th>
-                                      <th>Project</th>
+                                      <th>Название</th>
                                       <th>Manager</th>
                                       <!-- <th>Client</th> -->
                                       <th>Deadline</th>
@@ -28,7 +28,7 @@
                               <tbody>
                                 <tr>
                                   <td>1</td>
-                                  <td>Facebook</td>
+                                  <td>Главная</td>
                                   <td>Mark</td>
                                   <!-- <td>Steve</td> -->
                                   <td>10/10/2014</td>
@@ -118,11 +118,7 @@
 
                                   <ul class="task-list">
                                       <li>
-                                          <div class="task-checkbox">
-                                              <!-- <input type="checkbox" class="list-child" value=""  /> -->
-                                              <input type="checkbox" class="flat-grey list-child"/>
-                                              <!-- <input type="checkbox" class="square-grey"/> -->
-                                          </div>
+
                                           <div class="task-title">
                                               <span class="task-title-sp">Director is Modern Dashboard</span>
                                               <span class="label label-success">2 Days</span>
@@ -134,10 +130,7 @@
                                           </div>
                                       </li>
                                       <li>
-                                          <div class="task-checkbox">
-                                              <!-- <input type="checkbox" class="list-child" value=""  /> -->
-                                              <input type="checkbox" class="flat-grey"/>
-                                          </div>
+
                                           <div class="task-title">
                                               <span class="task-title-sp">Fully Responsive & Bootstrap 3.0.2 Compatible</span>
                                               <span class="label label-danger">Done</span>

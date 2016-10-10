@@ -5,13 +5,20 @@ define ('VOROBEY', TRUE);
 // подключаем файл конфигурации 
 require_once '../config.php';
 
+// подключение функций пользовательской части
+require_once '../function/functions.php';
+
+// подключение функция администраторской части
+require_once 'functions/functions.php';
+
 // получение динамической части шаблона #content
 $view = empty($_GET['view']) ? 'pages' : $_GET['view'];
 
 switch($view){
 	case('pages'):
-
+		$pages = pages();
 	break;
+
 
 	default:
 	// если полученное имя не существует
