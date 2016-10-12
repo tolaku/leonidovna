@@ -25,8 +25,8 @@
                                       <th>Progress</th>
                                   </tr>
                               </thead>
-                              <tbody id="accordion">
-                                <tr>
+                              <tbody>
+                                <tr class="toggle">
                                   <td>1</td>
                                   <td>Главная</td>
                                   <td>Mark</td>
@@ -35,17 +35,51 @@
                                   <!-- <td>$1500</td> -->
                                   <td><span class="label label-danger">in progress</span></td>
                                   <td><span class="badge badge-info">50%</span></td>
-                              </tr>
-                              <tr>
-                                  <td>2</td>
-                                  <td>Twitter</td>
-                                  <td>Evan</td>
-                                  <!-- <td>Darren</td> -->
-                                  <td>10/8/2014</td>
-                                  <!-- <td>$1500</td> -->
-                                  <td><span class="label label-success">completed</span></td>
-                                  <td><span class="badge badge-success">100%</span></td>
-                              </tr>
+                                </tr>
+                              
+                              <!-- Блок для редактирования -->
+                                <tr>
+                                  <td colspan="6">
+                                    <ul class="task-list">
+                                        <li>
+                                          <div class="task-title">
+                                              <span class="task-title-sp">Раздел 1</span>
+                                              <div class="pull-right hidden-phone">
+                                                  <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
+                                                  <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
+                                                  <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
+                                              </div>
+                                          </div>
+                                        </li>
+                                        <li>
+                                          <div class="task-title">
+                                              <span class="task-title-sp">Раздел 1</span>
+                                              <div class="pull-right hidden-phone">
+                                                  <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
+                                                  <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
+                                                  <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
+                                              </div>
+                                          </div>
+                                        </li>
+                                    </ul>
+                                    <!--
+                                    <ul class="task-list">
+                                        <li>
+                                          <div class="task-title">
+                                              <span class="task-title-sp">Раздел 1</span>
+                                              <div class="pull-right hidden-phone">
+                                                  <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
+                                                  <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
+                                                  <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
+                                              </div>
+                                          </div>
+                                        </li>
+                                    </ul>
+                                    -->
+                                  </td>
+                                </tr>
+                              <!-- :блок для редактирования -->
+
                               <tr>
                                   <td>3</td>
                                   <td>Google</td>
@@ -118,75 +152,6 @@
 
                                   <ul class="task-list">
                                       <li>
-
-                                          <div class="task-title">
-                                              <span class="task-title-sp">Director is Modern Dashboard</span>
-                                              <span class="label label-success">2 Days</span>
-                                              <div class="pull-right hidden-phone">
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                              </div>
-                                          </div>
-                                      </li>
-                                      <li>
-
-                                          <div class="task-title">
-                                              <span class="task-title-sp">Fully Responsive & Bootstrap 3.0.2 Compatible</span>
-                                              <span class="label label-danger">Done</span>
-                                              <div class="pull-right hidden-phone">
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                              </div>
-                                          </div>
-                                      </li>
-                                      <li>
-                                          <div class="task-checkbox">
-                                              <!-- <input type="checkbox" class="list-child" value=""  /> -->
-                                              <input type="checkbox" class="flat-grey"/>
-                                          </div>
-                                          <div class="task-title">
-                                              <span class="task-title-sp">Latest Design Concept</span>
-                                              <span class="label label-warning">Company</span>
-                                              <div class="pull-right hidden-phone">
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                              </div>
-                                          </div>
-                                      </li>
-                                      <li>
-                                          <div class="task-checkbox">
-                                              <!-- <input type="checkbox" class="list-child" value=""  /> -->
-                                              <input type="checkbox" class="flat-grey"/>
-                                          </div>
-                                          <div class="task-title">
-                                              <span class="task-title-sp">Write well documentation for this theme</span>
-                                              <span class="label label-primary">3 Days</span>
-                                              <div class="pull-right hidden-phone">
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                              </div>
-                                          </div>
-                                      </li>
-                                      <li>
-                                          <div class="task-checkbox">
-                                              <!-- <input type="checkbox" class="list-child" value=""  /> -->
-                                              <input type="checkbox" class="flat-grey"/>
-                                          </div>
-                                          <div class="task-title">
-                                              <span class="task-title-sp">Don't bother to download this Dashbord</span>
-                                              <span class="label label-inverse">Now</span>
-                                              <div class="pull-right">
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                              </div>
-                                          </div>
-                                      </li>
-                                      <li>
                                           <div class="task-checkbox">
                                               <!-- <input type="checkbox" class="list-child" value=""  /> -->
                                               <input type="checkbox" class="flat-grey"/>
@@ -239,7 +204,7 @@
         <!-- accordion -->
         <script type="text/javascript" src="<?=TEMPLATE_ADMIN?>js/accordion/jquery.js"></script>
         <script type="text/javascript" src="<?=TEMPLATE_ADMIN?>js/accordion/jquery-ui.js"></script>
-
+        <script type="text/javascript" src="<?=TEMPLATE_ADMIN?>js/workscripts.js"></script>
         <!-- jQuery 2.0.2 -->
         <script src="<?=TEMPLATE_ADMIN?>http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
         <script src="<?=TEMPLATE_ADMIN?>js/jquery.min.js" type="text/javascript"></script>
