@@ -17,44 +17,18 @@
                                     <tr>
                                       <th>#</th>
                                       <th>Название</th>
-                                      <th>Manager</th>
-                                      <!-- <th>Client</th> -->
-                                      <th>Deadline</th>
-                                      <!-- <th>Price</th> -->
-                                      <th>Status</th>
-                                      <th>Progress</th>
                                   </tr>
-                              </thead>
+                                </thead>
                               <tbody>
-                                <tr class="toggle">
-                                  <td>1</td>
-                                  <td>Главная</td>
-                                  <td>Mark</td>
-                                  <!-- <td>Steve</td> -->
-                                  <td>10/10/2014</td>
-                                  <!-- <td>$1500</td> -->
-                                  <td><span class="label label-danger">in progress</span></td>
-                                  <td><span class="badge badge-info">50%</span></td>
-                                </tr>
-                              
-                              <!-- Блок для редактирования -->
                                 <tr>
-                                  <td colspan="6">
-                                    <ul class="task-list">
+                                  <td>1</td>
+                                  <td class="toggle">Главная</td>
+                                  <td>
+                                    <ul>
                                         <li>
-                                          <div class="task-title">
-                                              <span class="task-title-sp">Раздел 1</span>
-                                              <div class="pull-right hidden-phone">
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                              </div>
-                                          </div>
-                                        </li>
-                                        <li>
-                                          <div class="task-title">
-                                              <span class="task-title-sp">Раздел 1</span>
-                                              <div class="pull-right hidden-phone">
+                                          <div>
+                                              <span>Раздел 1</span>
+                                              <div>
                                                   <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
                                                   <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
                                                   <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
@@ -62,74 +36,26 @@
                                           </div>
                                         </li>
                                     </ul>
-                                    <!--
-                                    <ul class="task-list">
-                                        <li>
-                                          <div class="task-title">
-                                              <span class="task-title-sp">Раздел 1</span>
-                                              <div class="pull-right hidden-phone">
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                              </div>
-                                          </div>
-                                        </li>
-                                    </ul>
-                                    -->
                                   </td>
                                 </tr>
-                              <!-- :блок для редактирования -->
+                              
+                              <!-- Блок для редактирования 
 
-                              <tr>
-                                  <td>3</td>
-                                  <td>Google</td>
-                                  <td>Larry</td>
-                                  <!-- <td>Nick</td> -->
-                                  <td>10/12/2014</td>
-                                  <!-- <td>$2000</td> -->
-                                  <td><span class="label label-warning">in progress</span></td>
-                                  <td><span class="badge badge-warning">75%</span></td>
-                              </tr>
-                              <tr>
-                                  <td>4</td>
-                                  <td>LinkedIn</td>
-                                  <td>Allen</td>
-                                  <!-- <td>Rock</td> -->
-                                  <td>10/01/2015</td>
-                                  <!-- <td>$2000</td> -->
-                                  <td><span class="label label-info">in progress</span></td>
-                                  <td><span class="badge badge-info">65%</span></td>
-                              </tr>
-                              <tr>
-                                  <td>5</td>
-                                  <td>Tumblr</td>
-                                  <td>David</td>
-                                  <!-- <td>HHH</td> -->
-                                  <td>01/11/2014</td>
-                                  <!-- <td>$2000</td> -->
-                                  <td><span class="label label-warning">in progress</span></td>
-                                  <td><span class="badge badge-danger">95%</span></td>
-                              </tr>
-                              <tr>
-                                  <td>6</td>
-                                  <td>Tesla</td>
-                                  <td>Musk</td>
-                                  <!-- <td>HHH</td> -->
-                                  <td>01/11/2014</td>
-                                  <!-- <td>$2000</td> -->
-                                  <td><span class="label label-info">in progress</span></td>
-                                  <td><span class="badge badge-success">95%</span></td>
-                              </tr>
-                              <tr>
-                                  <td>7</td>
-                                  <td>Ghost</td>
-                                  <td>XXX</td>
-                                  <!-- <td>HHH</td> -->
-                                  <td>01/11/2014</td>
-                                  <!-- <td>$2000</td> -->
-                                  <td><span class="label label-info">in progress</span></td>
-                                  <td><span class="badge badge-success">95%</span></td>
-                              </tr>
+                                    <ul class="task-list">
+                                        <li>
+                                          <div class="task-title">
+                                              <span class="task-title-sp">Раздел 1</span>
+                                              <div class="pull-right hidden-phone">
+                                                  <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
+                                                  <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
+                                                  <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
+                                              </div>
+                                          </div>
+                                        </li>
+                                    </ul>
+
+                               :блок для редактирования -->
+
                           </tbody>
                       </table>
                   </div>
