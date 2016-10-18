@@ -4214,3 +4214,7 @@ padding: 6px 10px;
   cursor: pointer;
   margin: 0;
 }
+
+.toggle button{
+  cursor: default;
+}

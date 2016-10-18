@@ -3,7 +3,7 @@
 /* Получение товаров */
 function pages(){
 	global $db;
-	$query = "SELECT id, name FROM pages";
+	$query = "SELECT id, name, url_page FROM pages";
 	$result = mysqli_query($db, $query);
 
 	$pages = array();

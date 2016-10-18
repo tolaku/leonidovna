@@ -5,7 +5,6 @@
                 <section class="content">
                    
                     <div class="row">
-<?php print_arr($pages) ?>
                         <div class="col-md-8">
                             <section class="panel">
                               <header class="panel-heading">
@@ -17,18 +16,30 @@
                                     <tr>
                                       <th>#</th>
                                       <th>Название</th>
+                                      <th>url_page</th>
                                   </tr>
                                 </thead>
                               <tbody>
-                                <tr>
-                                  <td>1</td>
-                                  <td class="toggle">Главная</td>
+                              <?php $i=0; ?>
+                              <?php foreach($pages as $item): $i++; ?>
+                                <tr class="toggle">
+                                  <td><?=$i;?></td>
+                                  <td><?=$item['name']?></td>
+                                  <td><?=$item['url_page']?></td>
                                   <td>
-                                    <ul>
+                                    <div class="pull-right hidden-phone">
+                                        <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
+                                        <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="4">
+                                    <ul class="task-list">
                                         <li>
-                                          <div>
-                                              <span>Раздел 1</span>
-                                              <div>
+                                          <div class="task-title">
+                                              <span class="task-title-sp">Раздел 1</span>
+                                              <div class="pull-right hidden-phone">
                                                   <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
                                                   <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
                                                   <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
@@ -38,7 +49,7 @@
                                     </ul>
                                   </td>
                                 </tr>
-                              
+                              <?php endforeach; ?>
                               <!-- Блок для редактирования 
 
                                     <ul class="task-list">
