@@ -17,7 +17,7 @@
                             <!-- sidebar menu: : style can be found in sidebar.less -->
                             <ul class="sidebar-menu">
                                 <li class="active">
-                                    <a href="index.html">
+                                    <a href="?view=pages">
                                         <i class="fa fa-dashboard"></i> <span>Страницы</span>
                                     </a>
                                 </li>
