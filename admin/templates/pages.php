@@ -1,10 +1,16 @@
 <?php defined('VOROBEY') or die('Простите, не нужно...'); ?>
-<aside class="right-side">
-<?php //print_arr($section) ?>
+
+               
+
+                    <aside class="right-side">
+
                 <!-- Main content -->
                 <section class="content">
-                   
+
+
+
                     <div class="row">
+
                         <div class="col-md-8">
                             <section class="panel">
                               <header class="panel-heading">
@@ -16,16 +22,26 @@
                                     <tr>
                                       <th>#</th>
                                       <th>Название</th>
-                                      <th>url_page</th>
+                                      <th>Manager</th>
+                                      <!-- <th>Client</th> -->
+                                      <th>Deadline</th>
                                   </tr>
-                                </thead>
+                              </thead>
                               <tbody>
-                              <?php $i=0; ?>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Главная</td>
+                                    <td>Mark</td>
+                                    <!-- <td>Steve</td> -->
+                                    <td>10/10/2014</td>
+                                </tr>
+                              <?php $i=1; ?>
                               <?php foreach($pages as $item): $i++; ?>
-                                <tr class="toggle">
-                                  <td><?=$i;?></td>
+                                <tr>
+                                  <td><?=$i?></td>
                                   <td><?=$item['name']?></td>
-                                  <td><?=$item['url_page']?></td>
+                                  <td>Mark</td>
+                                  <!-- <td>Steve</td> -->
                                   <td>
                                     <div class="pull-right hidden-phone">
                                         <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
@@ -33,41 +49,7 @@
                                     </div>
                                   </td>
                                 </tr>
-                             
-                                <tr>
-                                  <td colspan="4">
-                                    <ul class="task-list">
-                                        <li>
-                                          <div class="task-title">
-                                              <span class="task-title-sp">Раздел 1</span>
-                                              <div class="pull-right hidden-phone">
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                              </div>
-                                          </div>
-                                        </li>
-                                    </ul>
-                                  </td>
-                                </tr>
                               <?php endforeach; ?>
-                              <!-- Блок для редактирования 
-
-                                    <ul class="task-list">
-                                        <li>
-                                          <div class="task-title">
-                                              <span class="task-title-sp">Раздел 1</span>
-                                              <div class="pull-right hidden-phone">
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                              </div>
-                                          </div>
-                                        </li>
-                                    </ul>
-
-                               :блок для редактирования -->
-
                           </tbody>
                       </table>
                   </div>
@@ -75,10 +57,10 @@
 
 
           </div><!--end col-6 -->
-
+          
                     </div>
                     <div class="row">
-
+                        
                         <div class="col-md-7">
                           <section class="panel tasks-widget">
                               <header class="panel-heading">
@@ -92,10 +74,11 @@
                                       <li>
                                           <div class="task-checkbox">
                                               <!-- <input type="checkbox" class="list-child" value=""  /> -->
-                                              <input type="checkbox" class="flat-grey"/>
+                                              <input type="checkbox" class="flat-grey list-child"/>
+                                              <!-- <input type="checkbox" class="square-grey"/> -->
                                           </div>
                                           <div class="task-title">
-                                              <span class="task-title-sp">Give feedback for the template</span>
+                                              <span class="task-title-sp">Director is Modern Dashboard</span>
                                               <span class="label label-success">2 Days</span>
                                               <div class="pull-right hidden-phone">
                                                   <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
@@ -104,21 +87,7 @@
                                               </div>
                                           </div>
                                       </li>
-                                      <li>
-                                          <div class="task-checkbox">
-                                              <!-- <input type="checkbox" class="list-child" value=""  /> -->
-                                              <input type="checkbox" class="flat-grey"/>
-                                          </div>
-                                          <div class="task-title">
-                                              <span class="task-title-sp">Tell your friends about this admin template</span>
-                                              <span class="label label-danger">Now</span>
-                                              <div class="pull-right hidden-phone">
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-                                                  <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
-                                              </div>
-                                          </div>
-                                      </li>
+                                      
 
                                   </ul>
                               </div>
@@ -139,12 +108,10 @@
             </aside><!-- /.right-side -->
 
         </div><!-- ./wrapper -->
-        <!-- accordion -->
-        <script type="text/javascript" src="<?=TEMPLATE_ADMIN?>js/accordion/jquery.js"></script>
-        <script type="text/javascript" src="<?=TEMPLATE_ADMIN?>js/accordion/jquery-ui.js"></script>
-        <script type="text/javascript" src="<?=TEMPLATE_ADMIN?>js/workscripts.js"></script>
+
+
         <!-- jQuery 2.0.2 -->
-        <script src="<?=TEMPLATE_ADMIN?>http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
         <script src="<?=TEMPLATE_ADMIN?>js/jquery.min.js" type="text/javascript"></script>
 
         <!-- jQuery UI 1.10.3 -->
@@ -157,9 +124,9 @@
         <script src="<?=TEMPLATE_ADMIN?>js/plugins/chart.js" type="text/javascript"></script>
 
         <!-- datepicker
-        <script src="<?=TEMPLATE_ADMIN?>js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>-->
+        <script src="js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>-->
         <!-- Bootstrap WYSIHTML5
-        <script src="<?=TEMPLATE_ADMIN?>js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>-->
+        <script src="js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>-->
         <!-- iCheck -->
         <script src="<?=TEMPLATE_ADMIN?>js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
         <!-- calendar -->
@@ -187,54 +154,6 @@
             });
 
         </script>
-        <script>
-            $('#noti-box').slimScroll({
-                height: '400px',
-                size: '5px',
-                BorderRadius: '5px'
-            });
 
-            $('input[type="checkbox"].flat-grey, input[type="radio"].flat-grey').iCheck({
-                checkboxClass: 'icheckbox_flat-grey',
-                radioClass: 'iradio_flat-grey'
-            });
-</script>
-<script type="text/javascript">
-    $(function() {
-                "use strict";
-                //BAR CHART
-                var data = {
-                    labels: ["January", "February", "March", "April", "May", "June", "July"],
-                    datasets: [
-                        {
-                            label: "My First dataset",
-                            fillColor: "rgba(220,220,220,0.2)",
-                            strokeColor: "rgba(220,220,220,1)",
-                            pointColor: "rgba(220,220,220,1)",
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: "rgba(220,220,220,1)",
-                            data: [65, 59, 80, 81, 56, 55, 40]
-                        },
-                        {
-                            label: "My Second dataset",
-                            fillColor: "rgba(151,187,205,0.2)",
-                            strokeColor: "rgba(151,187,205,1)",
-                            pointColor: "rgba(151,187,205,1)",
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: "rgba(151,187,205,1)",
-                            data: [28, 48, 40, 19, 86, 27, 90]
-                        }
-                    ]
-                };
-            new Chart(document.getElementById("linechart").getContext("2d")).Line(data,{
-                responsive : true,
-                maintainAspectRatio: false,
-            });
-
-            });
-            // Chart.defaults.global.responsive = true;
-</script>
 </body>
 </html>

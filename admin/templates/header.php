@@ -20,13 +20,13 @@
     <!-- Date Picker -->
     <link href="<?=TEMPLATE_ADMIN?>css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
     <!-- fullCalendar -->
-    <!-- <link href="<?=TEMPLATE_ADMIN?>css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" /> -->
     <!-- Daterange picker -->
     <link href="<?=TEMPLATE_ADMIN?>css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <!-- iCheck for checkboxes and radio inputs -->
     <link href="<?=TEMPLATE_ADMIN?>css/iCheck/all.css" rel="stylesheet" type="text/css" />
     <!-- bootstrap wysihtml5 - text editor -->
-    <!-- <link href="<?=TEMPLATE_ADMIN?>css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" /> -->
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <!-- Theme style -->
     <link href="<?=TEMPLATE_ADMIN?>css/style.css" rel="stylesheet" type="text/css" />
@@ -47,7 +47,7 @@
       <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="<?=TEMPLATE_ADMIN?>/" class="logo">
+            <a href="index.html" class="logo">
                 Администратор
             </a>
             <!-- Header Navbar: style can be found in header.less -->
@@ -61,16 +61,34 @@
                 </a>
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
+                        <!-- Messages: style can be found in dropdown.less-->
+                        
+                        
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-user"></i>
-                                <span>Jane Doe <i class="caret"></i></span>
+                                <span>Светлана Леонидовна <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
                                 <li class="dropdown-header text-center">Account</li>
 
+                                
+
                                 <li class="divider"></li>
+
+                                    <li>
+                                        <a href="#">
+                                        <i class="fa fa-user fa-fw pull-right"></i>
+                                            Profile
+                                        </a>
+                                        <a data-toggle="modal" href="#modal-user-settings">
+                                        <i class="fa fa-cog fa-fw pull-right"></i>
+                                            Settings
+                                        </a>
+                                        </li>
+
+                                        <li class="divider"></li>
 
                                         <li>
                                             <a href="#"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>

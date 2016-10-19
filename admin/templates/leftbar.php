@@ -1,5 +1,7 @@
 <?php defined('VOROBEY') or die('Простите, не нужно...'); ?>
-<aside class="left-side sidebar-offcanvas">
+ <div class="wrapper row-offcanvas row-offcanvas-left">
+                    <!-- Left side column. contains the logo and sidebar -->
+                    <aside class="left-side sidebar-offcanvas">
                         <!-- sidebar: style can be found in sidebar.less -->
                         <section class="sidebar">
                             <!-- Sidebar user panel -->
@@ -8,16 +10,16 @@
                                     <img src="<?=TEMPLATE_ADMIN?>img/26115.jpg" class="img-circle" alt="User Image" />
                                 </div>
                                 <div class="pull-left info">
-                                    <p>Привет, Светлана Леонидовна</p>
+                                    <p>Светлана Леонидовна</p>
 
                                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                                 </div>
                             </div>
-
+ 
                             <!-- sidebar menu: : style can be found in sidebar.less -->
                             <ul class="sidebar-menu">
                                 <li class="active">
-                                    <a href="?view=pages">
+                                    <a href="?pages">
                                         <i class="fa fa-dashboard"></i> <span>Страницы</span>
                                     </a>
                                 </li>
