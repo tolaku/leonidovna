@@ -1,6 +1,6 @@
 <?php defined('VOROBEY') or die('Простите, не нужно...'); ?>
 <aside class="right-side">
-
+<?php //print_arr($section) ?>
                 <!-- Main content -->
                 <section class="content">
                    
@@ -33,6 +33,7 @@
                                     </div>
                                   </td>
                                 </tr>
+                             
                                 <tr>
                                   <td colspan="4">
                                     <ul class="task-list">

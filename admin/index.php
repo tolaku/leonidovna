@@ -17,6 +17,8 @@ $view = empty($_GET['view']) ? 'pages' : $_GET['view'];
 switch($view){
 	case('pages'):
 		$pages = pages();
+		$page_id = 1;
+		$section = section($page_id);
 	break;
 
 
