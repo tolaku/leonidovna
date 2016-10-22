@@ -17,7 +17,7 @@ function pages(){
 /* Получение разделова */
 function section($page_id){
 	global $db;
-	$query = "SELECT id, name FROM section WHERE page_id = $page_id ORDER BY position";
+	$query = "SELECT id, name, img FROM section WHERE page_id = $page_id ORDER BY position";
 	$result = mysqli_query($db, $query);
 
 	$section = array();

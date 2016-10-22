@@ -15,12 +15,22 @@ require_once 'functions/functions.php';
 $view = empty($_GET['view']) ? 'pages' : $_GET['view'];
 
 switch($view){
+	// страницы
 	case('pages'):
 		$pages = pages();
+	break;
+
+	// разделы
+	case('sections'):
 		$page_id = 1;
 		$section = section($page_id);
 	break;
 
+	// редактирование раздела
+	case('edit_section'):
+		
+	break;
+	
 
 	default:
 	// если полученное имя не существует
@@ -35,6 +45,9 @@ include TEMPLATE_ADMIN.'leftbar.php';
 
 // CONTENT
 include TEMPLATE_ADMIN.$view.'.php';
+
+// FOOTER
+include TEMPLATE_ADMIN.'footer.php';
 
 
 ?>
