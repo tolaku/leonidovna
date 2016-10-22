@@ -14,7 +14,7 @@ function pages(){
 }
 /* :получение товаров */
 
-/* Получение разделова */
+/* Получение разделов */
 function section($page_id){
 	global $db;
 	$query = "SELECT id, name, img FROM section WHERE page_id = $page_id ORDER BY position";
@@ -26,6 +26,20 @@ function section($page_id){
 	}
 	return $section;
 }
-/* Получение разделова */
+/* Получение разделов */
+
+/* Получаем данные по разделу*/
+function get_section($id){
+	global $db;
+	$query = "SELECT a.name, a.img, a.position, b.text_min, b.text_full FROM section a
+					INNER JOIN section_text b  
+					WHERE a.id = $id AND b.section_id = $id";
+	$result = mysqli_query($db, $query);
+
+	$get_section = array();
+	$get_section = mysqli_fetch_assoc($result);
+	return $get_section;
+}
+/* получаем данные по разделу*/
 
 ?>

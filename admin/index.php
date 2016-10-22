@@ -28,7 +28,8 @@ switch($view){
 
 	// редактирование раздела
 	case('edit_section'):
-		
+		$id = trim($_GET['id']);
+		$get_section = get_section($id);
 	break;
 	
 

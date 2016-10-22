@@ -4,7 +4,7 @@
 
                 <!-- Main content -->
                 <section class="content">
-                <?php print_arr($section) ?>
+                <?php //print_arr($section) ?>
                 	<div class="col-md-5">
                             <div class="panel">
                                 <header class="panel-heading">
@@ -16,7 +16,7 @@
                                     <li class="list-group-item">
                                         <a href="?view=edit_section&amp;id=<?=$value['id']?>"><img src="<?=PATH.TEMPLATE.$value['img']?>" width="50" height="50"></a>
                                         <span class="pull-right label label-danger inline m-t-15">Admin</span>
-                                        <a href=""><?=$value['name']?></a>
+                                        <a href="?view=edit_section&amp;id=<?=$value['id']?>"><?=$value['name']?></a>
                                     </li>
                                    <?php endforeach; ?>
                                 </ul>
