@@ -30,6 +30,9 @@ switch($view){
 	case('edit_section'):
 		$id = trim($_GET['id']);
 		$get_section = get_section($id);
+		if($_POST){
+			//if(edit_section($id));
+		}
 	break;
 	
 
