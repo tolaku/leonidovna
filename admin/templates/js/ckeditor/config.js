@@ -13,5 +13,3 @@ CKEDITOR.editorConfig = function(config) {
    config.filebrowserFlashUploadUrl = 'http://leonidovna/admin/templates/js/kcfinder/upload.php?opener=ckeditor&type=flash';
 // ...
 };
-
-
