@@ -27,22 +27,25 @@
                           <input type="text" class="form-control" name="img" value="<?=$get_section['img'];?>">
                       </div>
                   </div>
-                  
+                  <!-- CKEditor -->
+                    <script type="text/javascript" src="<?=TEMPLATE_ADMIN?>js/ckeditor/ckeditor.js"></script>
+                  <!-- :CKEditor -->                  
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Мини текст</label>
                       <div class="col-sm-10">
-                          <textarea class="form-control" name="text_min" cols="40" rows="3"><?=$get_section['text_min'];?></textarea>
+                          <textarea id="editor1" class="form-control" name="text_min" cols="40" rows="3"><?=$get_section['text_min'];?></textarea>
+                          <script>
+                             CKEDITOR.replace( 'editor1' );
+                          </script>
                       </div>
                   </div>
-                  <!-- CKEditor -->
-                    <script type="text/javascript" src="<?=TEMPLATE_ADMIN?>js/ckeditor/ckeditor.js"></script>
-                  <!-- :CKEditor -->
+
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Полный текст</label>
                       <div class="col-sm-10">
-                          <textarea id="editor1" class="form-control" name="text_full" cols="40" rows="3"><?=$get_section['text_full'];?></textarea>
+                          <textarea id="editor2" class="form-control" name="text_full" cols="40" rows="3"><?=$get_section['text_full'];?></textarea>
                           <script>
-                             CKEDITOR.replace( 'editor1' );
+                             CKEDITOR.replace( 'editor2' );
                           </script>
                       </div>
                   </div>

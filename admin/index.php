@@ -2,6 +2,9 @@
 // запрет прямого обращения
 define ('VOROBEY', TRUE); 
 
+// запускаем сессию
+session_start();
+
 // подключаем файл конфигурации 
 require_once '../config.php';
 
@@ -31,7 +34,7 @@ switch($view){
 		$id = trim($_GET['id']);
 		$get_section = get_section($id);
 		if($_POST){
-			//if(edit_section($id));
+			//if(edit_section($id)) redirect;
 		}
 	break;
 	

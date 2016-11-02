@@ -42,4 +42,13 @@ function get_section($id){
 }
 /* получаем данные по разделу*/
 
+/* Редирект */
+function redirect($http = false){
+	if($http) $redirect = $http;
+	else $redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERE'] : PATH;
+	header("Location: {$redirect}");
+	exit;
+}
+/* :редирект */
+
 ?>
