@@ -4218,3 +4218,14 @@ padding: 6px 10px;
 .toggle button{
   cursor: default;
 }
+
+/* Сообщения отправки ответа в БД*/
+.success{
+  color:green;
+  margin:5px 0;
+}
+
+.error{
+  color:red;
+  margin:5px 0;
+}

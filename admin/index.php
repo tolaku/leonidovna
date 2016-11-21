@@ -34,7 +34,8 @@ switch($view){
 		$id = trim($_GET['id']);
 		$get_section = get_section($id);
 		if($_POST){
-			//if(edit_section($id)) redirect;
+			if(edit_section($id)) redirect('?view=sections');
+			else redirect();
 		}
 	break;
 	

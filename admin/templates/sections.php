@@ -4,7 +4,11 @@
 
                 <!-- Main content -->
                 <section class="content">
-                <?php //print_arr($section) ?>
+                <?php 
+                  if(isset($_SESSION['answer'])){
+                    echo $_SESSION['answer'];
+                    unset($_SESSION['answer']);
+                 } ?>
                 	<div class="col-md-5">
                             <div class="panel">
                                 <header class="panel-heading">

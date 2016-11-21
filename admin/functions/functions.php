@@ -42,11 +42,47 @@ function get_section($id){
 }
 /* получаем данные по разделу*/
 
+/* Редактируем данные по разделу */
+function edit_section($id){
+	global $db;
+	$name = trim($_POST['name']);
+	$img = trim($_POST['img']);
+	$text_min = trim($_POST['text_min']);
+	$text_full = trim($_POST['text_full']);
+
+	if(empty($name)){
+		// если нет имени
+		$_SESSION['edit_section']['res'] = "<div class='error'>Должно быть название раздела!</div>";
+		// редирект на эту же страницу
+		return false;
+	}else{
+		// отправляем в БД
+		$query = "UPDATE section a, section_text b SET
+				a.name = '$name',
+				a.img = '$img',
+				b.text_min = '$text_min',
+				b.text_full = '$text_full'
+					WHERE a.id = $id AND b.section_id = $id";
+		$result = mysqli_query($db, $query) or die(mysqli_error());
+
+		// Проверяем было ли изменение и сообщаем
+		if(mysqli_affected_rows($db) > 0){
+			$_SESSION['answer'] = "<div class='success'>Раздел обновлен!</div>";
+			return true;
+		}else{
+			$_SESSION['edit_section']['res'] = "<div class='error'>Ошибка или вы ничего не меняли!</div>";
+			return false;
+		}
+	}
+	
+}
+/* редактируем данные по разделу */
+
 /* Редирект */
 function redirect($http = false){
 	if($http) $redirect = $http;
-	else $redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERE'] : PATH;
-	header("Location: {$redirect}");
+	else $redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : PATH;
+	header("Location: $redirect");
 	exit;
 }
 /* :редирект */

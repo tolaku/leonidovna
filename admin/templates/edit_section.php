@@ -4,7 +4,11 @@
 
                 <!-- Main content -->
                 <section class="content">
-
+<?php 
+if(isset($_SESSION['edit_section']['res'])){
+  echo $_SESSION['edit_section']['res'];
+  unset($_SESSION['edit_section']['res']);
+  } ?>
 <div class="row">
     <div class="col-md-12">
         <section class="panel">
