@@ -39,6 +39,10 @@ switch($view){
 		}
 	break;
 	
+	// редактирование галлереи
+	case('gallery'):
+		
+	break;
 
 	default:
 	// если полученное имя не существует

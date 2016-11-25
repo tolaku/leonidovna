@@ -1,7 +1,5 @@
 <?php defined('VOROBEY') or die('Простите, не нужно...'); ?>
 
-               
-
                     <aside class="right-side">
 
                 <!-- Main content -->
@@ -44,7 +42,7 @@
                                   <td>
                                     <div class="pull-right hidden-phone">
                                         <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
-                                        <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
+                                        <a href="?view=<?=$item['url_page']?>"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
                                     </div>
                                   </td>
                                 </tr>

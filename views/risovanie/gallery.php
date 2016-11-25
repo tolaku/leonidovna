@@ -3,19 +3,20 @@
             		<div class="inner">
                     	<section>
 				<ul class="lb-album">
-					<?php foreach($gallery as $item): ?>
+					<?php $i=0; ?>
+					<?php foreach($gallery as $item): $i++?>
 					<li>
-						<a href="#image-1">
-							<img src="<?=TEMPLATE?><?=$item['img_thumbs']?>" alt="image01">
+						<a href="#<?=$i?>">
+							<img src="<?=TEMPLATE?><?=$item['img_thumbs']?>">
 							<span><?=$item['title']?></span>
 						</a>
-						<div class="lb-overlay" id="image-1">
-							<img src="<?=TEMPLATE?><?=$item['img_full']?>" alt="image01" />
+						<div class="lb-overlay" id="<?=$i?>">
+							<img src="<?=TEMPLATE?><?=$item['img_full']?>" />
 							<div>
 								<h3><?=$item['name_a']?> <span>/<?=$item['name_b']?>/</h3>
 								<p><?=$item['text']?></p>
-								<a href="#image-10" class="lb-prev">Prev</a>
-								<a href="#image-2" class="lb-next">Next</a>
+								<a href="#<?=$i--?>" class="lb-prev">Prev</a>
+								<a href="#<?=$i++?>" class="lb-next">Next</a>
 							</div>
 							<a href="#page" class="lb-close">x Close</a>
 						</div>

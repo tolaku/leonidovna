@@ -12,17 +12,23 @@
                 	<div class="col-md-5">
                             <div class="panel">
                                 <header class="panel-heading">
-                                    Разделы
+                                    Галерея
                                 </header>
 
                                 <ul class="list-group teammates">
-                                  <?php foreach ($section as $value): ?>
+                                  
                                     <li class="list-group-item">
-                                        <a href="?view=edit_section&amp;id=<?=$value['id']?>"><img src="<?=PATH.TEMPLATE.$value['img']?>" width="50" height="50">
-                                        <span class="pull-right label label-danger inline m-t-15">редактировать</span></a>
-                                        <a href="?view=edit_section&amp;id=<?=$value['id']?>"><?=$value['name']?></a>
+                                        <img src="http://leonidovna/views/risovanie/images/thumbs/2.jpg" width="100" height="100">
+                                        <form class="form-horizontal tasi-form" method="post">
+                                            <input type="text" class="form-control" name="img" value="Title">
+                                            <input type="text" class="form-control" name="img" value="Name_a">
+                                        </form>
                                     </li>
-                                   <?php endforeach; ?>
+                                    <li class="list-group-item">
+                                        <img src="http://leonidovna/views/risovanie/images/thumbs/1.jpg" width="100" height="100">
+                                        
+                                    </li>
+                                   
                                 </ul>
                                 <div class="panel-footer bg-white">
                                     <!-- <span class="pull-right badge badge-info">32</span> -->
