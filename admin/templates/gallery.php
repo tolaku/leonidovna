@@ -14,22 +14,18 @@
                                 <header class="panel-heading">
                                     Галерея
                                 </header>
-
+                            <?php if($get_gallery): ?>
                                 <ul class="list-group teammates">
                                   
                                     <li class="list-group-item">
-                                        <img src="http://leonidovna/views/risovanie/images/thumbs/2.jpg" width="100" height="100">
-                                        <form class="form-horizontal tasi-form" method="post">
-                                            <input type="text" class="form-control" name="img" value="Title">
-                                            <input type="text" class="form-control" name="img" value="Name_a">
-                                        </form>
+                                    <?php foreach($get_gallery as $item): ?>
+                                        <img src="<?=TEMPLATE.$item['img_thumbs']?>" width="100" height="100">
+                                    <?php endforeach; ?>
                                     </li>
-                                    <li class="list-group-item">
-                                        <img src="http://leonidovna/views/risovanie/images/thumbs/1.jpg" width="100" height="100">
-                                        
-                                    </li>
-                                   
+                                  
                                 </ul>
+                            <?php else: echo "<p>Галерея пуста!</p>"; ?>
+                            <?php endif; ?>
                                 <div class="panel-footer bg-white">
                                     <!-- <span class="pull-right badge badge-info">32</span> -->
                                     <button class="btn btn-primary btn-addon btn-sm">
