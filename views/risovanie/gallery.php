@@ -15,8 +15,8 @@
 							<div>
 								<h3><?=$item['name_a']?> <span>/<?=$item['name_b']?>/</h3>
 								<p><?=$item['text']?></p>
-								<a href="#<?=$i--?>" class="lb-prev">Prev</a>
-								<a href="#<?=$i++?>" class="lb-next">Next</a>
+								<a href="#<?=$i-1?>" class="lb-prev">Prev</a>
+								<a href="#<?=$i+1?>" class="lb-next">Next</a>
 							</div>
 							<a href="#page" class="lb-close">x Close</a>
 						</div>

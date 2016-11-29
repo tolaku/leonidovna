@@ -19,7 +19,7 @@
                                   
                                     <li class="list-group-item">
                                         <img src="http://leonidovna/views/risovanie/images/thumbs/2.jpg" width="100" height="100">
-                                        <form class="form-horizontal tasi-form" method="post">
+                                        <form class="form-horizontal tasi-form" method="post"><br />
                                             <input type="text" class="form-control" name="img" value="Title">
                                             <input type="text" class="form-control" name="img" value="Name_a">
                                         </form>
