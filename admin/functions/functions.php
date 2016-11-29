@@ -78,6 +78,21 @@ function edit_section($id){
 }
 /* редактируем данные по разделу */
 
+/* Выводим галлерею */
+function get_gallery(){
+	global $db;
+	$query = "SELECT id, name_a, img_thumbs, text FROM gallery";
+	$result = mysqli_query($db, $query);
+
+	$get_gallery = array();
+	while($row = mysqli_fetch_assoc($result)){
+		$get_gallery[] = $row;
+	}
+
+	return $get_gallery;
+}
+/* :выводим галлерею */
+
 /* Редирект */
 function redirect($http = false){
 	if($http) $redirect = $http;

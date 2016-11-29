@@ -269,6 +269,7 @@ img {
 }
 .m-t-15 {
   margin-top: 15px;
+  margin-left: 15px;
 }
 .m-b-5 {
   margin-bottom: 5px;
@@ -288,6 +289,7 @@ img {
 .teammates img {
   border-radius: 5px;
   margin-right: 10px;
+  margin-bottom: 5px;
 }
 .teammates li {
   border: 1px solid #edf1f2;
