@@ -42,6 +42,7 @@ switch($view){
 	// редактирование галлереи
 	case('gallery'):
 		$get_gallery = get_gallery();
+
 	break;
 
 	default:

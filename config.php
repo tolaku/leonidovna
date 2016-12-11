@@ -7,7 +7,7 @@ define('MODEL', 'model/model.php'); // адрес model
 
 define('CONTROLLER', 'controller/controller.php'); // путь к контроллеру
 
-define('VIEW', PATH.'views/'); // путь к шаблонам сайта
+define('VIEW', 'views/'); // путь к шаблонам сайта
 
 define('TEMPLATE', VIEW.'risovanie/'); // шаблон сайта
 
