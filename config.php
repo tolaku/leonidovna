@@ -13,6 +13,12 @@ define('TEMPLATE', VIEW.'risovanie/'); // шаблон сайта
 
 define('TEMPLATE_ADMIN', './templates/'); // шаблон административной части
 
+define('WIDTH', 250); // максимальная по ширине
+define ('HEIGHT', 166); // максимальная по высоте
+define ('THUMB', 'images/gallery/thumbs/'); // путь к папке с обработанными картинками
+define ('BIG', 'images/pics/'); // путь к папке с загруженными картинками
+define ('SIZE', 1048576); // допустимый вес загружаемого файла - 1мб
+
 // сервер БД
 define('HOST', 'localhost');
 

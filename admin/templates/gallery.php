@@ -10,8 +10,8 @@
                     unset($_SESSION['answer']);
                  } ?>
                     <?php 
-                        if(isset($_POST)){
-                           print_arr($_FILES);
+                        if(isset($_FILES)){
+                           print_arr($_FILES['file']['name']);
                         }
                      ?>
                 	<div class="col-md-5">

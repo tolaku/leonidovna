@@ -42,7 +42,11 @@ switch($view){
 	// редактирование галлереи
 	case('gallery'):
 		$get_gallery = get_gallery();
-
+		// загружаем картинку
+		if(isset($_FILES)){
+			$types = array(); // масса допустимых расширений
+			$types = array('image/gif', 'image/png', 'image/jpeg', 'image/x-png', 'image/pjpeg');
+		}
 	break;
 
 	default:

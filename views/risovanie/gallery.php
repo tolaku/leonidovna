@@ -7,11 +7,11 @@
 					<?php foreach($gallery as $item): $i++?>
 					<li>
 						<a href="#<?=$i?>">
-							<img src="<?=TEMPLATE?><?=$item['img_thumbs']?>">
+							<img src="<?=$item['img_thumbs']?>">
 							<span><?=$item['title']?></span>
 						</a>
 						<div class="lb-overlay" id="<?=$i?>">
-							<img src="<?=TEMPLATE?><?=$item['img_full']?>" />
+							<img src="<?=$item['img_full']?>" />
 							<div>
 								<h3><?=$item['name_a']?> <span>/<?=$item['name_b']?>/</h3>
 								<p><?=$item['text']?></p>
