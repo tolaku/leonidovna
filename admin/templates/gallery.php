@@ -5,7 +5,6 @@
                 <!-- Main content -->
                 <section class="content">
                 <?php 
-                echo $_SERVER['PHP_SELF'];
                   if(isset($_SESSION['answer'])){
                     echo $_SESSION['answer'];
                     unset($_SESSION['answer']);

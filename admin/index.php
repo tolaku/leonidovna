@@ -68,7 +68,7 @@ switch($view){
 			// делаем проверку
 			if(!empty($error)){
 				$_SESSION['res']['error'] = $error;
-				header("Location: {$_SERVER['PHP_SELF']}");
+				header("Location: {$_SERVER['REQUEST_URI']}");
 				exit;
 			}else{}
 
