@@ -5,15 +5,11 @@
                 <!-- Main content -->
                 <section class="content">
                 <?php 
+                echo $_SERVER['PHP_SELF'];
                   if(isset($_SESSION['answer'])){
                     echo $_SESSION['answer'];
                     unset($_SESSION['answer']);
                  } ?>
-                    <?php 
-                        if(isset($_FILES)){
-                           print_arr($_FILES['file']['name']);
-                        }
-                     ?>
                 	<div class="col-md-5">
                             <div class="panel">
                                 <header class="panel-heading">
@@ -39,6 +35,8 @@
                                             Добавить
                                         </button>
                                     </form>
+                                    <?php if(isset($_SESSION['res']['error'])) echo $_SESSION['res']['error']; ?>
+                                    <?php unset($_SESSION['res']) ?>
                                 </div>
                             </div>
                         </div>

@@ -29,7 +29,7 @@
                                     <td>Главная</td>
                                     <td>
                                       <div class="pull-right hidden-phone">
-                                        <a href=""><button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button></a>
+                                        
                                         <a href="?view=sections"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
                                       </div>
                                     </td>
@@ -41,7 +41,7 @@
                                   <td><?=$item['name']?></td>
                                   <td>
                                     <div class="pull-right hidden-phone">
-                                        <button class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
+                                        
                                         <a href="?view=<?=$item['url_page']?>"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
                                     </div>
                                   </td>
