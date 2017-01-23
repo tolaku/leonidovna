@@ -48,13 +48,13 @@ switch($view){
 			$types = array('image/gif', 'image/png', 'image/jpeg', 'image/x-png', 'image/pjpeg');
 
 			$fileName = $_FILES['file']['name']; // оригинальное имя картинки
+			$fileExt = strtolower(preg_replace("#.+\.([a-z]+)$#i", "$1", $fileName)); // получили расширение
+			$fileName = "{img1}.{$fileExt}"; // новое имя картинки
 			$fileTmpName = $_FILES['file']['tmp_name']; // временное время картинки
 			$fileType = $_FILES['file']['type']; // mime-тип файла
 			$fileSize = $_FILES['file']['size']; // вес картинки
 			$fileError = $_FILES['file']['error']; // 0 - ОК, иначе - ошибка
 
-			/* регулярное выражение */
-			$fileExt = strtolower(preg_replace("#.+\.([a-z]+)$#i", "$1", $fileName)); // получили расширение
 
 			$error = "";
 
@@ -65,12 +65,20 @@ switch($view){
 			if($fileError) $error .= "Ошибка при загрузке файла! <br>";
 			/* конец проверок */
 
-			// делаем проверку
+			/* делаем проверку */
 			if(!empty($error)){
+				// выводим ошибку по файлу
 				$_SESSION['res']['error'] = $error;
 				header("Location: {$_SERVER['REQUEST_URI']}");
 				exit;
-			}else{}
+			}else{
+				/* загружаем картинку */
+				if(!@move_uploaded_file($fileTmpName, BIG.$fileName)){
+					$_SESSION['res']['error'] = "Не можем загрузить картинку!";
+					header("Location: {$_SERVER['REQUEST_URI']}");
+					exit;
+				}
+			}
 
 			// успешно загружен фото
 
