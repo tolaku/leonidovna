@@ -49,7 +49,7 @@ switch($view){
 
 			$fileName = $_FILES['file']['name']; // оригинальное имя картинки
 			$fileExt = strtolower(preg_replace("#.+\.([a-z]+)$#i", "$1", $fileName)); // получили расширение
-			$fileName = "{img1}.{$fileExt}"; // новое имя картинки
+			$fileName = "img1.{$fileExt}"; // новое имя картинки
 			$fileTmpName = $_FILES['file']['tmp_name']; // временное время картинки
 			$fileType = $_FILES['file']['type']; // mime-тип файла
 			$fileSize = $_FILES['file']['size']; // вес картинки
@@ -58,7 +58,7 @@ switch($view){
 
 			$error = "";
 
-			/* проверка файла */
+			/* проверка файлам */
 			if(!$fileTmpName) $error .= "Не выбран файл!<br />";
 			if(!in_array($fileType, $types)) $error .= "Допустимые расширения - .gif, .png, .jpg!<br />";
 			if($fileSize > SIZE) $error .= "Вы превысили размер файла, больше 1 мб. <br>";
@@ -73,14 +73,17 @@ switch($view){
 				exit;
 			}else{
 				/* загружаем картинку */
-				if(!@move_uploaded_file($fileTmpName, BIG.$fileName)){
-					$_SESSION['res']['error'] = "Не можем загрузить картинку!";
+				if(!move_uploaded_file($fileTmpName, $_SERVER['DOCUMENT_ROOT']."/images/pics/".$fileName)){
+					$_SESSION['res']['error'] = "{$fileTmpName} / {$fileName}";
 					header("Location: {$_SERVER['REQUEST_URI']}");
 					exit;
 				}
 			}
 
 			// успешно загружен фото
+			$_SESSION['res']['ok'] = "Фото успешно загружено!";
+			header("Location: {$_SERVER['REQUEST_URI']}");
+			exit;
 
 		}
 	break;

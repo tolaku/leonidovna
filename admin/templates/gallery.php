@@ -5,6 +5,7 @@
                 <!-- Main content -->
                 <section class="content">
                 <?php 
+            
                   if(isset($_SESSION['answer'])){
                     echo $_SESSION['answer'];
                     unset($_SESSION['answer']);
@@ -34,7 +35,10 @@
                                             Добавить
                                         </button>
                                     </form>
-                                    <?php if(isset($_SESSION['res']['error'])) echo $_SESSION['res']['error']; ?>
+                                    <?php 
+                                    if(isset($_SESSION['res']['error'])) echo $_SESSION['res']['error']; 
+                                    if(isset($_SESSION['res']['ok'])) echo $_SESSION['res']['ok'];
+                                    ?>
                                     <?php unset($_SESSION['res']) ?>
                                 </div>
                             </div>
