@@ -1,20 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
 --
--- Хост: 127.0.0.1
--- Время создания: Окт 03 2016 г., 11:40
--- Версия сервера: 5.5.25
--- Версия PHP: 5.3.13
+-- Хост: localhost
+-- Время создания: Янв 26 2017 г., 02:16
+-- Версия сервера: 5.7.17-0ubuntu0.16.04.1
+-- Версия PHP: 7.0.13-0ubuntu0.16.04.1
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- База данных: `leonidovna`
@@ -26,14 +26,13 @@ SET time_zone = "+00:00";
 -- Структура таблицы `constants`
 --
 
-CREATE TABLE IF NOT EXISTS `constants` (
-  `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `constants` (
+  `id` tinyint(3) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `value` text,
-  `type` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+  `type` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `constants`
@@ -50,24 +49,26 @@ INSERT INTO `constants` (`id`, `name`, `title`, `value`, `type`) VALUES
 -- Структура таблицы `gallery`
 --
 
-CREATE TABLE IF NOT EXISTS `gallery` (
-  `id` int(4) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gallery` (
+  `id` int(4) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
   `name_a` varchar(255) NOT NULL,
   `name_b` varchar(255) NOT NULL,
   `text` text NOT NULL,
   `img_thumbs` varchar(255) NOT NULL DEFAULT 'no_image.jpg',
-  `img_full` varchar(255) NOT NULL DEFAULT 'no_image.jpg',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `img_full` varchar(255) NOT NULL DEFAULT 'no_image.jpg'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `gallery`
 --
 
 INSERT INTO `gallery` (`id`, `title`, `name_a`, `name_b`, `text`, `img_thumbs`, `img_full`) VALUES
-(1, '1 класс', 'pointe', 'point', 'Dance performed on the tips of the toes', 'images/thumbs/1.jpg', 'images/full/1.jpg'),
-(2, '1 класс', 'port de bras', 'ˌpôr də ˈbrä', 'An exercise designed to develop graceful movement and disposition of the arms', 'images/thumbs/2.jpg', 'images/full/2.jpg');
+(1, '1 класс', 'pointe', 'point', 'Dance performed on the tips of the toes', 'images/gallery/thumbs/1.jpg', 'images/gallery/full/1.jpg'),
+(2, '1 класс', 'port de bras', 'ˌpôr də ˈbrä', 'An exercise designed to develop graceful movement and disposition of the arms', 'images/gallery/thumbs/2.jpg', 'images/gallery/full/2.jpg'),
+(3, '1 класс', 'pointe', 'point', 'Dance performed on the tips of the toes', 'images/gallery/thumbs/1.jpg', 'images/gallery/full/1.jpg'),
+(4, '1 класс', 'port de bras', 'ˌpôr də ˈbrä', 'An exercise designed to develop graceful movement and disposition of the arms', 'images/gallery/thumbs/2.jpg', 'images/gallery/full/2.jpg'),
+(5, '1 класс', 'port de bras', 'ˌpôr də ˈbrä', 'An exercise designed to develop graceful movement and disposition of the arms', 'images/gallery/thumbs/3.jpg', 'images/gallery/full/3.jpg');
 
 -- --------------------------------------------------------
 
@@ -75,13 +76,12 @@ INSERT INTO `gallery` (`id`, `title`, `name_a`, `name_b`, `text`, `img_thumbs`, 
 -- Структура таблицы `pages`
 --
 
-CREATE TABLE IF NOT EXISTS `pages` (
-  `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pages` (
+  `id` tinyint(3) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `url_page` varchar(255) NOT NULL,
-  `position` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `position` tinyint(3) UNSIGNED NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `pages`
@@ -98,14 +98,13 @@ INSERT INTO `pages` (`id`, `name`, `url_page`, `position`) VALUES
 -- Структура таблицы `section`
 --
 
-CREATE TABLE IF NOT EXISTS `section` (
-  `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `section` (
+  `id` tinyint(3) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `img` varchar(255) NOT NULL DEFAULT '/img/no_image.jpg',
-  `position` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `page_id` tinyint(3) unsigned NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+  `position` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
+  `page_id` tinyint(3) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `section`
@@ -125,14 +124,13 @@ INSERT INTO `section` (`id`, `name`, `img`, `position`, `page_id`) VALUES
 -- Структура таблицы `section_text`
 --
 
-CREATE TABLE IF NOT EXISTS `section_text` (
-  `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `section_text` (
+  `id` tinyint(3) UNSIGNED NOT NULL,
   `text_min` text NOT NULL,
   `text_full` text NOT NULL,
-  `section_id` tinyint(3) unsigned NOT NULL,
-  `page_id` tinyint(3) unsigned NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+  `section_id` tinyint(3) UNSIGNED NOT NULL,
+  `page_id` tinyint(3) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `section_text`
@@ -146,6 +144,69 @@ INSERT INTO `section_text` (`id`, `text_min`, `text_full`, `section_id`, `page_i
 (5, '<p>Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности требуют от нас анализа соответствующий условий активизации. Повседневная практика показывает, что укрепление и развитие структуры требуют от нас анализа существенных финансовых и административных условий. Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки дальнейших направлений развития. Задача организации, в особенности же сложившаяся структура организации способствует подготовки и реализации соответствующий условий активизации. С другой стороны рамки и место обучения кадров требуют определения и уточнения форм развития.</p>\r\n\r\n<p>Значимость этих проблем настолько очевидна, что реализация намеченных плановых заданий способствует подготовки и реализации соответствующий условий активизации.</p>\r\n\r\n<p>Товарищи! консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании дальнейших направлений развития. Значимость этих проблем настолько очевидна, что сложившаяся структура организации влечет за собой процесс внедрения и модернизации форм развития.</p>', '', 5, 3),
 (6, '<p>С другой стороны укрепление и развитие структуры позволяет оценить значение форм развития. С другой стороны реализация намеченных плановых заданий требуют определения и уточнения системы обучения кадров, соответствует насущным потребностям. Идейные соображения высшего порядка, а также консультация с широким активом влечет за собой процесс внедрения и модернизации дальнейших направлений развития. Равным образом консультация с широким активом позволяет выполнять важные задания по разработке соответствующий условий активизации. Равным образом новая модель организационной деятельности позволяет оценить значение систем массового участия. Товарищи! сложившаяся структура организации способствует подготовки и реализации направлений прогрессивного развития.</p>\r\n\r\n<p>Значимость этих проблем настолько очевидна, что дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание существенных финансовых и административных условий. Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание модели развития.</p>', '', 6, 3);
 
+--
+-- Индексы сохранённых таблиц
+--
+
+--
+-- Индексы таблицы `constants`
+--
+ALTER TABLE `constants`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `gallery`
+--
+ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `pages`
+--
+ALTER TABLE `pages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `section`
+--
+ALTER TABLE `section`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `section_text`
+--
+ALTER TABLE `section_text`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT для сохранённых таблиц
+--
+
+--
+-- AUTO_INCREMENT для таблицы `constants`
+--
+ALTER TABLE `constants`
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT для таблицы `gallery`
+--
+ALTER TABLE `gallery`
+  MODIFY `id` int(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT для таблицы `pages`
+--
+ALTER TABLE `pages`
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT для таблицы `section`
+--
+ALTER TABLE `section`
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT для таблицы `section_text`
+--
+ALTER TABLE `section_text`
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
