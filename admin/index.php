@@ -43,42 +43,52 @@ switch($view){
 	case('gallery'):
 		$get_gallery = get_gallery();
 		// загружаем картинку
-		if(isset($_FILES['file'])){
-			$types = array(); // масса допустимых расширений
-			$types = array('image/gif', 'image/png', 'image/jpeg', 'image/x-png', 'image/pjpeg');
+		if(isset($_FILES['files'])){
+			for($i=0; $i < count($_FILES['files']['name']); $i++){
+				$error = "";
+				if($_FILES['files']['name'][$i]){
+					// получаем переменные по нашим картинкам
+					$filesName = $_FILES['files']['name'][$i]; // оригинальное имя картинки
+					$filesExt = strtolower(preg_replace("#.+\.([a-z]+)$#i", "$1", $filesName)); // получили расширение
+					$filesName = time()."_{$i}.".$filesExt; // новое имя картинки
+					$filesTmpName = $_FILES['files']['tmp_name'][$i]; // временное время картинки
+					$filesType = $_FILES['files']['type'][$i]; // mime-тип файла
+					$filesSize = $_FILES['files']['size'][$i]; // вес картинки
+					$filesError = $_FILES['files']['error'][$i]; // 0 - ОК, иначе - ошибка
 
-			$fileName = $_FILES['file']['name']; // оригинальное имя картинки
-			$fileExt = strtolower(preg_replace("#.+\.([a-z]+)$#i", "$1", $fileName)); // получили расширение
-			$fileName = "img1.{$fileExt}"; // новое имя картинки
-			$fileTmpName = $_FILES['file']['tmp_name']; // временное время картинки
-			$fileType = $_FILES['file']['type']; // mime-тип файла
-			$fileSize = $_FILES['file']['size']; // вес картинки
-			$fileError = $_FILES['file']['error']; // 0 - ОК, иначе - ошибка
+					$types = array(); // масса допустимых расширений
+					$types = array('image/gif', 'image/png', 'image/jpeg', 'image/x-png', 'image/pjpeg');
 
+					/* проверка файла на расширение */
+					if(!in_array($filesType, $types)) {
+					 $error .= "Допустимые расширения - .gif, .png, .jpg!<br />";
+					 $_SESSION['answer'] .= "Ошибка при загрузке картинки {$_FILES['files']['name'][$i]} <br> {$error}";
+					 continue; // прекращаем работу с картинкой
+					}
 
-			$error = "";
+					/* проверка файла на размер */
+					if($filesSize > SIZE){
+						$error .= "Максимальный вес файла - 1 мб";
+						$_SESSION['answer'] .= "Ошибка при загрузке картинки {$_FILES['files']['name'][$i]} <br> {$error}";
+						continue; // прекращаем работу с картинкой
+					}
 
-			/* проверка файлам */
-			if(!$fileTmpName) $error .= "Не выбран файл!<br />";
-			if(!in_array($fileType, $types)) $error .= "Допустимые расширения - .gif, .png, .jpg!<br />";
-			if($fileSize > SIZE) $error .= "Вы превысили размер файла, больше 1 мб. <br>";
-			if($fileError) $error .= "Ошибка при загрузке файла! <br>";
-			/* конец проверок */
+					/* ошибка при загрузке файла */
+					if($filesError){
+						$error .= "Ошибка при загрузке файла.";
+						$_SESSION['answer'] .= "Ошибка при загрузке картинки {$_FILES['files']['name'][$i]} <br> {$error}";
+						continue;
+					}
+					/* конец проверок */
 
-			/* делаем проверку */
-			if(!empty($error)){
-				// выводим ошибку по файлу
-				$_SESSION['res']['error'] = $error;
-				header("Location: {$_SERVER['REQUEST_URI']}");
-				exit;
-			}else{
-				/* загружаем картинку */
-				if(!move_uploaded_file($fileTmpName, $_SERVER['DOCUMENT_ROOT']."/images/pics/".$fileName)){
-					$_SESSION['res']['error'] = "{$fileTmpName} / {$fileName}";
-					header("Location: {$_SERVER['REQUEST_URI']}");
-					exit;
+					/* если нет ошибок, перемещаем фото на сервер */
+					if(empty($error)){
+						@move_uploaded_file($filesTmpName, $_SERVER['DOCUMENT_ROOT']."/images/pics/".$filesName);
+					}
+
 				}
 			}
+
 
 			// успешно загружен фото
 			$_SESSION['res']['ok'] = "Фото успешно загружено!";

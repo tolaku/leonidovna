@@ -5,7 +5,7 @@
                 <!-- Main content -->
                 <section class="content">
                 <?php 
-            
+         
                   if(isset($_SESSION['answer'])){
                     echo $_SESSION['answer'];
                     unset($_SESSION['answer']);
@@ -29,7 +29,7 @@
                                 <div class="panel-footer bg-white">
                                     <form action="#" method="post" enctype="multipart/form-data">
                                         <label for="file">Выбирите картинку</label>
-                                        <input type="file" name="file" id="file"><br />
+                                        <input type="file" name="files[]" id="file" multiple><br />
                                         <button class="btn btn-primary btn-addon btn-sm">
                                             <i class="fa fa-plus"></i>
                                             Добавить
