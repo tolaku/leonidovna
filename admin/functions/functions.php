@@ -93,6 +93,17 @@ function get_gallery(){
 }
 /* :выводим галлерею */
 
+/* Ресайз картинки */
+function resize($target, $dest, $wmax, $hmax, $ext){
+	// $target - путь к оригинальному файлу
+	// $desc - путь сохранения обработного файла
+	// $wmax - максимальная ширина
+	// $hmax - максимальная высота
+	// $ext - расширение файла 
+}
+/* Ресайз картинки */
+
+
 /* Редирект */
 function redirect($http = false){
 	if($http) $redirect = $http;
