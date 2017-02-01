@@ -83,22 +83,32 @@ switch($view){
 
 					/* если нет ошибок, перемещаем фото на сервер */
 					if(empty($error)){
-						@move_uploaded_file($filesTmpName, $_SERVER['DOCUMENT_ROOT']."/images/pics/".$filesName);
-						
-						$target = $_SERVER['DOCUMENT_ROOT']."/images/pics/".$filesName; // путь к оригинальному файлу
-						list($w_orig, $h_orig) = getimagesize($target);
+						if(@move_uploaded_file($filesTmpName, BIG.$filesName)){
 
+								$target = BIG.$filesName; // путь к оригинальному файлу
+								$dest = THUMB.$filesName; // путь к сохранению обработаному файлу
+
+								// запускаем функцию по ресайзу картинки
+								resize($target, $dest, WIDTH, HEIGHT, $filesExt);
+
+								// успешно загружены фото
+								$_SESSION['res']['ok'] .= "Фото успешно загружено!";
+								header("Location: {$_SERVER['REQUEST_URI']}");
+								exit;
+								
+
+								
+						}else{
+							$_SESSION['answer'] = "Не удалось переместить картинку! Проверьте права на папку /images/pics/";
+							}
+						
 					}
 
 				}
 			}
 
 
-			// успешно загружен фото
-			$_SESSION['res']['ok'] .= "Фото успешно загружено!";
-			$_SESSION['res']['ok'] .= "{$w_orig} | {$h_orig}";
-			header("Location: {$_SERVER['REQUEST_URI']}");
-			exit;
+
 
 		}
 	break;

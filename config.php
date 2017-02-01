@@ -15,8 +15,8 @@ define('TEMPLATE_ADMIN', './templates/'); // шаблон администрат
 
 define('WIDTH', 250); // максимальная по ширине
 define ('HEIGHT', 166); // максимальная по высоте
-define ('THUMB', 'images/gallery/thumbs/'); // путь к папке с обработанными картинками
-define ('BIG', '../images/pics/'); // путь к папке с загруженными картинками
+define ('THUMB', $_SERVER['DOCUMENT_ROOT']."/images/gallery/thumbs/"); // путь к папке с обработанными картинками
+define ('BIG', $_SERVER['DOCUMENT_ROOT']."/images/gallery/full/"); // путь к папке с загруженными картинками
 define ('SIZE', 1048576); // допустимый вес загружаемого файла - 1мб
 
 // сервер БД

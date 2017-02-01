@@ -4,12 +4,6 @@
 
                 <!-- Main content -->
                 <section class="content">
-                <?php 
-         
-                  if(isset($_SESSION['answer'])){
-                    echo $_SESSION['answer'];
-                    unset($_SESSION['answer']);
-                 } ?>
                 	<div class="col-md-5">
                             <div class="panel">
                                 <header class="panel-heading">
@@ -36,7 +30,12 @@
                                         </button>
                                     </form>
                                     <?php 
-                                    if(isset($_SESSION['res']['error'])) echo $_SESSION['res']['error']; 
+                                    /* Если не удалось загрузить картинку на сервер, выводим сообщение */
+                                    if(isset($_SESSION['answer'])){
+                                        echo $_SESSION['answer'];
+                                        unset($_SESSION['answer']);
+                                    }
+                                    /* Успешно загрузили картинку на сервер */
                                     if(isset($_SESSION['res']['ok'])) echo $_SESSION['res']['ok'];
                                     ?>
                                     <?php unset($_SESSION['res']) ?>

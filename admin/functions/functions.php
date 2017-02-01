@@ -96,10 +96,67 @@ function get_gallery(){
 /* Ресайз картинки */
 function resize($target, $dest, $wmax, $hmax, $ext){
 	// $target - путь к оригинальному файлу
-	// $desc - путь сохранения обработного файла
+	// $dest - путь сохранения обработаного файла
 	// $wmax - максимальная ширина
 	// $hmax - максимальная высота
 	// $ext - расширение файла 
+
+	list($w_orig, $h_orig) = getimagesize($target); // получаем размер картинки / we get the picture size
+
+	// получаем коэфициент соотношений размеров данной картинки, 1 - квадрат, <1 - портретная, >1 - альбомная
+	$ratio = $w_orig / $h_orig;
+
+	// вычисляем не достающий размер
+	if(($wmax / $hmax) > $ratio){
+		// вычисляем ширину
+		$wmax = $hmax * $ratio;
+	}else{
+		// вычисляем высоту
+		$hmax = $wmax / $ratio;
+	}
+
+	$img = ""; // cоздаем пустое изображение
+	switch($ext){
+		case 'gif':
+			$img = imagecreatefromgif($target); // создаем копию и сохраняем в пустое созданое изображение
+			break;
+		case 'png':
+			$img = imagecreatefrompng($target);
+			break;
+		default:
+			$img = imagecreatefromjpeg($target);
+	}
+
+	// создаем оболочку для новой картинки
+	$newimg = imagecreatetruecolor($wmax, $hmax);
+
+	// png оставляем прозрачность
+	if($ext == 'png'){
+		imagesavealpha($newimg, true); // сохранение альфа канала
+		$transPng = imagecolorallocatealpha($newimg, 0, 0, 0, 127); // создаем прозрачность
+		imagefill($newimg, 0, 0, $transPng); 
+	}
+
+	// копию картинки $img помещаем в оболочку $newimg
+	imagecopyresampled($newimg, $img, 0, 0, 0, 0, $wmax, $hmax, $w_orig, $h_orig); // копируем и ресайзим изображение
+
+	// сохраняем картинку обработаную в папку и делаем качество по желанию
+	switch ($ext) {
+		case 'gif':
+			imagegif($newimg, $dest);
+			break;
+		case 'png':
+			imagepng($newimg, $dest);
+			break;
+		
+		default:
+			imagejpeg($newimg, $dest);
+			break;
+	}
+
+	// удаляем оболочку картинки
+	imagedestroy($newimg);
+
 }
 /* Ресайз картинки */
 
