@@ -41,7 +41,7 @@ switch($view){
 	
 	// редактирование галлереи
 	case('gallery'):
-		$get_gallery = get_gallery();
+		$get_gallery = get_gallery(); // выводим картинки
 		// загружаем картинку
 		if(isset($_FILES['files'])){
 			for($i=0; $i < count($_FILES['files']['name']); $i++){
@@ -91,25 +91,20 @@ switch($view){
 								// запускаем функцию по ресайзу картинки
 								resize($target, $dest, WIDTH, HEIGHT, $filesExt);
 
-								// успешно загружены фото
-								$_SESSION['res']['ok'] .= "Фото успешно загружено!";
-								header("Location: {$_SERVER['REQUEST_URI']}");
-								exit;
-								
-
-								
+								// заносим данные о картинке в БД
+								gallery_insert($_POST['title'], $_POST['name_a'], $_POST['name_b'], $_POST['text'], $filesName, $filesName);
 						}else{
-							$_SESSION['answer'] = "Не удалось переместить картинку! Проверьте права на папку /images/pics/";
-							}
-						
+								$_SESSION['answer'] = "Не удалось переместить картинку! Проверьте права на папку /images/pics/";
+							}					
 					}
 
 				}
 			}
 
-
-
-
+			// успешно загружены фото
+			$_SESSION['res']['ok'] .= "Фото успешно загружено!";
+			header("Location: {$_SERVER['REQUEST_URI']}");
+			exit;
 		}
 	break;
 

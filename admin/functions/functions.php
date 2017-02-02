@@ -160,6 +160,18 @@ function resize($target, $dest, $wmax, $hmax, $ext){
 }
 /* Ресайз картинки */
 
+/* Заносим даные о картинке */
+	function gallery_insert($title, $name_a, $name_b, $text, $img_thumbs, $img_full){
+		$title = clear_admin(trim($title));
+		$name_a = clear_admin(trim($name_a));
+		$name_b = clear_admin(trim($name_b));
+		$text = clear_admin(trim($text));
+
+		$query = "INSERT INTO gallery (title, name_a, name_b, text, img_thumbs, img_full)
+						VALUES ($title, $name_a, $name_b, $text, $img_thumbs, $img_full)";
+		mysqli_query($query) or die(mysql_error());
+	}
+/* :заносим даные о картинке */
 
 /* Редирект */
 function redirect($http = false){
@@ -169,5 +181,12 @@ function redirect($http = false){
 	exit;
 }
 /* :редирект */
+
+/* Фильтр входящих данных из админки */
+function clear_admin($var){
+	$var = mysqli_real_escape_string($var);
+	return $var;
+}
+/* :фильтр входящих данных из админки */
 
 ?>
