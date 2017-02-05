@@ -43,7 +43,7 @@ switch($view){
 	case('gallery'):
 		$get_gallery = get_gallery(); // выводим картинки
 		// загружаем картинку
-		if(isset($_FILES['files'])){
+		if(isset($_FILES['files']['name'])){
 			for($i=0; $i < count($_FILES['files']['name']); $i++){
 				$error = "";
 				if($_FILES['files']['name'][$i]){
@@ -101,8 +101,6 @@ switch($view){
 				}
 			}
 
-			// успешно загружены фото
-			$_SESSION['res']['ok'] .= "Фото успешно загружено!";
 			header("Location: {$_SERVER['REQUEST_URI']}");
 			exit;
 		}

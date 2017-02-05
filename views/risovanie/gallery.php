@@ -1,4 +1,3 @@
-<?php//print_arr($gallery) ?>
             <div class="main">
             		<div class="inner">
                     	<section>
@@ -7,11 +6,11 @@
 					<?php foreach($gallery as $item): $i++?>
 					<li>
 						<a href="#<?=$i?>">
-							<img src="<?=$item['img_thumbs']?>">
+							<img src="/images/gallery/thumbs/<?=$item['img_thumbs']?>">
 							<span><?=$item['title']?></span>
 						</a>
 						<div class="lb-overlay" id="<?=$i?>">
-							<img src="<?=$item['img_full']?>" />
+							<img src="/images/gallery/full/<?=$item['img_full']?>" />
 							<div>
 								<h3><?=$item['name_a']?> <span>/<?=$item['name_b']?>/</h3>
 								<p><?=$item['text']?></p>

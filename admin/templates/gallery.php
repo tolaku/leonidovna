@@ -13,7 +13,7 @@
                                 <ul class="list-group teammates">
                                     <li class="list-group-item">
                                     <?php foreach($get_gallery as $item): ?>
-                                        <img src="../<?=$item['img_thumbs']?>" width="100" height="100">
+                                        <img src="/images/gallery/thumbs/<?=$item['img_thumbs']?>" width="100" height="100">
                                     <?php endforeach; ?>
                                     </li>
                                   
@@ -22,8 +22,13 @@
                             <?php endif; ?>
                                 <div class="panel-footer bg-white">
                                     <form action="#" method="post" enctype="multipart/form-data">
-                                        <label for="file">Выбирите картинку</label>
-                                        <input type="file" name="files[]" id="file" multiple><br />
+                                        <label for="file">Загрузить фотографии</label>
+                                        <p><input type="file" name="files[]" id="file" multiple></p>
+                                        <p><input type="text" name="title" placeholder=" № класса"></p>
+                                        <p><input type="text" name="name_a" placeholder=" имя"></p>
+                                        <p><input type="text" name="name_b" placeholder=" событие"></p>
+                                        <p><textarea rows="4" cols="45" name="text" placeholder="Мы стараемся дорожить друг другом ....."></textarea></p>
+                                        
                                         <button class="btn btn-primary btn-addon btn-sm">
                                             <i class="fa fa-plus"></i>
                                             Добавить

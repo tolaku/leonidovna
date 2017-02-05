@@ -162,14 +162,21 @@ function resize($target, $dest, $wmax, $hmax, $ext){
 
 /* Заносим даные о картинке */
 	function gallery_insert($title, $name_a, $name_b, $text, $img_thumbs, $img_full){
-		$title = clear_admin(trim($title));
-		$name_a = clear_admin(trim($name_a));
-		$name_b = clear_admin(trim($name_b));
-		$text = clear_admin(trim($text));
+		$title = trim($title);
+		$name_a = trim($name_a);
+		$name_b = trim($name_b);
+		$text = trim($text);
 
+		global $db;
 		$query = "INSERT INTO gallery (title, name_a, name_b, text, img_thumbs, img_full)
-						VALUES ($title, $name_a, $name_b, $text, $img_thumbs, $img_full)";
-		mysqli_query($query) or die(mysql_error());
+						VALUES ('$title', '$name_a', '$name_b', '$text', '$img_thumbs', '$img_full')";
+						//exit($query);
+		$result = mysqli_query($db, $query) or die(mysqli_error());
+		// отправить ссесию сообщение, фото добавлено.
+		if(mysqli_affected_rows($db) > 0){
+			// успешно загружены фото
+			$_SESSION['res']['ok'] .= "Фото успешно загружено!";
+		}
 	}
 /* :заносим даные о картинке */
 
