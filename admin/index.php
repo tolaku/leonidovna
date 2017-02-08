@@ -104,6 +104,14 @@ switch($view){
 			header("Location: {$_SERVER['REQUEST_URI']}");
 			exit;
 		}
+
+		// редактируем картинку
+		if(isset($_GET['edit_id'])){
+			$id = trim((int)$_GET['edit_id']);
+			// выводим информацию по картинке
+			$edit_gallery = get_gallery_id($id);
+		}
+
 	break;
 
 	default:

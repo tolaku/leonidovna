@@ -4231,3 +4231,15 @@ padding: 6px 10px;
   color:red;
   margin:5px 0;
 }
+
+/* Удаление картинки */
+.small {font-size: 10px;}
+.list-group-item img{
+  border:1px solid #000;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.clear {
+  clear: both;
+}

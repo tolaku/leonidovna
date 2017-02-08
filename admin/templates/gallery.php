@@ -12,8 +12,10 @@
                             <?php if($get_gallery): ?>
                                 <ul class="list-group teammates">
                                     <li class="list-group-item">
+                                    <span class="small">Для редактирования или удаления картинки, кликните по ней</span>
+                                    <div class="clear"> </div>
                                     <?php foreach($get_gallery as $item): ?>
-                                        <img src="/images/gallery/thumbs/<?=$item['img_thumbs']?>" width="100" height="100">
+                                        <a href="?view=gallery&edit_id=<?=$item['id']?>"><img src="/images/gallery/thumbs/<?=$item['img_thumbs']?>" width="100" height="100"></a>
                                     <?php endforeach; ?>
                                     </li>
                                   

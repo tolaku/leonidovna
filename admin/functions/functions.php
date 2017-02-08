@@ -180,6 +180,16 @@ function resize($target, $dest, $wmax, $hmax, $ext){
 	}
 /* :заносим даные о картинке */
 
+/* Редактирование картинок из галлереи */
+	function get_gallery_id($id){
+		global $db;
+		$query = "SELECT title, name_a, name_b, text FROM gallery WHERE id=$id";
+		$result = mysqli_query($db, $query);
+
+		
+	}
+/* редактирование картинок из галлереи */
+
 /* Редирект */
 function redirect($http = false){
 	if($http) $redirect = $http;
