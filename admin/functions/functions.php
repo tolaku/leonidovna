@@ -183,10 +183,30 @@ function resize($target, $dest, $wmax, $hmax, $ext){
 /* Редактирование картинок из галлереи */
 	function get_gallery_id($id){
 		global $db;
-		$query = "SELECT title, name_a, name_b, text FROM gallery WHERE id=$id";
+		$query = "SELECT title, name_a, name_b, text, img_thumbs FROM gallery WHERE id=$id";
 		$result = mysqli_query($db, $query);
 
-		
+		$get_gallery_id = array();
+		while ( $row = mysqli_fetch_assoc($result)) {
+			$get_gallery_id[] = $row;
+		}
+		return $get_gallery_id;
+	}
+
+	function edit_gallery($id){
+	//	$title = trim($_POST['title']);
+	//	$name_a = trim($_POST['name_a']);
+		//$name_b = trim($_POST['name_b']);
+	//	$text = trim($_POST['text']);
+		//global $db;
+		// $query = "UPDATE gallery SET title='$title', name_a='$name_a', name_b='$name_b', text='$text' WHERE id = $id";
+		// mysqli_query($db, $query) or die(mysqli_error());
+
+	//	if(mysqli_affected_rows($db) > 0){
+		//	return true;
+	//	}else{
+		//	return false;
+	//	}
 	}
 /* редактирование картинок из галлереи */
 

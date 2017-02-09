@@ -105,13 +105,21 @@ switch($view){
 			exit;
 		}
 
-		// редактируем картинку
+		// получаем данные о картинки
 		if(isset($_GET['edit_id'])){
 			$id = trim((int)$_GET['edit_id']);
 			// выводим информацию по картинке
-			$edit_gallery = get_gallery_id($id);
+			$get_gallery_id = get_gallery_id($id);
 		}
 
+		// редактируем данные о картинке
+		if(isset($_GET['update'])){
+			if(edit_gallery($id)){
+				$_SESSION['res']['ok'] = "Успешно обновлено!";
+			}else{
+				$_SESSION['answer'] = "Данные не обновились!";
+			}
+		}
 	break;
 
 	default:
