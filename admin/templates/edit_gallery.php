@@ -2,12 +2,12 @@
                 
                     <aside class="right-side">
                 <!-- Main content -->
-                <?php if(isset($_GET['update'])) print_arr($_POST)  ?>
+                <?php print_arr($get_gallery); ?>
                 <section class="content">
                 	<div class="col-md-5">
                             <div class="panel">
                                 <header class="panel-heading">
-                                    Добавить фото в галерея
+                                    Редактируем фото
                                 </header>
                             <?php if($get_gallery): ?>
                                 <ul class="list-group teammates">
@@ -26,15 +26,18 @@
                                     <form method="post" enctype="multipart/form-data">
                                         <label for="file">Загрузить фотографии</label>
                                         <p><input type="file" name="files[]" id="file" multiple></p>
-                                        <p><input type="text" name="title" placeholder=" № класса"></p>
-                                        <p><input type="text" name="name_a" placeholder=" имя"></p>
-                                        <p><input type="text" name="name_b" placeholder=" событие"></p>
-                                        <input type="hidden" name="id" value="<?=$get_gallery_id[0]['id']?>">
-                                        <p><textarea rows="4" cols="45" name="text" placeholder="Мы стараемся дорожить друг другом ....."><?=$get_gallery_id[0]['text']?></textarea></p>
+                                        <?php if(isset($get_gallery[0]['img_thumbs'])): ?>
+                                        <p><img src="/images/gallery/thumbs/<?=$get_gallery[0]['img_thumbs']?>" width="100" height="100"></p>
+                                        <?php endif; ?>
+                                        <p><input type="text" name="title" value="<?=$get_gallery[0]['title']?>" placeholder=" № класса"></p>
+                                        <p><input type="text" name="name_a" value="<?=$get_gallery[0]['name_a']?>" placeholder=" имя"></p>
+                                        <p><input type="text" name="name_b" value="<?=$get_gallery[0]['name_b']?>" placeholder=" событие"></p>
+                                        <input type="hidden" name="id" value="<?=$get_gallery[0]['id']?>">
+                                        <p><textarea rows="4" cols="45" name="text" placeholder="Мы стараемся дорожить друг другом ....."><?=$get_gallery[0]['text']?></textarea></p>
                                         
                                         <button class="btn btn-primary btn-addon btn-sm">
                                             <i class="fa fa-plus"></i>
-                                            Добавить
+                                            <?php if(isset($_GET['edit_id'])) echo 'Обновить'; else echo 'Добавить'; ?>
                                         </button>
                                     </form>
                                     <?php 
@@ -51,8 +54,3 @@
                             </div>
                         </div>
                         </section>
-
-
-                    
-
-                   

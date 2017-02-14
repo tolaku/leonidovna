@@ -39,7 +39,7 @@ switch($view){
 		}
 	break;
 	
-	// редактирование галлереи
+	// Добавление галлереи
 	case('gallery'):
 		$get_gallery = get_gallery(); // выводим картинки
 		// загружаем картинку
@@ -105,21 +105,12 @@ switch($view){
 			exit;
 		}
 
-		// получаем данные о картинки
-		if(isset($_GET['edit_id'])){
-			$id = trim((int)$_GET['edit_id']);
-			// выводим информацию по картинке
-			$get_gallery_id = get_gallery_id($id);
-		}
+	break;
 
-		// редактируем данные о картинке
-		if(isset($_GET['update'])){
-			if(edit_gallery($id)){
-				$_SESSION['res']['ok'] = "Успешно обновлено!";
-			}else{
-				$_SESSION['answer'] = "Данные не обновились!";
-			}
-		}
+	// редактирование галлереи
+	case('edit_gallery'):
+		$get_gallery = get_gallery(); // выводим галлерею
+		 // выводим данные для редактирование, полученные через id
 	break;
 
 	default:
