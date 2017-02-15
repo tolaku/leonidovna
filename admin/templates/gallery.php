@@ -2,12 +2,11 @@
                 
                     <aside class="right-side">
                 <!-- Main content -->
-                <?php if(isset($_GET['update'])) print_arr($_POST)  ?>
                 <section class="content">
                 	<div class="col-md-5">
                             <div class="panel">
                                 <header class="panel-heading">
-                                    Добавить фото в галерея
+                                    Добавить фото в галерею
                                 </header>
                             <?php if($get_gallery): ?>
                                 <ul class="list-group teammates">

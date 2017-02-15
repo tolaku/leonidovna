@@ -2,7 +2,6 @@
                 
                     <aside class="right-side">
                 <!-- Main content -->
-                <?php print_arr($get_gallery); ?>
                 <section class="content">
                 	<div class="col-md-5">
                             <div class="panel">
@@ -26,18 +25,18 @@
                                     <form method="post" enctype="multipart/form-data">
                                         <label for="file">Загрузить фотографии</label>
                                         <p><input type="file" name="files[]" id="file" multiple></p>
-                                        <?php if(isset($get_gallery[0]['img_thumbs'])): ?>
-                                        <p><img src="/images/gallery/thumbs/<?=$get_gallery[0]['img_thumbs']?>" width="100" height="100"></p>
+                                        <?php if(isset($get_gallery_id['img_thumbs'])): ?>
+                                        <p><img src="/images/gallery/thumbs/<?=$get_gallery_id['img_thumbs']?>" width="100" height="100"></p>
                                         <?php endif; ?>
-                                        <p><input type="text" name="title" value="<?=$get_gallery[0]['title']?>" placeholder=" № класса"></p>
-                                        <p><input type="text" name="name_a" value="<?=$get_gallery[0]['name_a']?>" placeholder=" имя"></p>
-                                        <p><input type="text" name="name_b" value="<?=$get_gallery[0]['name_b']?>" placeholder=" событие"></p>
-                                        <input type="hidden" name="id" value="<?=$get_gallery[0]['id']?>">
-                                        <p><textarea rows="4" cols="45" name="text" placeholder="Мы стараемся дорожить друг другом ....."><?=$get_gallery[0]['text']?></textarea></p>
+                                        <p><input type="text" name="title" value="<?=$get_gallery_id['title']?>" placeholder=" № класса"></p>
+                                        <p><input type="text" name="name_a" value="<?=$get_gallery_id['name_a']?>" placeholder=" имя"></p>
+                                        <p><input type="text" name="name_b" value="<?=$get_gallery_id['name_b']?>" placeholder=" событие"></p>
+                                        <input type="hidden" name="get_gallery_id" value="<?=$get_gallery_id['id']?>">
+                                        <p><textarea rows="4" cols="45" name="text" placeholder="Мы стараемся дорожить друг другом ....."><?=$get_gallery_id['text']?></textarea></p>
                                         
                                         <button class="btn btn-primary btn-addon btn-sm">
                                             <i class="fa fa-plus"></i>
-                                            <?php if(isset($_GET['edit_id'])) echo 'Обновить'; else echo 'Добавить'; ?>
+                                            <?php if(isset($_GET['id'])) echo 'Обновить'; else echo 'Добавить'; ?>
                                         </button>
                                     </form>
                                     <?php 

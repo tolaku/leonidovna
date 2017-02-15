@@ -93,6 +93,18 @@ function get_gallery(){
 }
 /* :выводим галерею */
 
+/* Выводим галлерею по id */
+function get_gallery_id($id){
+	global $db;
+	$query = "SELECT * FROM gallery WHERE id = $id";
+	$result = mysqli_query($db, $query);
+
+	$get_gallery_id = array();
+	$get_gallery_id = mysqli_fetch_assoc($result);
+	return $get_gallery_id;
+}
+/* выводим галлерею по id */
+
 /* Ресайз картинки */
 function resize($target, $dest, $wmax, $hmax, $ext){
 	// $target - путь к оригинальному файлу

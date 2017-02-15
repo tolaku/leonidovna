@@ -109,8 +109,12 @@ switch($view){
 
 	// редактирование галлереи
 	case('edit_gallery'):
-		$get_gallery = get_gallery(); // выводим галлерею
-		 // выводим данные для редактирование, полученные через id
+			$get_gallery = get_gallery(); // выводим галлерею
+			$id = (int)$_GET['id'];
+			$get_gallery_id = get_gallery_id($id); // выводим данные для редактирование, полученные через id
+			if(isset($_POST['get_gallery_id'])){
+				
+			}
 	break;
 
 	default:
