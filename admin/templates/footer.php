@@ -35,6 +35,9 @@
         <!-- Director dashboard demo (This is only for demo purposes) -->
         <script src="<?=TEMPLATE_ADMIN?>js/Director/dashboard.js" type="text/javascript"></script>
 
+        <!-- Подключение скриптов для нужд админки -->
+        <script src="<?=TEMPLATE_ADMIN?>js/workscripts.js" type="text/javascript"></script>
+
         <!-- Director for demo purposes -->
         <script type="text/javascript">
             $('input').on('ifChecked', function(event) {

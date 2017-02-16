@@ -6,15 +6,23 @@
                 	<div class="col-md-5">
                             <div class="panel">
                                 <header class="panel-heading">
-                                    Редактируем фото
+                                    <a href="/admin/index.php?view=gallery">Добавить фото</a> | Редактируем фото
                                 </header>
                             <?php if($get_gallery): ?>
                                 <ul class="list-group teammates">
                                     <li class="list-group-item">
-                                    <span class="small">Для редактирования или удаления картинки, кликните по ней</span>
+                                    
                                     <div class="clear"> </div>
                                     <?php foreach($get_gallery as $item): ?>
-                                        <a href="?view=edit_gallery&id=<?=$item['id']?>"><img src="/images/gallery/thumbs/<?=$item['img_thumbs']?>" width="100" height="100"></a>
+                                        <span style="width: 20px">
+                                            <a href="?view=edit_gallery&amp;id=<?=$item['id']?>">
+                                                <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
+                                            </a>
+                                            <a class="del" href="?view=del_gallery&amp;del_id=<?=$item['id']?>">
+                                                <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
+                                            </a>
+                                        </span>
+                                        <a href="?view=edit_gallery&amp;id=<?=$item['id']?>"><img src="/images/gallery/thumbs/<?=$item['img_thumbs']?>" width="100" height="100"></a>
                                     <?php endforeach; ?>
                                     </li>
                                   

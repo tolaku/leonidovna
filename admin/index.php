@@ -112,9 +112,32 @@ switch($view){
 			$get_gallery = get_gallery(); // выводим галлерею
 			$id = (int)$_GET['id'];
 			$get_gallery_id = get_gallery_id($id); // выводим данные для редактирование, полученные через id
+			// отредактиривали, отправляем в БД
 			if(isset($_POST['get_gallery_id'])){
-				
+				$id = (int)$_POST['get_gallery_id'];
+				$title = trim($_POST['title']);
+				$name_a = trim($_POST['name_a']);
+				$name_b = trim($_POST['name_b']);
+				$text = trim($_POST['text']);
+
+				if(editGallery($id, $title, $name_a, $name_b, $text)){
+					$_SESSION['res']['ok'] = "Обновлено!";
+					header("Location: /admin/index.php?view=edit_gallery"); // возращаемся в добавление фото галереи
+					exit;
+				}else{
+					$_SESSION['answer'] = "Ошибка обновления!";
+					header("Location: {$_SERVER['PHP_SELF']}");
+					exit;
+				}
+
 			}
+	break;
+
+	// удаление галереи
+	case('del_gallery'):
+		$del_id = (int)$_GET['del_id']; // получаем id на удаление фото
+		delGallery($del_id); // вызываем функуию на удаление фото по id
+		header("Location: /admin/index.php?view=edit_gallery");
 	break;
 
 	default:

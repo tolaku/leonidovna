@@ -14,7 +14,7 @@
                                     <span class="small">Для редактирования или удаления картинки, кликните по ней</span>
                                     <div class="clear"> </div>
                                     <?php foreach($get_gallery as $item): ?>
-                                        <a href="?view=edit_gallery&id=<?=$item['id']?>"><img src="/images/gallery/thumbs/<?=$item['img_thumbs']?>" width="100" height="100"></a>
+                                        <a href="?view=edit_gallery&amp;id=<?=$item['id']?>"><img src="/images/gallery/thumbs/<?=$item['img_thumbs']?>" width="100" height="100"></a>
                                     <?php endforeach; ?>
                                     </li>
                                   

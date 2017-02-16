@@ -93,7 +93,7 @@ function get_gallery(){
 }
 /* :выводим галерею */
 
-/* Выводим галлерею по id */
+/* Выводим галерею по id */
 function get_gallery_id($id){
 	global $db;
 	$query = "SELECT * FROM gallery WHERE id = $id";
@@ -104,6 +104,36 @@ function get_gallery_id($id){
 	return $get_gallery_id;
 }
 /* выводим галлерею по id */
+
+/* Редактируем галерею имея id */
+function editGallery($id, $title, $name_a, $name_b, $text){
+	global $db;
+	$query = "UPDATE gallery SET title = '$title', name_a = '$name_a', name_b = '$name_b', text = '$text' WHERE id = $id";
+	$result = mysqli_query($db, $query) or die(mysqli_error());
+
+	if(mysqli_affected_rows($db) > 0){
+		return true;
+	}else{
+		return false;
+	}
+}
+/* :редактируем галерею имея id */
+
+/* Удаляем галерею*/
+function delGallery($del_id){
+	global $db;
+	$query = "DELETE FROM gallery WHERE id = $del_id";
+	$result = mysqli_query($db, $query);
+
+	if(mysqli_affected_rows($db) > 0){
+		$_SESSION['answer'] = "Фото удалено!";
+		return true;
+	}else{
+		$_SESSION['answer'] = "Ошибка удаления!";
+		return false;
+	}
+}
+/* :удаляем галерею*/
 
 /* Ресайз картинки */
 function resize($target, $dest, $wmax, $hmax, $ext){
@@ -191,11 +221,6 @@ function resize($target, $dest, $wmax, $hmax, $ext){
 		}
 	}
 /* :заносим даные о картинке */
-
-/* Редактирование картинок из галлереи */
-
-
-/* :редактирование картинок из галлереи */
 
 /* Редирект */
 function redirect($http = false){
