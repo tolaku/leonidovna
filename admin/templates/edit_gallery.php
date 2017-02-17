@@ -2,6 +2,7 @@
                 
                     <aside class="right-side">
                 <!-- Main content -->
+                <?php if(isset($_FILES['files'])) print_arr($_FILES['files']); ?>
                 <section class="content">
                 	<div class="col-md-5">
                             <div class="panel">
@@ -31,8 +32,8 @@
                             <?php endif; ?>
                                 <div class="panel-footer bg-white">
                                     <form method="post" enctype="multipart/form-data">
-                                        <label for="file">Загрузить фотографии</label>
-                                        <p><input type="file" name="files[]" id="file" multiple></p>
+                                        <label for="file">Изменить фото</label>
+                                        <p><input type="file" name="files" id="file"></p>
                                         <?php if(isset($get_gallery_id['img_thumbs'])): ?>
                                         <p><img src="/images/gallery/thumbs/<?=$get_gallery_id['img_thumbs']?>" width="100" height="100"></p>
                                         <?php endif; ?>

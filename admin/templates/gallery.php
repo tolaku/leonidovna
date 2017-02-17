@@ -28,8 +28,7 @@
                                         <p><input type="text" name="title" placeholder=" № класса"></p>
                                         <p><input type="text" name="name_a" placeholder=" имя"></p>
                                         <p><input type="text" name="name_b" placeholder=" событие"></p>
-                                        <input type="hidden" name="id" value="<?=$get_gallery_id[0]['id']?>">
-                                        <p><textarea rows="4" cols="45" name="text" placeholder="Мы стараемся дорожить друг другом ....."><?=$get_gallery_id[0]['text']?></textarea></p>
+                                        <p><textarea rows="4" cols="45" name="text" placeholder="Мы стараемся дорожить друг другом ....."></textarea></p>
                                         
                                         <button class="btn btn-primary btn-addon btn-sm">
                                             <i class="fa fa-plus"></i>

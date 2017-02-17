@@ -47,6 +47,7 @@ switch($view){
 			for($i=0; $i < count($_FILES['files']['name']); $i++){
 				$error = "";
 				if($_FILES['files']['name'][$i]){
+					
 					// получаем переменные по нашим картинкам
 					$filesName = $_FILES['files']['name'][$i]; // оригинальное имя картинки
 					$filesExt = strtolower(preg_replace("#.+\.([a-z]+)$#i", "$1", $filesName)); // получили расширение
@@ -110,8 +111,11 @@ switch($view){
 	// редактирование галлереи
 	case('edit_gallery'):
 			$get_gallery = get_gallery(); // выводим галлерею
-			$id = (int)$_GET['id'];
-			$get_gallery_id = get_gallery_id($id); // выводим данные для редактирование, полученные через id
+			if(isset($_GET['id'])){
+				$id = (int)$_GET['id'];
+				$get_gallery_id = get_gallery_id($id); // выводим данные для редактирование, полученные через id
+			}
+			
 			// отредактиривали, отправляем в БД
 			if(isset($_POST['get_gallery_id'])){
 				$id = (int)$_POST['get_gallery_id'];
@@ -120,16 +124,23 @@ switch($view){
 				$name_b = trim($_POST['name_b']);
 				$text = trim($_POST['text']);
 
+				// проверяем и загружаем фото
+				if(isset($_FILES['files']['name'])){
+					insert_img(); // функция для провери и отправки на сервер images
+					
+				}
+
+				/*
 				if(editGallery($id, $title, $name_a, $name_b, $text)){
 					$_SESSION['res']['ok'] = "Обновлено!";
-					header("Location: /admin/index.php?view=edit_gallery"); // возращаемся в добавление фото галереи
+					header("Location: /admin/index.php?view=gallery"); // возращаемся в добавление фото галереи
 					exit;
 				}else{
 					$_SESSION['answer'] = "Ошибка обновления!";
 					header("Location: {$_SERVER['PHP_SELF']}");
 					exit;
 				}
-
+				*/
 			}
 	break;
 
@@ -137,7 +148,7 @@ switch($view){
 	case('del_gallery'):
 		$del_id = (int)$_GET['del_id']; // получаем id на удаление фото
 		delGallery($del_id); // вызываем функуию на удаление фото по id
-		header("Location: /admin/index.php?view=edit_gallery");
+		header("Location: /admin/index.php?view=gallery");
 	break;
 
 	default:

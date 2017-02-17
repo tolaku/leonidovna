@@ -135,6 +135,12 @@ function delGallery($del_id){
 }
 /* :удаляем галерею*/
 
+/* Проверяем images перед загрузкой */
+function insert_img(){
+	$fileName = $_FILES['files']['name']; 
+}
+/* :проверяем фото перед загрузкой на сервер */
+
 /* Ресайз картинки */
 function resize($target, $dest, $wmax, $hmax, $ext){
 	// $target - путь к оригинальному файлу
