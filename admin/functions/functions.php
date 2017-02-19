@@ -136,8 +136,45 @@ function delGallery($del_id){
 /* :удаляем галерею*/
 
 /* Проверяем images перед загрузкой */
-function insert_img(){
-	$fileName = $_FILES['files']['name']; 
+function insertImg(){
+	$fileName = $_FILES['files']['name'];
+	$fileExt = strtolower(preg_replace("#.+\.([a-z]+)$#i", "$1", $fileName)); // получаем расширение с помощью регулярного выражения
+	$fileName = time().".".$fileExt; // заменяем имя на секунды Unix
+	$fileTmpName = $_FILES['files']['tmp_name']; // получаем временное имя картинке
+	$fileType = $_FILES['files']['type']; // получаем тип файла
+	$fileSize = $_FILES['files']['size']; // вес файла
+	$fileError = $_FILES['files']['error']; // 0 - ok, иначе - ошибка
+
+	$types = array();  // масив допустимых расширений
+	$types = array('image/gif', 'image/png', 'image/jpeg', 'image/x-png', 'image/pjpeg');
+
+	$error = "";
+
+	/* проверяем файл на расширение */
+	if(!in_array($fileType, $types)){
+		$error .= "Допустимые расширения - .gif, .png, .jpeg! <br>";
+		$_SESSION['answer'] .= "Ошибка при загрузке картинки - {$_FILES['files']['name']}<br>{$error}";
+		exit; // прекращаем работу с картинкой
+	}
+
+	/* проверяем файл на размер */
+	if($fileSize > SIZE){
+		$error .= "Максимальный вес файла - 1мб.";
+		$_SESSION['answer'] .= "Ошибка при загрузке картинки - {$_FILES['files']['name']}<br>{$error}";
+		exit;
+	}
+
+	/* ошибка при загрузке файла */
+	if($fileError){
+		$error .= "Ошибка при загрузке файла";
+		$_SESSION['answer'] .= "Ошибка при загрузке картинки - {$_FILES['files']['name']}<br>{$error}";
+		exit;
+	}
+
+	/* если нет ошибок перемещаем фото на сервер */
+	if(empty($error)){
+
+	}
 }
 /* :проверяем фото перед загрузкой на сервер */
 

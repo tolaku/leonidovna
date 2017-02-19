@@ -2,7 +2,7 @@
                 
                     <aside class="right-side">
                 <!-- Main content -->
-                <?php if(isset($_FILES['files'])) print_arr($_FILES['files']); ?>
+                <?php if(isset($_FILES['files']['name'])) print_arr($_FILES['files']);?>
                 <section class="content">
                 	<div class="col-md-5">
                             <div class="panel">
