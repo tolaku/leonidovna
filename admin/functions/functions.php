@@ -154,6 +154,7 @@ function insertImg(){
 	if(!in_array($fileType, $types)){
 		$error .= "Допустимые расширения - .gif, .png, .jpeg! <br>";
 		$_SESSION['answer'] .= "Ошибка при загрузке картинки - {$_FILES['files']['name']}<br>{$error}";
+		return $_SESSION['answer'];
 		exit; // прекращаем работу с картинкой
 	}
 
@@ -161,6 +162,7 @@ function insertImg(){
 	if($fileSize > SIZE){
 		$error .= "Максимальный вес файла - 1мб.";
 		$_SESSION['answer'] .= "Ошибка при загрузке картинки - {$_FILES['files']['name']}<br>{$error}";
+		return $_SESSION['answer'];
 		exit;
 	}
 
@@ -168,12 +170,19 @@ function insertImg(){
 	if($fileError){
 		$error .= "Ошибка при загрузке файла";
 		$_SESSION['answer'] .= "Ошибка при загрузке картинки - {$_FILES['files']['name']}<br>{$error}";
+		return $_SESSION['answer'];
 		exit;
 	}
 
 	/* если нет ошибок перемещаем фото на сервер */
 	if(empty($error)){
+		if(@move_uploaded_file($fileTmpName, BIG.$fileName)){
+			return $target = BIG.$fileName; // путь к оригинальному файлу
+			return $dest = THUMB.$fileName; // путь к сохранению обработаному файлу
 
+			// запускаем функцию по ресайзу картинки
+			resize($target, $dest, WIDTH, HEIGHT, $filesExt);
+		}
 	}
 }
 /* :проверяем фото перед загрузкой на сервер */

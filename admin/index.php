@@ -125,13 +125,14 @@ switch($view){
 				$text = trim($_POST['text']);
 
 				// проверяем и загружаем фото
-				if(isset($_FILES['files']['name'])){
-					insertImg(); // функция для провери и отправки на сервер images
-					
+				if(!empty($_FILES['files']['name'])){
+					insertImg(); // функция для провери и отправки на сервер images	
+				}else{
+					// берем из $_POST
 				}
 
-				/*
-				if(editGallery($id, $title, $name_a, $name_b, $text)){
+				
+				if(editGallery($id, $title, $name_a, $name_b, $text, $filesName, $filesName)){
 					$_SESSION['res']['ok'] = "Обновлено!";
 					header("Location: /admin/index.php?view=gallery"); // возращаемся в добавление фото галереи
 					exit;
@@ -140,7 +141,7 @@ switch($view){
 					header("Location: {$_SERVER['PHP_SELF']}");
 					exit;
 				}
-				*/
+				
 			}
 	break;
 
