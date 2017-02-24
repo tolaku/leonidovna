@@ -95,7 +95,7 @@ switch($view){
 								// заносим данные о картинке в БД
 								gallery_insert($_POST['title'], $_POST['name_a'], $_POST['name_b'], $_POST['text'], $filesName, $filesName);
 						}else{
-								$_SESSION['answer'] = "Не удалось переместить картинку! Проверьте права на папку /images/pics/";
+								$_SESSION['answer'] = "Не удалось переместить картинку! Проверьте права на папку /images/gallery/";
 							}					
 					}
 
@@ -123,16 +123,20 @@ switch($view){
 				$name_a = trim($_POST['name_a']);
 				$name_b = trim($_POST['name_b']);
 				$text = trim($_POST['text']);
+				$img_thumbs = trim($_POST['img_thumbs']);
 
 				// проверяем и загружаем фото
 				if(!empty($_FILES['files']['name'])){
-					insertImg(); // функция для провери и отправки на сервер images	
+					$fileName = insertImg(); // функция для провери и отправки на сервер images
+					$img_thumbs = $fileName; // присвоили имя новой мини картинки
+					$img_full = $fileName; // присвоили имя новой max картинки
 				}else{
-					// берем из $_POST
+					$img_thumbs = $img_thumbs; // берем из $_POST если не было новой картинки.
+					$img_full = $img_thumbs;
 				}
 
 				
-				if(editGallery($id, $title, $name_a, $name_b, $text, $filesName, $filesName)){
+				if(editGallery($id, $title, $name_a, $name_b, $text, $img_thumbs, $img_full)){
 					$_SESSION['res']['ok'] = "Обновлено!";
 					header("Location: /admin/index.php?view=gallery"); // возращаемся в добавление фото галереи
 					exit;

@@ -106,9 +106,9 @@ function get_gallery_id($id){
 /* выводим галлерею по id */
 
 /* Редактируем галерею имея id */
-function editGallery($id, $title, $name_a, $name_b, $text){
+function editGallery($id, $title, $name_a, $name_b, $text, $img_thumbs, $img_full){
 	global $db;
-	$query = "UPDATE gallery SET title = '$title', name_a = '$name_a', name_b = '$name_b', text = '$text' WHERE id = $id";
+	$query = "UPDATE gallery SET title = '$title', name_a = '$name_a', name_b = '$name_b', text = '$text', img_thumbs = '$img_thumbs', img_full = '$img_full' WHERE id = $id";
 	$result = mysqli_query($db, $query) or die(mysqli_error());
 
 	if(mysqli_affected_rows($db) > 0){
@@ -177,13 +177,14 @@ function insertImg(){
 	/* если нет ошибок перемещаем фото на сервер */
 	if(empty($error)){
 		if(@move_uploaded_file($fileTmpName, BIG.$fileName)){
-			return $target = BIG.$fileName; // путь к оригинальному файлу
-			return $dest = THUMB.$fileName; // путь к сохранению обработаному файлу
+			$target = BIG.$fileName; // путь к оригинальному файлу
+			$dest = THUMB.$fileName; // путь к сохранению обработаному файлу
 
 			// запускаем функцию по ресайзу картинки
 			resize($target, $dest, WIDTH, HEIGHT, $filesExt);
 		}
 	}
+	return $fileName;
 }
 /* :проверяем фото перед загрузкой на сервер */
 

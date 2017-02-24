@@ -37,6 +37,7 @@
                                         <?php if(isset($get_gallery_id['img_thumbs'])): ?>
                                         <p><img src="/images/gallery/thumbs/<?=$get_gallery_id['img_thumbs']?>" width="100" height="100"></p>
                                         <?php endif; ?>
+                                        <input type="hidden" name="img_thumbs" value="<?=$get_gallery_id['img_thumbs']?>">
                                         <p><input type="text" name="title" value="<?=$get_gallery_id['title']?>" placeholder=" № класса"></p>
                                         <p><input type="text" name="name_a" value="<?=$get_gallery_id['name_a']?>" placeholder=" имя"></p>
                                         <p><input type="text" name="name_b" value="<?=$get_gallery_id['name_b']?>" placeholder=" событие"></p>
