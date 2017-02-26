@@ -135,7 +135,7 @@ function delGallery($del_id){
 }
 /* :удаляем галерею*/
 
-/* Проверяем images перед загрузкой */
+/* Проверяем images перед загрузкой и загружаем на сервер */
 function insertImg(){
 	$fileName = $_FILES['files']['name'];
 	$fileExt = strtolower(preg_replace("#.+\.([a-z]+)$#i", "$1", $fileName)); // получаем расширение с помощью регулярного выражения
@@ -154,24 +154,18 @@ function insertImg(){
 	if(!in_array($fileType, $types)){
 		$error .= "Допустимые расширения - .gif, .png, .jpeg! <br>";
 		$_SESSION['answer'] .= "Ошибка при загрузке картинки - {$_FILES['files']['name']}<br>{$error}";
-		return $_SESSION['answer'];
-		exit; // прекращаем работу с картинкой
 	}
 
 	/* проверяем файл на размер */
 	if($fileSize > SIZE){
 		$error .= "Максимальный вес файла - 1мб.";
 		$_SESSION['answer'] .= "Ошибка при загрузке картинки - {$_FILES['files']['name']}<br>{$error}";
-		return $_SESSION['answer'];
-		exit;
 	}
 
 	/* ошибка при загрузке файла */
 	if($fileError){
 		$error .= "Ошибка при загрузке файла";
 		$_SESSION['answer'] .= "Ошибка при загрузке картинки - {$_FILES['files']['name']}<br>{$error}";
-		return $_SESSION['answer'];
-		exit;
 	}
 
 	/* если нет ошибок перемещаем фото на сервер */
@@ -182,11 +176,17 @@ function insertImg(){
 
 			// запускаем функцию по ресайзу картинки
 			resize($target, $dest, WIDTH, HEIGHT, $filesExt);
+
+			return $fileName; // имя загруженной картинке на сервер
+		}else{
+			return $_SESSION['answer'] = "Не удалось переместить картинку! Проверьте права на папку /images/gallery/";
 		}
+	}else{
+		return $_SESSION['answer'];
 	}
-	return $fileName;
+	
 }
-/* :проверяем фото перед загрузкой на сервер */
+/* :проверяем фото перед загрузкой на сервер и загружаем на сервер */
 
 /* Ресайз картинки */
 function resize($target, $dest, $wmax, $hmax, $ext){
