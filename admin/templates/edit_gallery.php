@@ -52,7 +52,7 @@
                                     <?php 
                                     /* Если не удалось загрузить картинку на сервер, выводим сообщение */
                                     if(isset($_SESSION['answer'])){
-                                        echo $_SESSION['answer'];
+                                        print_arr($_SESSION);
                                         unset($_SESSION['answer']);
                                     }
                                     /* Успешно загрузили картинку на сервер */

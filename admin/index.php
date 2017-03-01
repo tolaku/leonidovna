@@ -128,8 +128,15 @@ switch($view){
 				// проверяем и загружаем фото
 				if(!empty($_FILES['files']['name'])){
 					$fileName = insertImg(); // функция для провери и отправки на сервер images
-					$img_thumbs = $fileName; // присвоили имя новой мини картинки
-					$img_full = $fileName; // присвоили имя новой max картинки
+					/// если ошибка, тода выводим ошибку, если не ошибка присваеваем к переменным $img_thu и $img_full
+					if($fileName != $_SESSION['answer']){
+						$img_thumbs = $fileName; // присвоили имя новой мини картинки
+						$img_full = $fileName; // присвоили имя новой max картинки
+					}else{
+						//return $_SESSION['answer'];
+						header("Location: ?{$_SERVER['QUERY_STRING']}");
+						exit;
+					}
 				}else{
 					$img_thumbs = $img_thumbs; // берем из $_POST если не было новой картинки.
 					$img_full = $img_thumbs;
