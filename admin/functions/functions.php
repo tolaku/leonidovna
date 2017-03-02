@@ -269,8 +269,7 @@ function resize($target, $dest, $wmax, $hmax, $ext){
 		$result = mysqli_query($db, $query) or die(mysqli_error());
 		// отправить ссесию сообщение, фото добавлено.
 		if(mysqli_affected_rows($db) > 0){
-			// успешно загружены фото
-			$_SESSION['res']['ok'] .= "Фото успешно загружено!";
+			return true;
 		}
 	}
 /* :заносим даные о картинке */

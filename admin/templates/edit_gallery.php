@@ -2,7 +2,7 @@
                 
                     <aside class="right-side">
                 <!-- Main content -->
-             
+
                 <section class="content">
                 	<div class="col-md-5">
                             <div class="panel">
@@ -19,7 +19,7 @@
                                             <a href="?view=edit_gallery&amp;id=<?=$item['id']?>">
                                                 <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
                                             </a>
-                                            <a class="del" href="?view=del_gallery&amp;del_id=<?=$item['id']?>">
+                                            <a class="del" href="?view=edit_gallery&amp;del_id=<?=$item['id']?>">
                                                 <button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button>
                                             </a>
                                         </span>

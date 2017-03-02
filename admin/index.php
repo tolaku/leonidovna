@@ -94,6 +94,7 @@ switch($view){
 
 								// заносим данные о картинке в БД
 								gallery_insert($_POST['title'], $_POST['name_a'], $_POST['name_b'], $_POST['text'], $filesName, $filesName);
+								$_SESSION['res']['ok'] = "Фото успешно загружено!";
 						}else{
 								$_SESSION['answer'] = "Не удалось переместить картинку! Проверьте права на папку /images/gallery/";
 							}					
@@ -124,14 +125,17 @@ switch($view){
 				$name_b = trim($_POST['name_b']);
 				$text = trim($_POST['text']);
 				$img_thumbs = trim($_POST['img_thumbs']);
+				$imgDel = trim($_POST['img_thumbs']); // получаем переменную для удаления картинки
 
 				// проверяем и загружаем фото
 				if(!empty($_FILES['files']['name'])){
 					$fileName = insertImg(); // функция для провери и отправки на сервер images
-					/// если ошибка, тода выводим ошибку, если не ошибка присваеваем к переменным $img_thu и $img_full
+					/// если ошибка, тода выводим ошибку, если нет ошибка присваеваем к переменным $img_thu и $img_full
 					if($fileName != $_SESSION['answer']){
 						$img_thumbs = $fileName; // присвоили имя новой мини картинки
 						$img_full = $fileName; // присвоили имя новой max картинки
+						@unlink(BIG.$imgDel); // удаление картики max
+						@unlink(THUMB.$imgDel); // удаление картинки min
 					}else{
 						//return $_SESSION['answer'];
 						header("Location: ?{$_SERVER['QUERY_STRING']}");
@@ -142,7 +146,7 @@ switch($view){
 					$img_full = $img_thumbs;
 				}
 
-				
+				// обновляем данные из галереи
 				if(editGallery($id, $title, $name_a, $name_b, $text, $img_thumbs, $img_full)){
 					$_SESSION['res']['ok'] = "Обновлено!";
 					header("Location: /admin/index.php?view=gallery"); // возращаемся в добавление фото галереи
@@ -154,13 +158,19 @@ switch($view){
 				}
 				
 			}
-	break;
 
-	// удаление галереи
-	case('del_gallery'):
-		$del_id = (int)$_GET['del_id']; // получаем id на удаление фото
-		delGallery($del_id); // вызываем функуию на удаление фото по id
-		header("Location: /admin/index.php?view=gallery");
+			// удаляем фото и данные по галереи
+			if(isset($_GET['del_id'])){
+				$del_id = (int)$_GET['del_id']; // получаем id на удаление фото
+				$get_gallery_id = get_gallery_id($del_id); // выводим данные для редактирование, полученные через id
+				$imgDel = $get_gallery_id['img_thumbs']; // получаем переменную имени картинки для удаления
+				if(delGallery($del_id)){ // вызываем функуию на удаление фото по id
+					@unlink(BIG.$imgDel); // удаление картики max
+					@unlink(THUMB.$imgDel); // удаление картинки min
+					header("Location: /admin/index.php?view=gallery");
+					exit;
+				}
+			}
 	break;
 
 	default:
