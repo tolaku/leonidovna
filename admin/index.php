@@ -25,7 +25,7 @@ switch($view){
 
 	// разделы
 	case('sections'):
-		$page_id = 1;
+		$page_id = 1; // номер страницы из БД
 		$section = section($page_id);
 	break;
 
@@ -171,6 +171,15 @@ switch($view){
 					exit;
 				}
 			}
+	break;
+
+	case('teacher'):
+		$page_id = 3; // номер id страницы из БД
+		$teacher = teacher($page_id); // получаем разделы учитель
+	break;
+
+	case('add_teacher'):
+		
 	break;
 
 	default:

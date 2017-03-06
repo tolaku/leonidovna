@@ -93,6 +93,24 @@ function get_gallery(){
 }
 /* :выводим галерею */
 
+/* Выводим разделы по странице учитель (teacher) */
+function teacher($page_id){
+	global $db;
+	$query = "SELECT id, name, img FROM section WHERE page_id = $page_id ORDER BY position";
+	$result = mysqli_query($db, $query) or die(mysqli_error());
+
+	$teacher = array();
+	while($row = mysqli_fetch_assoc($result)){
+		$teacher[] = $row;
+	}
+	return $teacher;
+}
+/* :выводим разделы по странице учитель (teacher) */
+
+/* Выводим teacher по id для редактирования */
+
+/* :выводим teacher по id для редактирования */
+
 /* Выводим галерею по id */
 function get_gallery_id($id){
 	global $db;
