@@ -35,7 +35,7 @@ switch($view){
 		$get_section = get_section($id);
 		if($_POST){
 			if(edit_section($id)) redirect('?view=sections');
-			else reodirect();
+			else redirect();
 		}
 	break;
 	
@@ -178,8 +178,31 @@ switch($view){
 		$teacher = teacher($page_id); // получаем разделы учитель
 	break;
 
+		// добавление раздела учитель
 	case('add_teacher'):
-		
+		if(isset($_POST['name'])){
+			$page_id = 3; // номер id страницы из БД
+			$name = trim($_POST['name']); // название статьи
+			$text_min = trim($_POST['text_min']); // мини текст статьи
+			$text_full = trim($_POST['text_full']); // полный текст статьи
+
+			if(addTeacher($name, $text_min, $text_full, $page_id)){
+				$_SESSION['res'] = "Добавлено!";
+				redirect('?view=teacher');
+			}else{
+				redirect();
+			}
+		}
+	break;
+
+		// редактирование раздела учитель
+	case('edit_teacher'):
+		$id = trim($_GET['id']);
+		$get_section = get_section($id);
+		if($_POST){
+			if(edit_section($id)) redirect('?view=teacher');
+			else redirect();
+		}
 	break;
 
 	default:

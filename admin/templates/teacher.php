@@ -5,9 +5,9 @@
                 <!-- Main content -->
                 <section class="content">
                 <?php 
-                  if(isset($_SESSION['answer'])){
-                    echo $_SESSION['answer'];
-                    unset($_SESSION['answer']);
+                  if(isset($_SESSION['res'])){
+                    echo $_SESSION['res'];
+                    unset($_SESSION['res']);
                  } ?>
                 	<div class="col-md-5">
                             <div class="panel">
@@ -18,9 +18,9 @@
                                 <ul class="list-group teammates">
                                   <?php foreach ($teacher as $value): ?>
                                     <li class="list-group-item">
-                                        <a href="?view=edit_section&amp;id=<?=$value['id']?>"><img src="<?=PATH.TEMPLATE.$value['img']?>" width="50" height="50">
+                                        <a href="?view=edit_teacher&amp;id=<?=$value['id']?>"><img src="<?=PATH.TEMPLATE.$value['img']?>" width="50" height="50">
                                         <span class="pull-right label label-danger inline m-t-15">редактировать</span></a>
-                                        <a href="?view=edit_section&amp;id=<?=$value['id']?>"><?=$value['name']?></a>
+                                        <a href="?view=edit_teacher&amp;id=<?=$value['id']?>"><?=$value['name']?></a>
                                     </li>
                                    <?php endforeach; ?>
                                 </ul>

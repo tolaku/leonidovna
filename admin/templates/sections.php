@@ -5,9 +5,9 @@
                 <!-- Main content -->
                 <section class="content">
                 <?php 
-                  if(isset($_SESSION['answer'])){
-                    echo $_SESSION['answer'];
-                    unset($_SESSION['answer']);
+                  if(isset($_SESSION['res'])){
+                    echo $_SESSION['res'];
+                    unset($_SESSION['res']);
                  } ?>
                 	<div class="col-md-5">
                             <div class="panel">

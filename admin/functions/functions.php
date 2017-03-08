@@ -67,10 +67,10 @@ function edit_section($id){
 
 		// Проверяем было ли изменение и сообщаем
 		if(mysqli_affected_rows($db) > 0){
-			$_SESSION['answer'] = "<div class='success'>Раздел обновлен!</div>";
+			$_SESSION['res'] = "<div class='success'>Раздел обновлен!</div>";
 			return true;
 		}else{
-			$_SESSION['edit_section']['res'] = "<div class='error'>Ошибка или вы ничего не меняли!</div>";
+			$_SESSION['edit']['res'] = "<div class='error'>Ошибка или вы ничего не меняли!</div>";
 			return false;
 		}
 	}
@@ -107,9 +107,28 @@ function teacher($page_id){
 }
 /* :выводим разделы по странице учитель (teacher) */
 
-/* Выводим teacher по id для редактирования */
+/* Добавить раздел teacher (учитель) */
+function addTeacher($name, $text_min, $text_full, $page_id){
+	global $db;
+	$query = "INSERT INTO section (name, page_id) 
+				VALUES ('$name', '$page_id')";
+	$result = mysqli_query($db, $query) or die(mysqli_error());
+	$section_id = mysqli_insert_id($db);
 
-/* :выводим teacher по id для редактирования */
+	if($section_id){
+		$query = "INSERT INTO section_text (text_min, text_full, section_id, page_id)
+					VALUES ('$text_min', '$text_full', $section_id, $page_id)";
+		$result = mysqli_query($db, $query) or die(mysqli_error());
+
+		if(mysqli_affected_rows($db) > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+}
+/* :добавить раздел teacher (учитель) */
 
 /* Выводим галерею по id */
 function get_gallery_id($id){
