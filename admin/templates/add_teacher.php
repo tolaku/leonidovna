@@ -23,7 +23,7 @@
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Фото</label>
                       <div class="col-sm-10">
-                          <input type="file" name="img" >
+                          <input type="file" name="files" >
                       </div>
                   </div>
                   <!-- CKEditor -->

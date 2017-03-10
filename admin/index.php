@@ -124,7 +124,6 @@ switch($view){
 				$name_a = trim($_POST['name_a']);
 				$name_b = trim($_POST['name_b']);
 				$text = trim($_POST['text']);
-				$img_thumbs = trim($_POST['img_thumbs']);
 				$imgDel = trim($_POST['img_thumbs']); // получаем переменную для удаления картинки
 
 				// проверяем и загружаем фото
@@ -137,7 +136,6 @@ switch($view){
 						@unlink(BIG.$imgDel); // удаление картики max
 						@unlink(THUMB.$imgDel); // удаление картинки min
 					}else{
-						//return $_SESSION['answer'];
 						header("Location: ?{$_SERVER['QUERY_STRING']}");
 						exit;
 					}
@@ -197,7 +195,15 @@ switch($view){
 			$text_min = trim($_POST['text_min']); // мини текст статьи
 			$text_full = trim($_POST['text_full']); // полный текст статьи
 
-			if(addTeacher($name, $text_min, $text_full, $page_id)){
+			// загрузка img
+			if(!empty($_FILES['files']['name'])){
+				$img = insertImg(); // загружаем img
+				if($img == $_SESSION['answer']){
+					$img = "/img/no_image.jpg";
+				}
+			}
+
+			if(addTeacher($name, $img, $text_min, $text_full, $page_id)){
 				$_SESSION['res'] = "Добавлено!";
 				redirect('?view=teacher');
 			}else{

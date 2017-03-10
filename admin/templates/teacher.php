@@ -34,6 +34,12 @@
                                         </button>
                                     </a>
                                 </div>
+                                <?php 
+                                    if(isset($_SESSION['answer'])){
+                                        echo $_SESSION['answer'];
+                                        unset($_SESSION['answer']);
+                                    } 
+                                ?>
                             </div>
                         </div>
 

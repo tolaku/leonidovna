@@ -4,7 +4,7 @@
                     <?php foreach($sections as $section): ?>
                     	<div class="col-3">
                         	<h1><?=$section['name']?></h1>
-                        	<img src="<?=TEMPLATE?><?=$section['img']?>"/>
+                        	<img src="images/gallery/thumbs/<?=$section['img']?>"/>
                             <!-- выводим текст -->
                             <?=$section['text_min']?>
                         </div>
