@@ -11,7 +11,7 @@
              Добавить страницу в разделе учитель
           </header>
           <div class="panel-body">
-              <form class="form-horizontal tasi-form" method="post">
+              <form class="form-horizontal tasi-form" method="post" enctype="multipart/form-data">
                   
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Название</label>
@@ -23,7 +23,7 @@
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Фото</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" name="img" >
+                          <input type="file" name="img" >
                       </div>
                   </div>
                   <!-- CKEditor -->
