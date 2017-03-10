@@ -3,7 +3,7 @@
 /* Получение товаров */
 function pages(){
 	global $db;
-	$query = "SELECT id, name, url_page FROM pages";
+	$query = "SELECT id, name, url_page FROM pages ORDER BY position";
 	$result = mysqli_query($db, $query);
 
 	$pages = array();
@@ -77,6 +77,20 @@ function edit_section($id){
 	
 }
 /* редактируем данные по разделу */
+
+/* Удаление раздела */
+function delSection($id){
+	global $db;
+	mysqli_query($db, "DELETE FROM section WHERE id = $id");
+	mysqli_query($db, "DELETE FROM section_text WHERE section_id = $id");
+
+	if(mysqli_affected_rows($db) > 0){
+		return true;
+	}else{
+		return false;
+	}
+}
+/* :удаление раздела */
 
 /* Выводим галерею */
 function get_gallery(){

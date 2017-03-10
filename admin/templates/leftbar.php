@@ -23,6 +23,13 @@
                                         <i class="fa fa-dashboard"></i> <span>Страницы</span>
                                     </a>
                                 </li>
+                            <?php foreach($pages as $item): ?>
+                                <li>
+                                    <a href="?view=<?=$item['url_page']?>">
+                                        <i class="fa fa-dashboard"></i> <span><?=$item['name']?></span>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
                                 <li>
                                     <a href="general.html">
                                         <i class="fa fa-gavel"></i> <span>General</span>

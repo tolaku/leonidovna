@@ -16,7 +16,7 @@ require_once 'functions/functions.php';
 
 // получение динамической части шаблона #content
 $view = empty($_GET['view']) ? 'pages' : $_GET['view'];
-
+$pages = pages();
 switch($view){
 	// страницы
 	case('pages'):
@@ -176,6 +176,17 @@ switch($view){
 	case('teacher'):
 		$page_id = 3; // номер id страницы из БД
 		$teacher = teacher($page_id); // получаем разделы учитель
+		if(isset($_GET['del'])){
+			$id = (int)$_GET['del']; // получаем id раздела
+			if(delSection($id)){ // удаление раздела учителя
+				$_SESSION['res'] = "Удалено!";
+				redirect('?view=teacher');
+			}else{
+				$_SESSION['res'] = "Ошибка удаления!";
+				redirect();
+				exit;
+			}
+		}
 	break;
 
 		// добавление раздела учитель
