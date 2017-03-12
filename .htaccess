@@ -7,8 +7,8 @@ ErrorDocument 404 /page404.html
 
 
 
-# 1. Удаление картинки function delSection($id){
-# 2. Редактирование картинок в разделах.
+
+# 2. Редактирование img в разделах. case('edit_teacher'): // загрузка img с удалением на сервере старое img
 
 
 

@@ -176,6 +176,12 @@ switch($view){
 		$teacher = teacher($page_id); // получаем разделы учитель
 		if(isset($_GET['del'])){
 			$id = (int)$_GET['del']; // получаем id раздела
+			$img = get_section($id);
+			
+				@unlink(BIG.$img['img']); // удаляем img max
+				@unlink(THUMB.$img['img']); // удаляем img mim
+			
+
 			if(delSection($id)){ // удаление раздела учителя
 				$_SESSION['res'] = "Удалено!";
 				redirect('?view=teacher');
@@ -216,6 +222,15 @@ switch($view){
 	case('edit_teacher'):
 		$id = trim($_GET['id']);
 		$get_section = get_section($id);
+		
+		// загрузка img
+		if(!empty($_FILES['files']['name'])){
+			$img = insertImg(); // загружаем img
+			if($img == $_SESSION['answer']){
+			$img = "/img/no_image.jpg";
+			}
+		}
+
 		if($_POST){
 			if(edit_section($id)) redirect('?view=teacher');
 			else redirect();

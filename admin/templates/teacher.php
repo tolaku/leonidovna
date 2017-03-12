@@ -19,7 +19,7 @@
                                   <?php foreach ($teacher as $value): ?>
                                     <li class="list-group-item">
                                         <a class="del" href="?view=teacher&amp;del=<?=$value['id']?>"><button class="btn btn-default btn-xs"><i class="fa fa-times"></i></button></a>
-                                        <a href="?view=edit_teacher&amp;id=<?=$value['id']?>"><img src="<?=PATH.TEMPLATE.$value['img']?>" width="50" height="50">
+                                        <a href="?view=edit_teacher&amp;id=<?=$value['id']?>"><img src="../images/gallery/thumbs/<?=$value['img']?>" width="50" height="50">
                                         <span class="pull-right label label-danger inline m-t-15">редактировать</span></a>
                                         <a href="?view=edit_teacher&amp;id=<?=$value['id']?>"><?=$value['name']?></a>
                                     </li>
