@@ -16,7 +16,7 @@ if(isset($_SESSION['edit']['res'])){
              Редактируем - <?=$get_section['name'];?>
           </header>
           <div class="panel-body">
-              <form class="form-horizontal tasi-form" method="post">
+              <form class="form-horizontal tasi-form" method="post" enctype="multipart/form-data">
                   
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Название</label>
@@ -29,7 +29,13 @@ if(isset($_SESSION['edit']['res'])){
                       <label class="col-sm-2 col-sm-2 control-label">Фото</label>
                       <div class="col-sm-10">
                           <img src="../images/gallery/thumbs/<?=$get_section['img'];?>"><br><br>
-                          <input type="file" name="img">
+                          <input type="file" name="files">
+                          <?php 
+                             if(isset($_SESSION['answer'])){
+                             echo $_SESSION['answer'];
+                             unset($_SESSION['answer']);
+                            } 
+                          ?>
                       </div>
                   </div>
                   <!-- CKEditor -->

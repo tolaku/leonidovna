@@ -226,6 +226,7 @@ img {
 .col-3 {
 	min-width:280px;
 	max-width:48%;
+	min-height: 280px;
 	float:left;
 	padding:2%;
 	margin:1%;

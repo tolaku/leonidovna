@@ -43,12 +43,12 @@ function get_section($id){
 /* получаем данные по разделу*/
 
 /* Редактируем данные по разделу */
-function edit_section($id){
+function edit_section($id, $img){
 	global $db;
-	$name = trim($_POST['name']);
-	$img = trim($_POST['img']);
-	$text_min = trim($_POST['text_min']);
-	$text_full = trim($_POST['text_full']);
+	$name = clear_admin($_POST['name']);
+	//$img = clear_admin($_POST['img']);
+	$text_min = clear_admin($_POST['text_min']);
+	$text_full = clear_admin($_POST['text_full']);
 
 	if(empty($name)){
 		// если нет имени
@@ -308,10 +308,10 @@ function resize($target, $dest, $wmax, $hmax, $ext){
 
 /* Заносим даные о картинке */
 	function gallery_insert($title, $name_a, $name_b, $text, $img_thumbs, $img_full){
-		$title = trim($title);
-		$name_a = trim($name_a);
-		$name_b = trim($name_b);
-		$text = trim($text);
+		$title = clear_admin($title);
+		$name_a = clear_admin($name_a);
+		$name_b = clear_admin($name_b);
+		$text = clear_admin($text);
 
 		global $db;
 		$query = "INSERT INTO gallery (title, name_a, name_b, text, img_thumbs, img_full)
@@ -336,7 +336,8 @@ function redirect($http = false){
 
 /* Фильтр входящих данных из админки */
 function clear_admin($var){
-	$var = mysqli_real_escape_string($var);
+	global $db;
+	$var = trim(mysqli_real_escape_string($db, $var));
 	return $var;
 }
 /* :фильтр входящих данных из админки */

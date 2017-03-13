@@ -31,10 +31,10 @@ switch($view){
 
 	// редактирование раздела
 	case('edit_section'):
-		$id = trim($_GET['id']);
+		$id = (int)$_GET['id'];
 		$get_section = get_section($id);
 		if($_POST){
-			if(edit_section($id)) redirect('?view=sections');
+			if(edit_section($id, $img)) redirect('?view=sections');
 			else redirect();
 		}
 	break;
@@ -120,11 +120,11 @@ switch($view){
 			// отредактиривали, отправляем в БД
 			if(isset($_POST['get_gallery_id'])){
 				$id = (int)$_POST['get_gallery_id'];
-				$title = trim($_POST['title']);
-				$name_a = trim($_POST['name_a']);
-				$name_b = trim($_POST['name_b']);
-				$text = trim($_POST['text']);
-				$imgDel = trim($_POST['img_thumbs']); // получаем переменную для удаления картинки
+				$title = clear_admin($_POST['title']);
+				$name_a = clear_admin($_POST['name_a']);
+				$name_b = clear_admin($_POST['name_b']);
+				$text = clear_admin($_POST['text']);
+				$imgDel = clear_admin($_POST['img_thumbs']); // получаем переменную для удаления картинки
 
 				// проверяем и загружаем фото
 				if(!empty($_FILES['files']['name'])){
@@ -197,9 +197,9 @@ switch($view){
 	case('add_teacher'):
 		if(isset($_POST['name'])){
 			$page_id = 3; // номер id страницы из БД
-			$name = trim($_POST['name']); // название статьи
-			$text_min = trim($_POST['text_min']); // мини текст статьи
-			$text_full = trim($_POST['text_full']); // полный текст статьи
+			$name = clear_admin($_POST['name']); // название статьи
+			$text_min = clear_admin($_POST['text_min']); // мини текст статьи
+			$text_full = clear_admin($_POST['text_full']); // полный текст статьи
 
 			// загрузка img
 			if(!empty($_FILES['files']['name'])){
@@ -220,19 +220,28 @@ switch($view){
 
 		// редактирование раздела учитель
 	case('edit_teacher'):
-		$id = trim($_GET['id']);
+		$id = clear_admin($_GET['id']);
 		$get_section = get_section($id);
 		
-		// загрузка img
-		if(!empty($_FILES['files']['name'])){
-			$img = insertImg(); // загружаем img
-			if($img == $_SESSION['answer']){
-			$img = "/img/no_image.jpg";
-			}
-		}
 
 		if($_POST){
-			if(edit_section($id)) redirect('?view=teacher');
+			// загрузка img
+			if(!empty($_FILES['files']['name'])){
+				$img = insertImg(); // загружаем img
+				if($img == $_SESSION['answer']){
+					redirect();
+					exit;
+				}else{
+					$del_img = get_section($id);
+					@unlink(BIG.$del_img['img']); // удаляем img max
+					@unlink(THUMB.$del_img['img']); // удаляем img mim
+				}
+	
+			}else{
+				$img = $get_section['img']; // если не было картинки, оставляем старую
+			}
+
+			if(edit_section($id, $img)) redirect('?view=teacher');
 			else redirect();
 		}
 	break;
