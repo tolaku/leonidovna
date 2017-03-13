@@ -19,8 +19,8 @@
                             <!-- sidebar menu: : style can be found in sidebar.less -->
                             <ul class="sidebar-menu">
                                 <li class="active">
-                                    <a href="?pages">
-                                        <i class="fa fa-dashboard"></i> <span>Страницы</span>
+                                    <a href="?view=sections">
+                                        <i class="fa fa-dashboard"></i> <span>Главная</span>
                                     </a>
                                 </li>
                             <?php foreach($pages as $item): ?>

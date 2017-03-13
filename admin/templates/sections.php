@@ -26,10 +26,12 @@
                                 </ul>
                                 <div class="panel-footer bg-white">
                                     <!-- <span class="pull-right badge badge-info">32</span> -->
-                                    <button class="btn btn-primary btn-addon btn-sm">
-                                        <i class="fa fa-plus"></i>
-                                        Добавить
-                                    </button>
+                                    <a href="?view=add_section">
+                                        <button class="btn btn-primary btn-addon btn-sm">
+                                            <i class="fa fa-plus"></i>
+                                            Добавить
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

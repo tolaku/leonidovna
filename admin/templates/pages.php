@@ -42,7 +42,9 @@
                                   <td>
                                     <div class="pull-right hidden-phone">
                                         
-                                        <a href="?view=<?=$item['url_page']?>"><button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button></a>
+                                        <a href="?view=<?=$item['url_page']?>">
+                                          <button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
+                                        </a>
                                     </div>
                                   </td>
                                 </tr>

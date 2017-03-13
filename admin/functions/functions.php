@@ -42,6 +42,28 @@ function get_section($id){
 }
 /* получаем данные по разделу*/
 
+/* Добавление раздела */
+function addSection($name, $img, $text_min, $text_full, $page_id){
+	global $db;
+	$result = "INSERT INTO section (name, img, page_id)
+				VALUES ('$name', '$img', $page_id))";
+	$query = mysqli_query($db, $result) or die(mysqli_error());
+
+	if(mysqli_insert_id($db)){
+		$section_id = mysqli_insert_id($db);
+		$result = "INSERT INTO section_text (text_min, text_full, section_id, page_id)
+					VALUES ('$text_min', '$text_full', '$section_id', '$page_id')";
+		$query = mysqli_query($db, $result) or die(mysqli_error());
+
+		if(mysqli_affected_rows($db) > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+}
+/* :добавление раздела */
+
 /* Редактируем данные по разделу */
 function edit_section($id, $img){
 	global $db;

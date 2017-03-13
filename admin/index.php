@@ -29,6 +29,26 @@ switch($view){
 		$section = section($page_id);
 	break;
 
+	// добавление раздела
+	case('add_section'):
+		$page_id = 1;
+		$name = clear_admin($_POST['name']);
+		$text_min = clear_admin($_POST['text_min']);
+		$text_full = clear_admin($_POST['text_full']);
+
+		if(!empty($name)){
+			// функция для добавления раздела
+			if(addSection($name, $img, $text_min, $text_full, $page_id)){
+				$_SESSION['res'] = "Раздел добавлен!";
+				redirect('?view=sections');
+				exit;
+			}else{
+				redirect();
+				exit;
+			}
+		}
+	break;
+
 	// редактирование раздела
 	case('edit_section'):
 		$id = (int)$_GET['id'];
