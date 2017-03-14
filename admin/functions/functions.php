@@ -46,7 +46,7 @@ function get_section($id){
 function addSection($name, $img, $text_min, $text_full, $page_id){
 	global $db;
 	$result = "INSERT INTO section (name, img, page_id)
-				VALUES ('$name', '$img', $page_id))";
+				VALUES ('$name', '$img', '$page_id')";
 	$query = mysqli_query($db, $result) or die(mysqli_error());
 
 	if(mysqli_insert_id($db)){

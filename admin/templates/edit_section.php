@@ -28,7 +28,14 @@ if(isset($_SESSION['edit']['res'])){
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Фото</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" name="img" value="<?=$get_section['img'];?>">
+                          <img src="../images/gallery/thumbs/<?=$get_section['img'];?>"><br><br>
+                          <input type="file" name="files">
+                          <?php 
+                             if(isset($_SESSION['answer'])){
+                             echo $_SESSION['answer'];
+                             unset($_SESSION['answer']);
+                            } 
+                          ?>
                       </div>
                   </div>
                   <!-- CKEditor -->

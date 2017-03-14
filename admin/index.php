@@ -36,6 +36,14 @@ switch($view){
 		$text_min = clear_admin($_POST['text_min']);
 		$text_full = clear_admin($_POST['text_full']);
 
+		// загрузка img
+		if(!empty($_FILES['files']['name'])){
+			$img = insertImg(); 
+			if($img == $_SESSION['answer']){
+				$img = "/img/no_image.jpg";
+			}
+		}
+
 		if(!empty($name)){
 			// функция для добавления раздела
 			if(addSection($name, $img, $text_min, $text_full, $page_id)){
@@ -54,6 +62,22 @@ switch($view){
 		$id = (int)$_GET['id'];
 		$get_section = get_section($id);
 		if($_POST){
+			// загрузка img
+			if(!empty($_FILES['files']['name'])){
+				$img = insertImg(); // загружаем img
+				if($img == $_SESSION['answer']){
+					redirect();
+					exit;
+				}else{
+					$del_img = get_section($id);
+					@unlink(BIG.$del_img['img']); // удаляем img max
+					@unlink(THUMB.$del_img['img']); // удаляем img mim
+				}
+	
+			}else{
+				$img = $get_section['img']; // если не было картинки, оставляем старую
+			}
+
 			if(edit_section($id, $img)) redirect('?view=sections');
 			else redirect();
 		}
