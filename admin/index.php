@@ -27,6 +27,25 @@ switch($view){
 	case('sections'):
 		$page_id = 1; // номер страницы из БД
 		$section = section($page_id);
+
+		// удаление раздела
+		if(isset($_GET['del'])){
+			$id = (int)$_GET['del']; // получаем id раздела
+			$img = get_section($id);
+			
+				@unlink(BIG.$img['img']); // удаляем img max
+				@unlink(THUMB.$img['img']); // удаляем img mim
+			
+
+			if(delSection($id)){ // удаление раздела учителя
+				$_SESSION['res'] = "Удалено!";
+				redirect('?view=section');
+			}else{
+				$_SESSION['res'] = "Ошибка удаления!";
+				redirect();
+				exit;
+			}
+		}
 	break;
 
 	// добавление раздела

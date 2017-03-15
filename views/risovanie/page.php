@@ -9,7 +9,7 @@
                         <a href="?view=section&amp;id=<?=$section['id']?>"> <?=$section['name']?></a>
                     </h2>
                     <a href="?view=section&amp;id=<?=$section['id']?>">
-                	   <img src="<?=TEMPLATE?><?=$section['img']?>" />
+                	   <img src="../images/gallery/thumbs/<?=$section['img']?>" />
                     </a>
                     <?=$section['text_min']?>
                     <p class="read"><a href="?view=section&amp;id=<?=$section['id']?>">Подробнее &raquo;</a></p>

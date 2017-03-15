@@ -16,7 +16,7 @@ if(isset($_SESSION['edit']['res'])){
              Редактируем - <?=$get_section['name'];?>
           </header>
           <div class="panel-body">
-              <form class="form-horizontal tasi-form" method="post">
+              <form class="form-horizontal tasi-form" method="post" enctype="multipart/form-data">
                   
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Название</label>

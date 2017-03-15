@@ -18,7 +18,7 @@
                                 <ul class="list-group teammates">
                                   <?php foreach ($section as $value): ?>
                                     <li class="list-group-item">
-                                        <a href="?view=edit_section&amp;id=<?=$value['id']?>"><img src="<?=PATH.TEMPLATE.$value['img']?>" width="50" height="50">
+                                        <a href="?view=edit_section&amp;id=<?=$value['id']?>"><img src="../images/gallery/thumbs/<?=$value['img']?>" width="50" height="50">
                                         <span class="pull-right label label-danger inline m-t-15">редактировать</span></a>
                                         <a href="?view=edit_section&amp;id=<?=$value['id']?>"><?=$value['name']?></a>
                                     </li>
