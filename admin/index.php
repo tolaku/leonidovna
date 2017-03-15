@@ -39,7 +39,7 @@ switch($view){
 
 			if(delSection($id)){ // удаление раздела учителя
 				$_SESSION['res'] = "Удалено!";
-				redirect('?view=section');
+				redirect('?view=sections');
 			}else{
 				$_SESSION['res'] = "Ошибка удаления!";
 				redirect();
