@@ -22,7 +22,7 @@
 
     </div>
     <div class="inner">
-   
+        <div class="clr"></div>
         <div class="col-2">
         	<?=constants('ask')?>
         </div>
