@@ -347,6 +347,16 @@ function resize($target, $dest, $wmax, $hmax, $ext){
 	}
 /* :заносим даные о картинке */
 
+/* Выводим константу */
+function constants($name){
+	global $db;
+	$query = "SELECT * FROM constants WHERE name = '$name'";
+	$result = mysqli_query($db, $query) or die(mysqli_error());
+
+	$name = mysqli_fetch_assoc($result);
+	return $name;
+}
+
 /* Редирект */
 function redirect($http = false){
 	if($http) $redirect = $http;

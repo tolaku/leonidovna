@@ -29,7 +29,7 @@
                                         </div>
                                         
                                         <div class="form_row">
-                                        <textarea class="form_textarea" name="message" placeholder="Сообщение: А давайте мы вам поможем :)"></textarea>
+                                        <textarea class="form_textarea" name="message" placeholder="Сообщение"></textarea>
                                         </div>
 
                                         <div class="form_row">

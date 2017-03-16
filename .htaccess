@@ -8,8 +8,8 @@ ErrorDocument 404 /page404.html
 
 
 
-# 2. Разварачиваем страницу для разделов.
-# 3. Контакты.
+
+# 3. Контакты. case('contact'): editConstants('contact') 
 # 4. Position для разделов
 # 5. Скрывание разделов
 

@@ -309,6 +309,20 @@ switch($view){
 		}
 	break;
 
+	// редактирование контактов
+	case('contact'):
+		$contact = constants('contact');
+		if(isset($_POST)){
+			if(editConstants('contact')){
+				$_SESSION['edit']['res'] = "Обновлена!";
+				redirect();
+				exit;
+			}else{
+				
+			}
+		}
+	break;
+
 	default:
 	// если полученное имя не существует
 	$view = 'pages';
