@@ -41,6 +41,18 @@ switch($view){
 		}
 	break;
 
+	case('view'):
+		$id = abs((int)$_GET['id']); // получаем ID
+		// если есть ID
+		if(isset($_GET['id'])){
+			if(viewId($id)){ // проверяем существование страницы в БД
+				$viewId = viewId($id); // выводим страницу
+			}else{
+				rederect(PATH);
+			}
+		}
+	break;
+
 	default:
 	$view = 'page';
 }

@@ -6,13 +6,13 @@
             <?php foreach($sections as $section): ?>
             	<div class="col-1">
                     <h2>
-                        <a href="?view=section&amp;id=<?=$section['id']?>"> <?=$section['name']?></a>
+                        <a href="?view=view&amp;id=<?=$section['id']?>"> <?=$section['name']?></a>
                     </h2>
-                    <a href="?view=section&amp;id=<?=$section['id']?>">
+                    <a href="?view=view&amp;id=<?=$section['id']?>">
                 	   <img src="../images/gallery/thumbs/<?=$section['img']?>" />
                     </a>
                     <?=$section['text_min']?>
-                    <p class="read"><a href="?view=section&amp;id=<?=$section['id']?>">Подробнее &raquo;</a></p>
+                    <p class="read"><a href="?view=view&amp;id=<?=$section['id']?>">Подробнее &raquo;</a></p>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>

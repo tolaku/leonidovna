@@ -17,7 +17,7 @@ function section($page_id) {
 }
 /*=== :получение разделов на главной странице ===*/
 
-/*=== Выводим страницы ===*/
+/*=== Выводим разделы ===*/
 function pages(){
 	global $db;
 	$query = "SELECT id, name, url_page FROM pages ORDER BY position";
@@ -29,7 +29,19 @@ function pages(){
 	}
 	return $pages;
 }
-/*=== :выводим страницы ===*/
+/*=== :выводим разделы ===*/
+
+/* Выводим содержимое страницы */
+function viewId($id){
+	global $db;
+	$query = "SELECT a.id, a.name, a.img, b.text_full, b.section_id FROM section a
+				INNER JOIN section_text b ON a.id = b.section_id AND a.id = $id";
+	$result = mysqli_query($db, $query) or die(mysqli_error());
+	$viewId[] = array();
+	$viewId = mysqli_fetch_assoc($result);
+	return $viewId;
+}
+/* :выводим содержимое страницы */
 
 /*=== Подключение констант ===*/
 function constants($name){

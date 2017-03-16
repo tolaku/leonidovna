@@ -7,6 +7,7 @@
                         	<img src="images/gallery/thumbs/<?=$section['img']?>"/>
                             <!-- выводим текст -->
                             <?=$section['text_min']?>
+                            <p class="read"><a href="?view=view&amp;id=<?=$section['id']?>">Подробнее &raquo;</a></p>
                         </div>
                     <?php endforeach; ?>
                     </div>
