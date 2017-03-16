@@ -312,13 +312,16 @@ switch($view){
 	// редактирование контактов
 	case('contact'):
 		$contact = constants('contact');
-		if(isset($_POST)){
-			if(editConstants('contact')){
+		if(isset($_POST['value'])){
+			$value = clear_admin($_POST['value']);
+			if(editConstants('contact', $value)){
 				$_SESSION['edit']['res'] = "Обновлена!";
 				redirect();
 				exit;
 			}else{
-				
+				$_SESSION['edit']['res'] = "Вы ничего не изменили!";
+				redirect();
+				exit;
 			}
 		}
 	break;

@@ -356,6 +356,21 @@ function constants($name){
 	$name = mysqli_fetch_assoc($result);
 	return $name;
 }
+/* :выводим константу */
+
+/* Редактируем константу */
+function editConstants($name, $value){
+	global $db;
+	$query = "UPDATE constants SET value = '$value' WHERE name = '$name'";
+	$result = mysqli_query($db, $query) or die(mysqli_error());
+
+	if(mysqli_affected_rows($db) > 0){
+		return true;
+	}else{
+		return false;
+	}
+}
+/* :едактируем константу */
 
 /* Редирект */
 function redirect($http = false){
