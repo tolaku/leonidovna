@@ -261,7 +261,7 @@ function insertImg(){
 			$dest = THUMB.$fileName; // путь к сохранению обработаному файлу
 
 			// запускаем функцию по ресайзу картинки
-			resize($target, $dest, WIDTH, HEIGHT, $filesExt);
+			resize($target, $dest, WIDTH, HEIGHT, $fileExt);
 
 			return $fileName; // имя загруженной картинке на сервер
 		}else{
