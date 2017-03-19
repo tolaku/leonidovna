@@ -17,6 +17,7 @@ require_once 'functions/functions.php';
 // получение динамической части шаблона #content
 $view = empty($_GET['view']) ? 'pages' : $_GET['view'];
 $pages = pages();
+$num_position = position(); // номера position
 switch($view){
 	// страницы
 	case('pages'):
@@ -51,21 +52,35 @@ switch($view){
 	// добавление раздела
 	case('add_section'):
 		$page_id = 1;
-		$name = clear_admin($_POST['name']);
-		$text_min = clear_admin($_POST['text_min']);
-		$text_full = clear_admin($_POST['text_full']);
+		if($_POST){
+			$name = clear_admin($_POST['name']);
+			$text_min = clear_admin($_POST['text_min']);
+			$text_full = clear_admin($_POST['text_full']);
+		}
+		// получаем максимальное число position
+		$num = '';
+		foreach($num_position as $numb => $val){
+			$num[] .= $val['position'];
+		}
+		$position = max($num)+1;
 
 		// загрузка img
 		if(!empty($_FILES['files']['name'])){
 			$img = insertImg(); 
 			if($img == $_SESSION['answer']){
-				$img = "/img/no_image.jpg";
+				$img = "no_image.jpg";
+				redirect();
+				exit;
+			}
+		}else{
+			$img = ''; // если загрузки картинки не произошло, ставим пустым
+			if(empty($img)){
+				$img = "no_image.jpg";
 			}
 		}
-
 		if(!empty($name)){
 			// функция для добавления раздела
-			if(addSection($name, $img, $text_min, $text_full, $page_id)){
+			if(addSection($name, $img, $position, $text_min, $text_full, $page_id)){
 				$_SESSION['res'] = "Раздел добавлен!";
 				redirect('?view=sections');
 				exit;
@@ -264,6 +279,13 @@ switch($view){
 			$text_min = clear_admin($_POST['text_min']); // мини текст статьи
 			$text_full = clear_admin($_POST['text_full']); // полный текст статьи
 
+			// получаем максимальное число position
+			$num = '';
+			foreach($num_position as $numb => $val){
+				$num[] .= $val['position'];
+			}
+			$position = max($num)+1;
+
 			// загрузка img
 			if(!empty($_FILES['files']['name'])){
 				$img = insertImg(); // загружаем img
@@ -272,7 +294,7 @@ switch($view){
 				}
 			}
 
-			if(addTeacher($name, $img, $text_min, $text_full, $page_id)){
+			if(addTeacher($name, $img, $position, $text_min, $text_full, $page_id)){
 				$_SESSION['res'] = "Добавлено!";
 				redirect('?view=teacher');
 			}else{

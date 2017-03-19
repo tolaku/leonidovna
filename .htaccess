@@ -9,9 +9,10 @@ ErrorDocument 404 /page404.html
 
 
 
-# 3. Контакты. case('contact'): editConstants('contact') 
-# 4. Position для разделов
+
+# 4. Ошибка определения расширения картики при загрузке functin resize 306 не определяет png
 # 5. Скрывание разделов
+# 6. htmlspecialchars 
 
 
 

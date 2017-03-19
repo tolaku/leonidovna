@@ -1,5 +1,4 @@
-<?php defined('VOROBEY') or die('Простите, не нужно...'); 
-
+<?php defined('VOROBEY') or die('Простите, может не нужно....');
 /* Получение товаров */
 function pages(){
 	global $db;
@@ -14,10 +13,23 @@ function pages(){
 }
 /* :получение товаров */
 
+/* получение position */
+function position(){
+	global $db;
+	$query = "SELECT position FROM section";
+	$result = mysqli_query($db, $query);
+
+	$position = array();
+	while($row = mysqli_fetch_assoc($result)){
+		$position[] = $row;
+	}
+	return $position;
+}
+
 /* Получение разделов */
 function section($page_id){
 	global $db;
-	$query = "SELECT id, name, img FROM section WHERE page_id = $page_id ORDER BY position";
+	$query = "SELECT id, name, img, position FROM section WHERE page_id = $page_id ORDER BY position";
 	$result = mysqli_query($db, $query);
 
 	$section = array();
@@ -43,10 +55,10 @@ function get_section($id){
 /* получаем данные по разделу*/
 
 /* Добавление раздела */
-function addSection($name, $img, $text_min, $text_full, $page_id){
+function addSection($name, $img, $position, $text_min, $text_full, $page_id){
 	global $db;
-	$result = "INSERT INTO section (name, img, page_id)
-				VALUES ('$name', '$img', '$page_id')";
+	$result = "INSERT INTO section (name, img, position, page_id)
+				VALUES ('$name', '$img', $position, $page_id)";
 	$query = mysqli_query($db, $result) or die(mysqli_error());
 
 	if(mysqli_insert_id($db)){
@@ -68,9 +80,9 @@ function addSection($name, $img, $text_min, $text_full, $page_id){
 function edit_section($id, $img){
 	global $db;
 	$name = clear_admin($_POST['name']);
-	//$img = clear_admin($_POST['img']);
 	$text_min = clear_admin($_POST['text_min']);
 	$text_full = clear_admin($_POST['text_full']);
+	$position = (int)$_POST['position'];
 
 	if(empty($name)){
 		// если нет имени
@@ -82,6 +94,7 @@ function edit_section($id, $img){
 		$query = "UPDATE section a, section_text b SET
 				a.name = '$name',
 				a.img = '$img',
+				a.position = '$position',
 				b.text_min = '$text_min',
 				b.text_full = '$text_full'
 					WHERE a.id = $id AND b.section_id = $id";
@@ -144,10 +157,10 @@ function teacher($page_id){
 /* :выводим разделы по странице учитель (teacher) */
 
 /* Добавить раздел teacher (учитель) */
-function addTeacher($name, $img, $text_min, $text_full, $page_id){
+function addTeacher($name, $img, $position, $text_min, $text_full, $page_id){
 	global $db;
-	$query = "INSERT INTO section (name, img, page_id) 
-				VALUES ('$name', '$img', '$page_id')";
+	$query = "INSERT INTO section (name, img, position, page_id) 
+				VALUES ('$name', '$img', $position, $page_id)";
 	$result = mysqli_query($db, $query) or die(mysqli_error());
 	$section_id = mysqli_insert_id($db);
 
@@ -285,10 +298,10 @@ function resize($target, $dest, $wmax, $hmax, $ext){
 
 	$img = ""; // cоздаем пустое изображение
 	switch($ext){
-		case 'gif':
+		case('gif'):
 			$img = imagecreatefromgif($target); // создаем копию и сохраняем в пустое созданое изображение
 			break;
-		case 'png':
+		case('png'):
 			$img = imagecreatefrompng($target);
 			break;
 		default:

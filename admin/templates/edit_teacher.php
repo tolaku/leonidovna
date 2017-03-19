@@ -60,6 +60,14 @@ if(isset($_SESSION['edit']['res'])){
                           </script>
                       </div>
                   </div>
+
+                  <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">Сортировка</label>
+                      <div class="col-sm-10">
+                          <input type="text" class="form-control" name="position" value="<?=htmlspecialchars($get_section['position']);?>">
+                      </div>
+                  </div>
+                  
                   <div class=" add-task-row">
                     <input type="hidden" name="id" value="<?=$get_section['id']?>">
                     <input class="btn btn-success btn-sm pull-left" href type="submit" name="submit" value="Обновить">
