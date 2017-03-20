@@ -56,39 +56,43 @@ switch($view){
 			$name = clear_admin($_POST['name']);
 			$text_min = clear_admin($_POST['text_min']);
 			$text_full = clear_admin($_POST['text_full']);
-		}
-		// получаем максимальное число position
-		$num = '';
-		foreach($num_position as $numb => $val){
-			$num[] .= $val['position'];
-		}
-		$position = max($num)+1;
+		
+			// получаем максимальное число position
+			$num = '';
+			foreach($num_position as $numb => $val){
+				$num[] .= $val['position'];
+			}
+			$position = max($num)+1;
 
-		// загрузка img
-		if(!empty($_FILES['files']['name'])){
-			$img = insertImg(); 
-			if($img == $_SESSION['answer']){
-				$img = "no_image.jpg";
-				redirect();
-				exit;
-			}
-		}else{
-			$img = ''; // если загрузки картинки не произошло, ставим пустым
-			if(empty($img)){
-				$img = "no_image.jpg";
-			}
-		}
-		if(!empty($name)){
-			// функция для добавления раздела
-			if(addSection($name, $img, $position, $text_min, $text_full, $page_id)){
-				$_SESSION['res'] = "Раздел добавлен!";
-				redirect('?view=sections');
-				exit;
+			// загрузка img
+			if(!empty($_FILES['files']['name'])){
+				$img = insertImg();
+				exit($_SESSION['answer']); 
+				if($img == $_SESSION['answer']){
+					$img = "no_image.jpg";
+					redirect();
+					exit;
+				}
 			}else{
-				redirect();
-				exit;
+				$img = ''; // если загрузки картинки не произошло, ставим пустым
+				if(empty($img)){
+					$img = "no_image.jpg";
+				}
+			}
+			if(!empty($name)){
+				// функция для добавления раздела
+				if(addSection($name, $img, $position, $text_min, $text_full, $page_id)){
+					$_SESSION['res'] = "Раздел добавлен!";
+					redirect('?view=sections');
+					exit;
+				}else{
+					$_SESSION['edit']['res'] = "Забыли ввести название раздела!";
+					redirect();
+					exit;
+				}
 			}
 		}
+		
 	break;
 
 	// редактирование раздела
