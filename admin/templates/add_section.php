@@ -5,9 +5,9 @@
                 <!-- Main content -->
                 <section class="content">
                 <?php 
-if(isset($_SESSION['edit']['res'])){
-  echo $_SESSION['edit']['res'];
-  unset($_SESSION['edit']['res']);
+if(isset($_SESSION['add']['res'])){
+  echo $_SESSION['add']['res'];
+  unset($_SESSION['add']['res']);
   } ?>
 <div class="row">
     <div class="col-md-12">

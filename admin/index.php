@@ -64,32 +64,35 @@ switch($view){
 			}
 			$position = max($num)+1;
 
-			// загрузка img
-			if(!empty($_FILES['files']['name'])){
-				$img = insertImg();
-				exit($_SESSION['answer']); 
-				if($img == $_SESSION['answer']){
-					$img = "no_image.jpg";
-					redirect();
-					exit;
-				}
-			}else{
-				$img = ''; // если загрузки картинки не произошло, ставим пустым
-				if(empty($img)){
-					$img = "no_image.jpg";
-				}
-			}
 			if(!empty($name)){
+
+				// загрузка img
+				if(!empty($_FILES['files']['name'])){
+					$img = insertImg();
+					if($img == $_SESSION['answer']){
+						$img = "no_image.jpg";
+						redirect();
+						exit;
+					}
+				}else{
+					$img = ''; // если загрузки картинки не произошло, ставим пустым
+					if(empty($img)){
+						$img = "no_image.jpg";
+					}
+				}
+
 				// функция для добавления раздела
 				if(addSection($name, $img, $position, $text_min, $text_full, $page_id)){
 					$_SESSION['res'] = "Раздел добавлен!";
 					redirect('?view=sections');
 					exit;
 				}else{
-					$_SESSION['edit']['res'] = "Забыли ввести название раздела!";
+					$_SESSION['add']['res'] = "Ошибка!";
 					redirect();
 					exit;
 				}
+			}else{
+				$_SESSION['add']['res'] = "Вы забыли ввести имя раздела!"; // забыли ввести имя раздела
 			}
 		}
 		
@@ -222,8 +225,8 @@ switch($view){
 						exit;
 					}
 				}else{
-					$img_thumbs = $img_thumbs; // берем из $_POST если не было новой картинки.
-					$img_full = $img_thumbs;
+					$img_thumbs = $imgDel; // берем из $_POST если не было новой картинки.
+					$img_full = $imgDel;
 				}
 
 				// обновляем данные из галереи
