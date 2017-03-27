@@ -16,12 +16,15 @@ if(isset($_SESSION['add']['res'])){
              Добавить раздел
           </header>
           <div class="panel-body">
+            <script type="text/javascript">
+             
+            </script>
               <form class="form-horizontal tasi-form" method="post" enctype="multipart/form-data">
                   
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Название</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" name="name" >
+                          <input type="text" id="name" class="form-control" name="name" onkeyup="checkParams()" autocomplete="off">
                       </div>
                   </div>
 
@@ -60,7 +63,7 @@ if(isset($_SESSION['add']['res'])){
                       </div>
                   </div>
                   <div class=" add-task-row">
-                    <input class="btn btn-success btn-sm pull-left" href type="submit" name="submit" value="Добавить">
+                    <input id="submit" class="btn btn-success btn-sm pull-left" href type="submit" name="submit" value="Добавить" disabled>
                   </div>
               </form>
           </div>
