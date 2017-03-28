@@ -56,6 +56,11 @@ switch($view){
 			$name = clear_admin($_POST['name']);
 			$text_min = clear_admin($_POST['text_min']);
 			$text_full = clear_admin($_POST['text_full']);
+			if(isset($_POST['visible'])){
+				$visible = 1;
+			}else{
+				$visible = 0;
+			}
 		
 			// получаем максимальное число position
 			$num = '';
@@ -82,7 +87,7 @@ switch($view){
 				}
 
 				// функция для добавления раздела
-				if(addSection($name, $img, $position, $text_min, $text_full, $page_id)){
+				if(addSection($name, $img, $position, $text_min, $text_full, $visible, $page_id)){
 					$_SESSION['res'] = "Раздел добавлен!";
 					redirect('?view=sections');
 					exit;
