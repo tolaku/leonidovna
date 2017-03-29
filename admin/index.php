@@ -56,6 +56,8 @@ switch($view){
 			$name = clear_admin($_POST['name']);
 			$text_min = clear_admin($_POST['text_min']);
 			$text_full = clear_admin($_POST['text_full']);
+			
+			// показать либо скрыть раздел
 			if(isset($_POST['visible'])){
 				$visible = 1;
 			}else{
@@ -291,6 +293,13 @@ switch($view){
 			$text_min = clear_admin($_POST['text_min']); // мини текст статьи
 			$text_full = clear_admin($_POST['text_full']); // полный текст статьи
 
+			// показать либо скрыть раздел
+			if(isset($_POST['visible'])){
+				$visible = 1;
+			}else{
+				$visible = 0;
+			}
+
 			// получаем максимальное число position
 			$num = '';
 			foreach($num_position as $numb => $val){
@@ -304,9 +313,14 @@ switch($view){
 				if($img == $_SESSION['answer']){
 					$img = "/img/no_image.jpg";
 				}
-			}
+			}else{
+					$img = ''; // если загрузки картинки не произошло, ставим пустым
+					if(empty($img)){
+						$img = "no_image.jpg";
+					}
+				}
 
-			if(addTeacher($name, $img, $position, $text_min, $text_full, $page_id)){
+			if(addTeacher($name, $img, $position, $text_min, $text_full, $visible, $page_id)){
 				$_SESSION['res'] = "Добавлено!";
 				redirect('?view=teacher');
 			}else{

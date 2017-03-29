@@ -164,10 +164,10 @@ function teacher($page_id){
 /* :выводим разделы по странице учитель (teacher) */
 
 /* Добавить раздел teacher (учитель) */
-function addTeacher($name, $img, $position, $text_min, $text_full, $page_id){
+function addTeacher($name, $img, $position, $text_min, $text_full, $visible, $page_id){
 	global $db;
-	$query = "INSERT INTO section (name, img, position, page_id) 
-				VALUES ('$name', '$img', $position, $page_id)";
+	$query = "INSERT INTO section (name, img, position, visible, page_id) 
+				VALUES ('$name', '$img', $position, $visible, $page_id)";
 	$result = mysqli_query($db, $query) or die(mysqli_error());
 	$section_id = mysqli_insert_id($db);
 

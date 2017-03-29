@@ -48,6 +48,12 @@
                           </script>
                       </div>
                   </div>
+                  <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">Показать</label>
+                      <div class="col-sm-10">
+                          <input type="checkbox" name="visible" checked>
+                      </div>
+                  </div>
                   <div class=" add-task-row">
                     <input id="submit" class="btn btn-success btn-sm pull-left" href type="submit" name="submit" value="Добавить" disabled>
                   </div>
