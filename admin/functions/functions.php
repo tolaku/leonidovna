@@ -43,7 +43,7 @@ function section($page_id){
 /* Получаем данные по разделу*/
 function get_section($id){
 	global $db;
-	$query = "SELECT a.name, a.img, a.position, b.text_min, b.text_full FROM section a
+	$query = "SELECT a.name, a.img, a.position, a.visible, b.text_min, b.text_full FROM section a
 					INNER JOIN section_text b  
 					WHERE a.id = $id AND b.section_id = $id";
 	$result = mysqli_query($db, $query);
@@ -55,10 +55,10 @@ function get_section($id){
 /* получаем данные по разделу*/
 
 /* Добавление раздела */
-function addSection($name, $img, $position, $text_min, $text_full, $page_id){
+function addSection($name, $img, $position, $text_min, $text_full, $visible, $page_id){
 	global $db;
-	$result = "INSERT INTO section (name, img, position, page_id)
-				VALUES ('$name', '$img', $position, $page_id)";
+	$result = "INSERT INTO section (name, img, position, visible, page_id)
+				VALUES ('$name', '$img', $position, $visible, $page_id)";
 	$query = mysqli_query($db, $result) or die(mysqli_error());
 
 	if(mysqli_insert_id($db)){
@@ -83,6 +83,12 @@ function edit_section($id, $img){
 	$text_min = clear_admin($_POST['text_min']);
 	$text_full = clear_admin($_POST['text_full']);
 	$position = (int)$_POST['position'];
+	if(isset($_POST['visible'])){
+				$visible = 1;
+	}else{
+			$visible = 0;
+		}
+
 
 	if(empty($name)){
 		// если нет имени
@@ -95,6 +101,7 @@ function edit_section($id, $img){
 				a.name = '$name',
 				a.img = '$img',
 				a.position = '$position',
+				a.visible = $visible,
 				b.text_min = '$text_min',
 				b.text_full = '$text_full'
 					WHERE a.id = $id AND b.section_id = $id";
