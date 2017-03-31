@@ -90,12 +90,7 @@ function edit_section($id, $img){
 		}
 
 
-	if(empty($name)){
-		// если нет имени
-		$_SESSION['edit_section']['res'] = "<div class='error'>Должно быть название раздела!</div>";
-		// редирект на эту же страницу
-		return false;
-	}else{
+	
 		// отправляем в БД
 		$query = "UPDATE section a, section_text b SET
 				a.name = '$name',
@@ -115,7 +110,7 @@ function edit_section($id, $img){
 			$_SESSION['edit']['res'] = "<div class='error'>Ошибка или вы ничего не меняли!</div>";
 			return false;
 		}
-	}
+	
 	
 }
 /* редактируем данные по разделу */

@@ -53,9 +53,18 @@ switch($view){
 	case('add_section'):
 		$page_id = 1;
 		if($_POST){
-			$name = clear_admin($_POST['name']);
-			$text_min = clear_admin($_POST['text_min']);
-			$text_full = clear_admin($_POST['text_full']);
+				$name = clear_admin($_POST['name']);
+				$text_min = clear_admin($_POST['text_min']);
+				$text_full = clear_admin($_POST['text_full']);
+			if(empty($name)){
+				$_SESSION['add_section']['res'] = "<div class='error'>Должно быть название раздела!</div>";
+				$_SESSION['add']['text_min'] = $text_min;
+				$_SESSION['add']['text_full'] = $text_full;
+				redirect();
+			}else{
+			//$name = clear_admin($_POST['name']);
+			//$text_min = clear_admin($_POST['text_min']);
+			//$text_full = clear_admin($_POST['text_full']);
 			
 			// показать либо скрыть раздел
 			if(isset($_POST['visible'])){
@@ -102,6 +111,7 @@ switch($view){
 				$_SESSION['add']['res'] = "Вы забыли ввести имя раздела!"; // забыли ввести имя раздела
 			}
 		}
+		}
 		
 	break;
 
@@ -110,24 +120,30 @@ switch($view){
 		$id = (int)$_GET['id'];
 		$get_section = get_section($id);
 		if($_POST){
-			// загрузка img
-			if(!empty($_FILES['files']['name'])){
-				$img = insertImg(); // загружаем img
-				if($img == $_SESSION['answer']){
-					redirect();
-					exit;
-				}else{
-					$del_img = get_section($id);
-					@unlink(BIG.$del_img['img']); // удаляем img max
-					@unlink(THUMB.$del_img['img']); // удаляем img mim
-				}
-	
+			// если нет название возращаем назад
+			if(empty($_POST['name'])){
+				$_SESSION['edit_section']['res'] = "<div class='error'>Должно быть название раздела!</div>";
+				redirect();
 			}else{
-				$img = $get_section['img']; // если не было картинки, оставляем старую
-			}
+					// загрузка img
+					if(!empty($_FILES['files']['name'])){
+						$img = insertImg(); // загружаем img
+						if($img == $_SESSION['answer']){
+							redirect();
+							exit;
+						}else{
+							$del_img = get_section($id);
+							@unlink(BIG.$del_img['img']); // удаляем img max
+							@unlink(THUMB.$del_img['img']); // удаляем img mim
+						}
+			
+					}else{
+						$img = $get_section['img']; // если не было картинки, оставляем старую
+					}
 
-			if(edit_section($id, $img)) redirect('?view=sections');
-			else redirect();
+					if(edit_section($id, $img)) redirect('?view=sections');
+					else redirect();
+				}
 		}
 	break;
 	
@@ -311,7 +327,9 @@ switch($view){
 			if(!empty($_FILES['files']['name'])){
 				$img = insertImg(); // загружаем img
 				if($img == $_SESSION['answer']){
-					$img = "/img/no_image.jpg";
+					$img = "no_image.jpg";
+					redirect();
+					exit;
 				}
 			}else{
 					$img = ''; // если загрузки картинки не произошло, ставим пустым

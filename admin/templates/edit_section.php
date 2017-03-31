@@ -5,6 +5,7 @@
                 <!-- Main content -->
                 <section class="content">
 <?php 
+if(isset($_SESSION['edit_section']['res'])) echo $_SESSION['edit_section']['res']; unset($_SESSION['edit_section']['res']);
 if(isset($_SESSION['edit']['res'])){
   echo $_SESSION['edit']['res'];
   unset($_SESSION['edit']['res']);

@@ -24,6 +24,12 @@
                       <label class="col-sm-2 col-sm-2 control-label">Фото</label>
                       <div class="col-sm-10">
                           <input type="file" name="files" >
+                          <?php 
+                             if(isset($_SESSION['answer'])){
+                             echo $_SESSION['answer'];
+                             unset($_SESSION['answer']);
+                            } 
+                          ?>
                       </div>
                   </div>
                   <!-- CKEditor -->
