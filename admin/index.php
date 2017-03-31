@@ -53,14 +53,15 @@ switch($view){
 	case('add_section'):
 		$page_id = 1;
 		if($_POST){
-				$name = clear_admin($_POST['name']);
-				$text_min = clear_admin($_POST['text_min']);
-				$text_full = clear_admin($_POST['text_full']);
+				$name = trim($_POST['name']);
+				$text_min = trim($_POST['text_min']);
+				$text_full = trim($_POST['text_full']);
 			if(empty($name)){
 				$_SESSION['add_section']['res'] = "<div class='error'>Должно быть название раздела!</div>";
 				$_SESSION['add']['text_min'] = $text_min;
 				$_SESSION['add']['text_full'] = $text_full;
 				redirect();
+				exit;
 			}else{
 			//$name = clear_admin($_POST['name']);
 			//$text_min = clear_admin($_POST['text_min']);
@@ -100,6 +101,7 @@ switch($view){
 				// функция для добавления раздела
 				if(addSection($name, $img, $position, $text_min, $text_full, $visible, $page_id)){
 					$_SESSION['res'] = "Раздел добавлен!";
+					unset($_SESSION['add']);
 					redirect('?view=sections');
 					exit;
 				}else{

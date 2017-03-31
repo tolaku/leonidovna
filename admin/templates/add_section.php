@@ -24,7 +24,7 @@ if(isset($_SESSION['add_section']['res'])) echo $_SESSION['add_section']['res'];
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Название</label>
                       <div class="col-sm-10">
-                          <input type="text" id="name" class="form-control" name="name" autocomplete="off">
+                          <input type="text" id="name" class="form-control" name="name"  autocomplete="off">
                       </div>
                   </div>
 
@@ -46,7 +46,7 @@ if(isset($_SESSION['add_section']['res'])) echo $_SESSION['add_section']['res'];
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Мини текст</label>
                       <div class="col-sm-10">
-                          <textarea id="editor1" class="form-control" name="text_min" cols="40" rows="3"></textarea>
+                          <textarea id="editor1" class="form-control" name="text_min" cols="40" rows="3"><?php if(!empty($_SESSION['add']['text_min'])) echo htmlspecialchars($_SESSION['add']['text_min'])?></textarea>
                           <script>
                              CKEDITOR.replace( 'editor1' );
                           </script>
@@ -56,7 +56,7 @@ if(isset($_SESSION['add_section']['res'])) echo $_SESSION['add_section']['res'];
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Полный текст</label>
                       <div class="col-sm-10">
-                          <textarea id="editor2" class="form-control" name="text_full" cols="40" rows="3"></textarea>
+                          <textarea id="editor2" class="form-control" name="text_full" cols="40" rows="3"><?php if(!empty($_SESSION['add']['text_full'])) echo htmlspecialchars($_SESSION['add']['text_full'])?></textarea>
                           <script>
                              CKEDITOR.replace( 'editor2' );
                           </script>
