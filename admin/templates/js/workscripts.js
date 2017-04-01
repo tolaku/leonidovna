@@ -9,7 +9,8 @@ $(document).ready(function(){
 /* :функция для удаление товаров */
 
 /* Функция проверяет заполнена форма названия*/
-	 function checkParams(){
+	
+  /* function checkParams(){
                 var name = $('#name').val();
                 if(name.length != 0){
                   $('#submit').removeAttr('disabled');
@@ -17,4 +18,5 @@ $(document).ready(function(){
                   $('#submit').attr('disabled', 'disabled');
                 }
               }
+  */
 /* :функция проверяет заполнена форма названия*/

@@ -4,11 +4,4 @@ php_flag magic_quotes_gpc off
 ErrorDocument 404 /page404.html
 
 
-
-
-
-
-
-
-# 1. Ессли у фота есть ошибка, нужно будет SESSION показать value значение которые уже заполнины
-# 6. htmlspecialchars 
+# 2. Вывести на сайте, только те разделы у который visible=1

@@ -63,9 +63,6 @@ switch($view){
 				redirect();
 				exit;
 			}else{
-			//$name = clear_admin($_POST['name']);
-			//$text_min = clear_admin($_POST['text_min']);
-			//$text_full = clear_admin($_POST['text_full']);
 			
 			// показать либо скрыть раздел
 			if(isset($_POST['visible'])){
@@ -305,46 +302,55 @@ switch($view){
 
 		// добавление раздела учитель
 	case('add_teacher'):
-		if(isset($_POST['name'])){
-			$page_id = 3; // номер id страницы из БД
-			$name = clear_admin($_POST['name']); // название статьи
-			$text_min = clear_admin($_POST['text_min']); // мини текст статьи
-			$text_full = clear_admin($_POST['text_full']); // полный текст статьи
-
-			// показать либо скрыть раздел
-			if(isset($_POST['visible'])){
-				$visible = 1;
-			}else{
-				$visible = 0;
-			}
-
-			// получаем максимальное число position
-			$num = '';
-			foreach($num_position as $numb => $val){
-				$num[] .= $val['position'];
-			}
-			$position = max($num)+1;
-
-			// загрузка img
-			if(!empty($_FILES['files']['name'])){
-				$img = insertImg(); // загружаем img
-				if($img == $_SESSION['answer']){
-					$img = "no_image.jpg";
-					redirect();
-					exit;
-				}
-			}else{
-					$img = ''; // если загрузки картинки не произошло, ставим пустым
-					if(empty($img)){
-						$img = "no_image.jpg";
-					}
-				}
-
-			if(addTeacher($name, $img, $position, $text_min, $text_full, $visible, $page_id)){
-				$_SESSION['res'] = "Добавлено!";
-				redirect('?view=teacher');
-			}else{
+		if($_POST){
+				$name = trim($_POST['name']); // название статьи
+				$text_min = trim($_POST['text_min']);  // мини текст статьи
+				$text_full = trim($_POST['text_full']); // полный текст статьи
+			if(empty($name)){
+				$_SESSION['add_teacher']['res'] = "<div class='error'>Должно быть название раздела!</div>";
+				$_SESSION['add']['text_min'] = $text_min;
+				$_SESSION['add']['text_full'] = $text_full;
 				redirect();
+				exit;
+			}else{
+				$page_id = 3; // номер id страницы из БД
+				
+				// показать либо скрыть раздел
+				if(isset($_POST['visible'])){
+					$visible = 1;
+				}else{
+					$visible = 0;
+				}
+
+				// получаем максимальное число position
+				$num = '';
+				foreach($num_position as $numb => $val){
+					$num[] .= $val['position'];
+				}
+				$position = max($num)+1;
+
+				// загрузка img
+				if(!empty($_FILES['files']['name'])){
+					$img = insertImg(); // загружаем img
+					if($img == $_SESSION['answer']){
+						$img = "no_image.jpg";
+						redirect();
+						exit;
+					}
+				}else{
+						$img = ''; // если загрузки картинки не произошло, ставим пустым
+						if(empty($img)){
+							$img = "no_image.jpg";
+						}
+					}
+
+				if(addTeacher($name, $img, $position, $text_min, $text_full, $visible, $page_id)){
+					$_SESSION['res'] = "Добавлено!";
+					unset($_SESSION['add']);
+					redirect('?view=teacher');
+				}else{
+					redirect();
+				}
 			}
 		}
 	break;
