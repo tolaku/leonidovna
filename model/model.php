@@ -4,8 +4,8 @@ defined('VOROBEY') or die('Простите, не нужно.');
 /*=== Получение разделов на главной странице ===*/
 function section($page_id) {
 	global $db;
-	$query = "SELECT a.id, a.name, a.img, b.text_min, b.page_id FROM section a
-				INNER JOIN section_text b ON a.id = b.section_id AND b.page_id = $page_id
+	$query = "SELECT a.id, a.name, a.img, a.visible, b.text_min, b.page_id FROM section a
+				INNER JOIN section_text b ON a.id = b.section_id AND b.page_id = $page_id AND a.visible = 1
 				 ORDER BY a.position";
 	$result = mysqli_query($db, $query) or die(mysql_error());
 

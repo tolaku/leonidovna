@@ -34,7 +34,7 @@ if(isset($_SESSION['add_section']['res'])) echo $_SESSION['add_section']['res'];
                           <input type="file" name="files" >
                           <?php 
                              if(isset($_SESSION['answer'])){
-                             echo $_SESSION['answer'];
+                             echo "<div class='error'>".$_SESSION['answer']."</div>";
                              unset($_SESSION['answer']);
                             } 
                           ?>

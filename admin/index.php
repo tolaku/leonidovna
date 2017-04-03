@@ -42,7 +42,7 @@ switch($view){
 				$_SESSION['res'] = "Удалено!";
 				redirect('?view=sections');
 			}else{
-				$_SESSION['res'] = "Ошибка удаления!";
+				$_SESSION['res'] = "<div class='error'>Ошибка удаления!</div>";
 				redirect();
 				exit;
 			}
@@ -78,13 +78,12 @@ switch($view){
 			}
 			$position = max($num)+1;
 
-			if(!empty($name)){
-
 				// загрузка img
 				if(!empty($_FILES['files']['name'])){
 					$img = insertImg();
 					if($img == $_SESSION['answer']){
-						$img = "no_image.jpg";
+						$_SESSION['add']['text_min'] = $text_min;
+						$_SESSION['add']['text_full'] = $text_full;
 						redirect();
 						exit;
 					}
@@ -97,19 +96,17 @@ switch($view){
 
 				// функция для добавления раздела
 				if(addSection($name, $img, $position, $text_min, $text_full, $visible, $page_id)){
-					$_SESSION['res'] = "Раздел добавлен!";
+					$_SESSION['res'] = "<div class='success'>Раздел добавлен!</div>";
 					unset($_SESSION['add']);
 					redirect('?view=sections');
 					exit;
 				}else{
-					$_SESSION['add']['res'] = "Ошибка!";
+					$_SESSION['add']['res'] = "<div class='error'>Ошибка!</div>";
 					redirect();
 					exit;
 				}
-			}else{
-				$_SESSION['add']['res'] = "Вы забыли ввести имя раздела!"; // забыли ввести имя раздела
+			
 			}
-		}
 		}
 		
 	break;
@@ -253,11 +250,11 @@ switch($view){
 
 				// обновляем данные из галереи
 				if(editGallery($id, $title, $name_a, $name_b, $text, $img_thumbs, $img_full)){
-					$_SESSION['res']['ok'] = "Обновлено!";
+					$_SESSION['res']['ok'] = "<div class='success'>Обновлено!</div>";
 					header("Location: /admin/index.php?view=gallery"); // возращаемся в добавление фото галереи
 					exit;
 				}else{
-					$_SESSION['answer'] = "Ошибка обновления!";
+					$_SESSION['answer'] = "<div class='error'>Ошибка обновления!</div>";
 					header("Location: {$_SERVER['PHP_SELF']}");
 					exit;
 				}
@@ -290,10 +287,10 @@ switch($view){
 			
 
 			if(delSection($id)){ // удаление раздела учителя
-				$_SESSION['res'] = "Удалено!";
+				$_SESSION['res'] = "<div class='success'>Удалено!</div>";
 				redirect('?view=teacher');
 			}else{
-				$_SESSION['res'] = "Ошибка удаления!";
+				$_SESSION['res'] = "<div class='error'>Ошибка удаления!</div>";
 				redirect();
 				exit;
 			}
@@ -333,7 +330,8 @@ switch($view){
 				if(!empty($_FILES['files']['name'])){
 					$img = insertImg(); // загружаем img
 					if($img == $_SESSION['answer']){
-						$img = "no_image.jpg";
+						$_SESSION['add']['text_min'] = $text_min;
+						$_SESSION['add']['text_full'] = $text_full;
 						redirect();
 						exit;
 					}
@@ -345,7 +343,7 @@ switch($view){
 					}
 
 				if(addTeacher($name, $img, $position, $text_min, $text_full, $visible, $page_id)){
-					$_SESSION['res'] = "Добавлено!";
+					$_SESSION['res'] = "<div class='success'>Добавлено!</div>";
 					unset($_SESSION['add']);
 					redirect('?view=teacher');
 				}else{
@@ -389,11 +387,11 @@ switch($view){
 		if(isset($_POST['value'])){
 			$value = clear_admin($_POST['value']);
 			if(editConstants('contact', $value)){
-				$_SESSION['edit']['res'] = "Обновлена!";
+				$_SESSION['edit']['res'] = "<div class='success'>Обновлена!</div>";
 				redirect();
 				exit;
 			}else{
-				$_SESSION['edit']['res'] = "Вы ничего не изменили!";
+				$_SESSION['edit']['res'] = "<div class='error'>Вы ничего не изменили!</div>";
 				redirect();
 				exit;
 			}

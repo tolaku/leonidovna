@@ -12,7 +12,7 @@
                 	<div class="col-md-5">
                             <div class="panel">
                                 <header class="panel-heading">
-                                    Разделы
+                                    Разделы - Главная
                                 </header>
 
                                 <ul class="list-group teammates">

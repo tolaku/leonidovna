@@ -32,7 +32,7 @@ if(isset($_SESSION['edit']['res'])){
                           <input type="file" name="files">
                           <?php 
                              if(isset($_SESSION['answer'])){
-                             echo $_SESSION['answer'];
+                             echo "<div class='error'>".$_SESSION['answer']."</div>";
                              unset($_SESSION['answer']);
                             } 
                           ?>

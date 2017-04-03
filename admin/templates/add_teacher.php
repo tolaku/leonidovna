@@ -29,7 +29,7 @@
                           <?php 
                           // Выводим сообщение - ошибка img
                              if(isset($_SESSION['answer'])){
-                             echo $_SESSION['answer'];
+                             echo "<div class='error'>".$_SESSION['answer']."</div>";
                              unset($_SESSION['answer']);
                             } 
                           ?>

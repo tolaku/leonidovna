@@ -38,7 +38,7 @@
                                     <?php 
                                     /* Если не удалось загрузить картинку на сервер, выводим сообщение */
                                     if(isset($_SESSION['answer'])){
-                                        echo $_SESSION['answer'];
+                                        echo "<div class='error'>".$_SESSION['answer']."</div>";
                                         unset($_SESSION['answer']);
                                     }
                                     /* Успешно загрузили картинку на сервер */
