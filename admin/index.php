@@ -5,6 +5,15 @@ define ('VOROBEY', TRUE);
 // запускаем сессию
 session_start();
 
+if($_GET['do'] == 'logout'){
+	unset($_SESSION['auth']);
+}
+
+// подключени авторизации
+if(!$_SESSION['auth']['admin']){
+	include $_SERVER['DOCUMENT_ROOT'].'/admin/auth/index.php';
+}
+
 // подключаем файл конфигурации 
 require_once '../config.php';
 

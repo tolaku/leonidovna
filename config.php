@@ -1,5 +1,5 @@
 <?php 
-defined('VOROBEY') or die('Простите, я новчек в этом деле...');
+defined ('VOROBEY') or die('Простите, не нужно...'); 
 
 define('PATH', 'http://leonidovna/'); // адрес сайта
 

@@ -10,7 +10,7 @@
                                     <img src="<?=TEMPLATE_ADMIN?>img/26115.jpg" class="img-circle" alt="User Image" />
                                 </div>
                                 <div class="pull-left info">
-                                    <p>Светлана Леонидовна</p>
+                                    <p><?=$_SESSION['auth']['admin'];?></p>
 
                                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                                 </div>

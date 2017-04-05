@@ -91,7 +91,7 @@
                                         <li class="divider"></li>
 
                                         <li>
-                                            <a href="#"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                                            <a href="?do=logout"><i class="fa fa-ban fa-fw pull-right"></i> Выйти</a>
                                         </li>
                                     </ul>
                                 </li>

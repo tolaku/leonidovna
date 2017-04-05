@@ -3,5 +3,5 @@ php_flag display_errors 1
 php_flag magic_quotes_gpc off
 ErrorDocument 404 /page404.html
 
-# 3. Вход в админку через пароль.
+
 # 4. На футером в разделе главная и учитель, редактирование контстант.
