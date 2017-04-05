@@ -24,7 +24,7 @@ if(isset($_SESSION['add_section']['res'])) echo $_SESSION['add_section']['res'];
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Название</label>
                       <div class="col-sm-10">
-                          <input type="text" id="name" class="form-control" name="name"  autocomplete="off">
+                          <input type="text" id="name" class="form-control" name="name"  autocomplete="off" required>
                       </div>
                   </div>
 

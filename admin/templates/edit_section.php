@@ -22,7 +22,7 @@ if(isset($_SESSION['edit']['res'])){
                   <div class="form-group">
                       <label class="col-sm-2 col-sm-2 control-label">Название</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" name="name" value="<?=htmlspecialchars($get_section['name']);?>">
+                          <input type="text" class="form-control" name="name" value="<?=htmlspecialchars($get_section['name']);?>" required>
                       </div>
                   </div>
 

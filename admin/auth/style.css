@@ -255,3 +255,8 @@ fieldset
 	float: left;
 	display: block;
 }
+
+.error{
+  color:red;
+  margin:5px 0;
+}

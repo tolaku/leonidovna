@@ -5,8 +5,10 @@ define ('VOROBEY', TRUE);
 // запускаем сессию
 session_start();
 
-if($_GET['do'] == 'logout'){
-	unset($_SESSION['auth']);
+if(isset($_GET['do'])){
+	if($_GET['do'] == 'logout'){
+		unset($_SESSION['auth']);
+	}
 }
 
 // подключени авторизации
