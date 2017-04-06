@@ -209,7 +209,7 @@ switch($view){
 
 								// заносим данные о картинке в БД
 								gallery_insert($_POST['title'], $_POST['name_a'], $_POST['name_b'], $_POST['text'], $filesName, $filesName);
-								$_SESSION['res']['ok'] = "Фото успешно загружено!";
+								$_SESSION['res']['ok'] = "<div class='success'>Фото успешно загружено!</div>";
 						}else{
 								$_SESSION['answer'] = "Не удалось переместить картинку! Проверьте права на папку /images/gallery/";
 							}					
