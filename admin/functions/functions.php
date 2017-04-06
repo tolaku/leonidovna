@@ -373,7 +373,20 @@ function constants($name){
 }
 /* :выводим константу */
 
-/* Редактируем константу */
+/* Выводим все константы*/
+function constAll(){
+	global $db;
+	$query = "SELECT name, title FROM constants";
+	$result = mysqli_query($db, $query) or die(mysqli_error());
+	$const = array();
+	while($row = mysqli_fetch_assoc($result)){
+		$const[] = $row;
+	}
+	return $const;
+}
+/* :выводим все константы*/
+
+/* Редактируем константы */
 function editConstants($name, $value){
 	global $db;
 	$query = "UPDATE constants SET value = '$value' WHERE name = '$name'";

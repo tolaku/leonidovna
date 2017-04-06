@@ -366,7 +366,7 @@ switch($view){
 
 		// редактирование раздела учитель
 	case('edit_teacher'):
-		$id = clear_admin($_GET['id']);
+		$id = (int)$_GET['id'];
 		$get_section = get_section($id);
 		
 
@@ -392,12 +392,13 @@ switch($view){
 		}
 	break;
 
-	// редактирование контактов
-	case('contact'):
-		$contact = constants('contact');
+	// редактирование констаты
+	case('edit_constant'):
+		$name = empty($_GET['name']);
+		$constant = constants($name);
 		if(isset($_POST['value'])){
 			$value = clear_admin($_POST['value']);
-			if(editConstants('contact', $value)){
+			if(editConstants($name, $value)){
 				$_SESSION['edit']['res'] = "<div class='success'>Обновлена!</div>";
 				redirect();
 				exit;
@@ -407,6 +408,11 @@ switch($view){
 				exit;
 			}
 		}
+	break;
+
+	// выводим константы
+	case('constants'):
+		$const = constAll();
 	break;
 
 	default:
