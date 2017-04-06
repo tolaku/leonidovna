@@ -18,7 +18,7 @@
                 	<li><a href="/" class="active">Главная</a></li>
                 	<!-- Выводим остальные страницы -->
                 	<?php foreach($pages as $page): ?>
-	                    <li><a href="?view=<?=$page['url_page']?>&amp;page_id=<?=$page['id']?>"><?=$page['name']?></a></li>
+	                    <li><a href="?view=<?=$page['url_page']?>"><?=$page['name']?></a></li>
                 	<?php endforeach; ?>
                 </ul>
             </header>

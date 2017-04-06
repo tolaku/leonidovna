@@ -7,7 +7,7 @@
                             <!-- Sidebar user panel -->
                             <div class="user-panel">
                                 <div class="pull-left image">
-                                    <img src="<?=TEMPLATE_ADMIN?>img/26115.jpg" class="img-circle" alt="User Image" />
+                                    <img src="<?=TEMPLATE_ADMIN?>img/26115.jpg" class="img-circle" />
                                 </div>
                                 <div class="pull-left info">
                                     <p><?=$_SESSION['auth']['admin'];?></p>
@@ -30,7 +30,11 @@
                                     </a>
                                 </li>
                             <?php endforeach; ?>
-
+                                <li class="active">
+                                    <a href="?view=constants">
+                                        <i class="fa fa-dashboard"></i> <span>Константы</span>
+                                    </a>
+                                </li>
                             </ul>
                         </section>
                         <!-- /.sidebar -->

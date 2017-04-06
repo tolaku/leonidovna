@@ -1,7 +1,7 @@
 <?php defined('VOROBEY') or die('Простите, не нужно...'); ?>
                 
                     <aside class="right-side">
-<?php echo $name; ?>
+
                 <!-- Main content -->
                 <section class="content">
 <?php 
