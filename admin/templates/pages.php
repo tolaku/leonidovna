@@ -27,9 +27,6 @@
                                 <tr>
                                     <td>1</td>
                                     <td><a href="?view=sections">Главная</a></td>
-                                    <td>
-
-                                    </td>
                                 </tr>
                               <?php $i=1; ?>
                               <?php foreach($pages as $item): $i++; ?>
@@ -41,7 +38,11 @@
                                   </td>
                                 </tr>
                               <?php endforeach; ?>
-                          </tbody>
+                                 <tr>
+                                    <td>1</td>
+                                    <td><a href="?view=constants">Константы</a></td>
+                                </tr>                             
+                              </tbody>
                       </table>
                   </div>
               </section>

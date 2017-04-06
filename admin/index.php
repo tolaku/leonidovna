@@ -394,7 +394,7 @@ switch($view){
 
 	// редактирование констаты
 	case('edit_constant'):
-		$name = empty($_GET['name']);
+		$name = trim($_GET['name']);
 		$constant = constants($name);
 		if(isset($_POST['value'])){
 			$value = clear_admin($_POST['value']);
