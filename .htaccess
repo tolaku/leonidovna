@@ -4,5 +4,7 @@ php_flag magic_quotes_gpc off
 ErrorDocument 404 /page404.html
 
 
+
 #  Решение, в бд page > Контакты > edit_constant&name=contact -  Раздел контакты, попытаться перевести на редактирование.
 # 2. Редактор ckeditor закрыть доступ для взлома.
+
