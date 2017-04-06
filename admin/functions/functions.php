@@ -214,10 +214,10 @@ function delGallery($del_id){
 	$result = mysqli_query($db, $query);
 
 	if(mysqli_affected_rows($db) > 0){
-		$_SESSION['answer'] = "Фото удалено!";
+		$_SESSION['res']['ok'] = "<div class='success'>Фото удалено!</div>";
 		return true;
 	}else{
-		$_SESSION['answer'] = "Ошибка удаления!";
+		$_SESSION['answer'] = "<div class='error'>Ошибка удаления!</div>";
 		return false;
 	}
 }

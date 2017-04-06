@@ -4,6 +4,18 @@
                 <!-- Main content -->
                 <section class="content">
                 	<div class="col-md-5">
+                    <?php 
+                                    /* Если не удалось загрузить картинку на сервер, выводим сообщение */
+                                    if(isset($_SESSION['answer'])){
+                                        echo "<div class='error'>".$_SESSION['answer']."</div>";
+                                        unset($_SESSION['answer']);
+                                    }
+                                    /* Успешно загрузили картинку на сервер */
+                                    if(isset($_SESSION['res']['ok'])) {
+                                        echo $_SESSION['res']['ok'];
+                                        unset($_SESSION['res']);
+                                    }
+                                    ?>
                             <div class="panel">
                                 <header class="panel-heading">
                                     Добавить фото в галерею
@@ -35,16 +47,7 @@
                                             Добавить
                                         </button>
                                     </form>
-                                    <?php 
-                                    /* Если не удалось загрузить картинку на сервер, выводим сообщение */
-                                    if(isset($_SESSION['answer'])){
-                                        echo "<div class='error'>".$_SESSION['answer']."</div>";
-                                        unset($_SESSION['answer']);
-                                    }
-                                    /* Успешно загрузили картинку на сервер */
-                                    if(isset($_SESSION['res']['ok'])) echo $_SESSION['res']['ok'];
-                                    ?>
-                                    <?php unset($_SESSION['res']) ?>
+                                    
                                 </div>
                             </div>
                         </div>
