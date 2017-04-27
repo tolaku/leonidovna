@@ -415,6 +415,10 @@ switch($view){
 		$const = constAll();
 	break;
 
+	case('contact'):
+		redirect("/admin/?view=edit_constant&name=contact");
+	break;
+
 	default:
 	// если полученное имя не существует
 	$view = 'pages';
