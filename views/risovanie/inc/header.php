@@ -15,10 +15,10 @@
             <img src="<?=TEMPLATE?>img/logo.png" class="logo" />
             <div class="logo_t">Учитель, который любит свою работу</div>
                 <ul>
-                	<li><a href="/" class="active">Главная</a></li>
+                	<li><a href="/" <?php if($view == "page") echo "class='active'"; ?>>Главная</a></li>
                 	<!-- Выводим остальные страницы -->
                 	<?php foreach($pages as $page): ?>
-	                    <li><a href="?view=<?=$page['url_page']?>"><?=$page['name']?></a></li>
+	                    <li><a href="?view=<?=$page['url_page']?>" <?php if($view == $page['url_page']) echo "class='active'"; ?>><?=$page['name']?></a></li>
                 	<?php endforeach; ?>
                 </ul>
             </header>

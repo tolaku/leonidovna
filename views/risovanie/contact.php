@@ -3,7 +3,7 @@
                     <div class="inner">
                     	<div class="col-3">
                         	<?=constants('contact')?>
-                            <p><img src="<?=TEMPLATE?>img/map.jpg" class="map-image" /></p>
+                            <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2457.1970591573527!2d26.115510815797148!3d52.12245657974082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4727a15f8e238e8f%3A0xb156d68784323de7!2z0JPQuNC80L3QsNC30LjRjyDihJYgMQ!5e1!3m2!1sru!2sru!4v1493370514895" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></p>
                         </div>
                         <div class="col-3">
                         	<h1>Написать нам</h1>
