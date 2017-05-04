@@ -30,6 +30,7 @@ switch($view){
 	break;
 
 	case('teacher'):
+		$page_id = 3; // номер id страницы из БД
 		$sections = section($page_id);
 	break;
 

@@ -34,7 +34,7 @@ function pages(){
 /* Выводим содержимое страницы */
 function viewId($id){
 	global $db;
-	$query = "SELECT a.id, a.name, a.img, b.text_full, b.section_id FROM section a
+	$query = "SELECT a.id, a.name, a.img, a.page_id, b.text_full, b.section_id FROM section a
 				INNER JOIN section_text b ON a.id = b.section_id AND a.id = $id";
 	$result = mysqli_query($db, $query) or die(mysqli_error());
 	$viewId[] = array();

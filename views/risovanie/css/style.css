@@ -430,3 +430,16 @@ footer{position: relative; width: 100%;margin: 0 auto; display: block; overflow:
 	border-radius: 5px;
 	margin: 10px;
 }
+
+/* Хлебные крошки */
+.kroshka {
+	font-size: 12px;
+	color: #989494;
+}
+
+.kroshka a{
+	font-size: 12px;
+	color: #989494;
+}
+a:hover{
+	color:#ff3400;}
